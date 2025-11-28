@@ -864,6 +864,61 @@ If you're overwhelmed, start with these high-impact items:
 4. **Monitoring**: You can't fix what you can't see
 5. **Backup Strategy**: Because data loss is unforgivable
 
+## 📥 Downloadable Tools
+
+| Format | Description | Download |
+|--------|-------------|----------|
+| **Interactive HTML** | Fillable checklist with auto-scoring, progress tracking, local storage, export/import, and comprehensive FAQ | [Download HTML](ai-production-checklist.html) |
+| **CSV/Excel Template** | Spreadsheet format with all sections, priority levels, and FAQ - works in Excel, Google Sheets, Numbers | [Download CSV](AI-Production-Checklist-Template.csv) |
+| **Architecture Diagram** | Draw.io component diagram showing how all checklist components work together | [Download .drawio](AI-Production-Architecture-Diagram.drawio) |
+
+**Features:**
+- **HTML Version**: Works offline, saves progress in browser, export/import JSON, print-friendly
+- **CSV Version**: Sortable by section/priority, add custom notes, calculate scores with formulas
+- **Diagram**: Editable in [draw.io](https://app.diagrams.net/) - shows 5-layer architecture with data flow
+
+## 🏗️ Architecture Overview
+
+The diagram illustrates the complete AI production architecture across 5 layers:
+
+![AI Production Architecture - Component Diagram](ai-production-architecture.png)
+
+<details>
+<summary>📝 Text Version of Architecture</summary>
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  USER & CLIENT LAYER                                                        │
+│  Users → Auth (JWT/OAuth) → Rate Limiting → API Gateway → Input Validation  │
+└─────────────────────────────────────────────────────────────────────────────┘
+                                      ↓
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  AGENTIC AI & ORCHESTRATION LAYER                                           │
+│  Orchestrator → Task Agents → RAG Agents → Multi-Agent → Human-in-Loop      │
+└─────────────────────────────────────────────────────────────────────────────┘
+                                      ↓
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  MODEL & INFERENCE LAYER                                                    │
+│  Prompt Engine → LLM Router → Primary/Fallback LLM → Output Safety          │
+└─────────────────────────────────────────────────────────────────────────────┘
+                                      ↓
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  DATA & KNOWLEDGE LAYER                                                     │
+│  Vector DB → Knowledge Base → Feature Store → Cache → Data Lakehouse        │
+└─────────────────────────────────────────────────────────────────────────────┘
+                                      ↓
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  INFRASTRUCTURE & COMPUTE LAYER                                             │
+│  Kubernetes → GPU Cluster → Model Serving (vLLM) → Queue → Secrets          │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+    ┌──────────────────────────────────────────────────────────────────────┐
+    │  CROSS-CUTTING: Monitoring │ Governance │ MLOps │ Evaluation │ FinOps │
+    └──────────────────────────────────────────────────────────────────────┘
+```
+
+</details>
+
 ## 📚 Resources
 
 ### Tools & Frameworks
@@ -912,6 +967,18 @@ This checklist is a living document. Please contribute your hard-won lessons:
 2. Add your items with practical examples
 3. Submit a pull request
 4. Share your production horror stories in discussions
+
+## 💫 Please Credit
+
+If you find this checklist helpful, please consider:
+
+- **Star this repo** ⭐ to help others discover it
+- **Credit the source** when sharing or adapting:
+  > AI Production Readiness Checklist by [Aejaz Sheriff](https://github.com/asq-sheriff) at [Pragmatic Logic AI](https://pragmaticlogic.ai)
+- **Link back** to this repository in your documentation, presentations, or articles
+- **Share** on LinkedIn, Twitter/X, or your tech community
+
+Your attribution helps support the continued development of open-source AI resources!
 
 ## 📄 License
 
