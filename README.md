@@ -867,12 +867,6 @@ If you're overwhelmed, start with these high-impact items:
 - **CSV Version**: Sortable by section/priority, add custom notes, calculate scores with formulas
 - **Diagram**: Editable in [draw.io](https://app.diagrams.net/) - shows 5-layer architecture with data flow
 
-## 🏗️ Architecture Overview
-
-The diagram illustrates the complete AI production architecture across 5 layers:
-
-![AI Production Architecture - Component Diagram](ai-production-architecture.png)
-
 <details>
 <summary>📝 Text Version of Architecture</summary>
 
