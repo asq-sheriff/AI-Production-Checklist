@@ -49,6 +49,10 @@ After 27 years of building enterprise systems and seeing countless AI projects f
 - AI agents market: $5.4B → $7.6B (2024→2025)
 - Enterprise LLM market: $5.9B → $71.1B projected by 2035
 
+## 🏗️ AI Production Architecture
+
+![AI Production Architecture - Component Diagram](ai-production-architecture.png)
+
 ## 📋 Quick Navigation
 
 - [🏗️ Architecture & Design](#-architecture--design)
