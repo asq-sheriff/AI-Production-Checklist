@@ -368,10 +368,10 @@ flowchart TB
         end
     end
 
-    style before fill:#dbeafe,stroke:#3b82f6
-    style safety fill:#fecaca,stroke:#dc2626
-    style ethics fill:#fae8ff,stroke:#a855f7
-    style ops fill:#dcfce7,stroke:#22c55e
+    style before fill:#dbeafe,stroke:#3b82f6,color:#1e3a5f
+    style safety fill:#fecaca,stroke:#dc2626,color:#7f1d1d
+    style ethics fill:#fae8ff,stroke:#a855f7,color:#581c87
+    style ops fill:#dcfce7,stroke:#22c55e,color:#14532d
 ```
 
 ---
@@ -402,8 +402,8 @@ flowchart LR
         U7[Substance abuse crisis]
     end
 
-    style safe fill:#dcfce7,stroke:#22c55e
-    style unsafe fill:#fecaca,stroke:#dc2626
+    style safe fill:#dcfce7,stroke:#22c55e,color:#14532d
+    style unsafe fill:#fecaca,stroke:#dc2626,color:#7f1d1d
 ```
 
 ### Implement Multi-Layer Safety

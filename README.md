@@ -201,14 +201,14 @@ flowchart LR
     S6G --> S7
     S7G --> S8
 
-    style S1 fill:#dbeafe,stroke:#3b82f6
-    style S2 fill:#dbeafe,stroke:#3b82f6
-    style S3 fill:#fae8ff,stroke:#a855f7
-    style S4 fill:#fae8ff,stroke:#a855f7
-    style S5 fill:#fef3c7,stroke:#f59e0b
-    style S6 fill:#dcfce7,stroke:#22c55e
-    style S7 fill:#dcfce7,stroke:#22c55e
-    style S8 fill:#dcfce7,stroke:#22c55e
+    style S1 fill:#dbeafe,stroke:#3b82f6,color:#1e3a5f
+    style S2 fill:#dbeafe,stroke:#3b82f6,color:#1e3a5f
+    style S3 fill:#fae8ff,stroke:#a855f7,color:#581c87
+    style S4 fill:#fae8ff,stroke:#a855f7,color:#581c87
+    style S5 fill:#fef3c7,stroke:#f59e0b,color:#78350f
+    style S6 fill:#dcfce7,stroke:#22c55e,color:#14532d
+    style S7 fill:#dcfce7,stroke:#22c55e,color:#14532d
+    style S8 fill:#dcfce7,stroke:#22c55e,color:#14532d
 ```
 
 ### Stage Definitions
@@ -277,10 +277,10 @@ flowchart TD
     Q3 -->|YES| A1[🟡 ADVISORY]
     Q3 -->|NO| C1[🟢 CONFIGURABLE]
 
-    style M1 fill:#fecaca,stroke:#dc2626
-    style M2 fill:#fecaca,stroke:#dc2626
-    style A1 fill:#fef3c7,stroke:#f59e0b
-    style C1 fill:#dcfce7,stroke:#22c55e
+    style M1 fill:#fecaca,stroke:#dc2626,color:#7f1d1d
+    style M2 fill:#fecaca,stroke:#dc2626,color:#7f1d1d
+    style A1 fill:#fef3c7,stroke:#f59e0b,color:#78350f
+    style C1 fill:#dcfce7,stroke:#22c55e,color:#14532d
 ```
 
 ### Healthcare AI: FDA Regulatory Overlay (Optional)

@@ -38,10 +38,10 @@ flowchart TB
         Input --> Model --> Output --> Action
     end
 
-    style Input fill:#dbeafe,stroke:#3b82f6
-    style Model fill:#fae8ff,stroke:#a855f7
-    style Output fill:#fef3c7,stroke:#f59e0b
-    style Action fill:#dcfce7,stroke:#22c55e
+    style Input fill:#dbeafe,stroke:#3b82f6,color:#1e3a5f
+    style Model fill:#fae8ff,stroke:#a855f7,color:#581c87
+    style Output fill:#fef3c7,stroke:#f59e0b,color:#78350f
+    style Action fill:#dcfce7,stroke:#22c55e,color:#14532d
 ```
 
 ### Root Cause Analysis
@@ -134,10 +134,10 @@ flowchart TB
         Input --> Model --> Output --> Goal
     end
 
-    style Input fill:#dbeafe,stroke:#3b82f6
-    style Model fill:#fae8ff,stroke:#a855f7
-    style Output fill:#fef3c7,stroke:#f59e0b
-    style Goal fill:#dcfce7,stroke:#22c55e
+    style Input fill:#dbeafe,stroke:#3b82f6,color:#1e3a5f
+    style Model fill:#fae8ff,stroke:#a855f7,color:#581c87
+    style Output fill:#fef3c7,stroke:#f59e0b,color:#78350f
+    style Goal fill:#dcfce7,stroke:#22c55e,color:#14532d
 ```
 
 ### Root Cause Analysis
@@ -159,8 +159,8 @@ flowchart LR
     P --> HD[👔 Hiring Decisions]
     HD -.->|If deployed,<br/>reinforces bias| HB
 
-    style HB fill:#fecaca,stroke:#dc2626
-    style HD fill:#fecaca,stroke:#dc2626
+    style HB fill:#fecaca,stroke:#dc2626,color:#7f1d1d
+    style HD fill:#fecaca,stroke:#dc2626,color:#7f1d1d
 ```
 
 #### 2. Proxy Discrimination
@@ -224,10 +224,10 @@ flowchart TB
         Input --> Model --> Output --> Goal
     end
 
-    style Input fill:#dbeafe,stroke:#3b82f6
-    style Model fill:#fae8ff,stroke:#a855f7
-    style Output fill:#fef3c7,stroke:#f59e0b
-    style Goal fill:#dcfce7,stroke:#22c55e
+    style Input fill:#dbeafe,stroke:#3b82f6,color:#1e3a5f
+    style Model fill:#fae8ff,stroke:#a855f7,color:#581c87
+    style Output fill:#fef3c7,stroke:#f59e0b,color:#78350f
+    style Goal fill:#dcfce7,stroke:#22c55e,color:#14532d
 ```
 
 ### Root Cause Analysis
@@ -247,9 +247,9 @@ flowchart TB
     A3 --> A4[😤 Clinician Stops Trusting<br/>alert ignored]
     A4 --> A5[💔 True Positive Missed<br/>patient harmed]
 
-    style A1 fill:#fef3c7,stroke:#f59e0b
-    style A3 fill:#fecaca,stroke:#dc2626
-    style A5 fill:#fecaca,stroke:#dc2626
+    style A1 fill:#fef3c7,stroke:#f59e0b,color:#78350f
+    style A3 fill:#fecaca,stroke:#dc2626,color:#7f1d1d
+    style A5 fill:#fecaca,stroke:#dc2626,color:#7f1d1d
 ```
 
 #### 2. Overfitting to Source
@@ -346,10 +346,10 @@ flowchart TB
         end
     end
 
-    style data fill:#fecaca,stroke:#dc2626
-    style model fill:#fae8ff,stroke:#a855f7
-    style deploy fill:#fef3c7,stroke:#f59e0b
-    style monitor fill:#dbeafe,stroke:#3b82f6
+    style data fill:#fecaca,stroke:#dc2626,color:#7f1d1d
+    style model fill:#fae8ff,stroke:#a855f7,color:#581c87
+    style deploy fill:#fef3c7,stroke:#f59e0b,color:#78350f
+    style monitor fill:#dbeafe,stroke:#3b82f6,color:#1e3a5f
 ```
 
 ---

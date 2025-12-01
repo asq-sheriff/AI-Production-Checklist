@@ -43,12 +43,12 @@ flowchart TD
     Entity -->|Yes| GraphRAG[🔗 Graph RAG]
     Entity -->|No| ModularRAG[📦 Modular RAG]
 
-    style NaiveRAG fill:#dbeafe,stroke:#3b82f6
-    style AdvancedRAG fill:#dbeafe,stroke:#3b82f6
-    style SelfRAG fill:#dbeafe,stroke:#3b82f6
-    style ModularRAG fill:#dbeafe,stroke:#3b82f6
-    style GraphRAG fill:#dcfce7,stroke:#22c55e
-    style AgenticRAG fill:#fae8ff,stroke:#a855f7
+    style NaiveRAG fill:#dbeafe,stroke:#3b82f6,color:#1e3a5f
+    style AdvancedRAG fill:#dbeafe,stroke:#3b82f6,color:#1e3a5f
+    style SelfRAG fill:#dbeafe,stroke:#3b82f6,color:#1e3a5f
+    style ModularRAG fill:#dbeafe,stroke:#3b82f6,color:#1e3a5f
+    style GraphRAG fill:#dcfce7,stroke:#22c55e,color:#14532d
+    style AgenticRAG fill:#fae8ff,stroke:#a855f7,color:#581c87
 ```
 
 ### Pattern Details
@@ -77,8 +77,8 @@ flowchart LR
     TopK --> LLM[🧠 LLM]
     LLM --> Response[💬 Response]
 
-    style Query fill:#dbeafe,stroke:#3b82f6
-    style Response fill:#dcfce7,stroke:#22c55e
+    style Query fill:#dbeafe,stroke:#3b82f6,color:#1e3a5f
+    style Response fill:#dcfce7,stroke:#22c55e,color:#14532d
 ```
 
 **Cost Profile:** $
@@ -117,9 +117,9 @@ flowchart LR
     QE -.-> |HyDE/Multi-Query| QE
     HS -.-> |BM25 + Vector + Metadata| HS
 
-    style Query fill:#dbeafe,stroke:#3b82f6
-    style Response fill:#dcfce7,stroke:#22c55e
-    style Rerank fill:#fae8ff,stroke:#a855f7
+    style Query fill:#dbeafe,stroke:#3b82f6,color:#1e3a5f
+    style Response fill:#dcfce7,stroke:#22c55e,color:#14532d
+    style Rerank fill:#fae8ff,stroke:#a855f7,color:#581c87
 ```
 
 **Key Components:**
@@ -156,10 +156,10 @@ flowchart LR
     Critique --> Generate[✍️ Generate]
     LLMDecide -->|No| DirectGen[✍️ Generate directly]
 
-    style Query fill:#dbeafe,stroke:#3b82f6
-    style Generate fill:#dcfce7,stroke:#22c55e
-    style DirectGen fill:#dcfce7,stroke:#22c55e
-    style LLMDecide fill:#fef3c7,stroke:#f59e0b
+    style Query fill:#dbeafe,stroke:#3b82f6,color:#1e3a5f
+    style Generate fill:#dcfce7,stroke:#22c55e,color:#14532d
+    style DirectGen fill:#dcfce7,stroke:#22c55e,color:#14532d
+    style LLMDecide fill:#fef3c7,stroke:#f59e0b,color:#78350f
 ```
 
 **Key Innovation:** Model learns to:
@@ -203,11 +203,11 @@ flowchart TB
         Generator -.-> |Swappable| G2[🔄]
     end
 
-    style ModularRAG fill:#f8fafc,stroke:#64748b,stroke-width:2px
-    style Indexer fill:#dbeafe,stroke:#3b82f6
-    style Retriever fill:#dbeafe,stroke:#3b82f6
-    style Reranker fill:#fae8ff,stroke:#a855f7
-    style Generator fill:#dcfce7,stroke:#22c55e
+    style ModularRAG fill:#f8fafc,stroke:#64748b,stroke-width:2px,color:#1e293b
+    style Indexer fill:#dbeafe,stroke:#3b82f6,color:#1e3a5f
+    style Retriever fill:#dbeafe,stroke:#3b82f6,color:#1e3a5f
+    style Reranker fill:#fae8ff,stroke:#a855f7,color:#581c87
+    style Generator fill:#dcfce7,stroke:#22c55e,color:#14532d
 ```
 
 **Benefits:**
@@ -246,9 +246,9 @@ flowchart LR
 
     GraphTrav <--> KG[(🗃️ Knowledge Graph<br/>Neo4j / Neptune)]
 
-    style Query fill:#dbeafe,stroke:#3b82f6
-    style KG fill:#dcfce7,stroke:#22c55e
-    style GraphTrav fill:#fae8ff,stroke:#a855f7
+    style Query fill:#dbeafe,stroke:#3b82f6,color:#1e3a5f
+    style KG fill:#dcfce7,stroke:#22c55e,color:#14532d
+    style GraphTrav fill:#fae8ff,stroke:#a855f7,color:#581c87
 ```
 
 **Use Cases:**
@@ -293,9 +293,9 @@ flowchart LR
     Actions -.-> |Multiple retrieval calls| Actions
     Iterate -.-> |Self-correction loops| Agent
 
-    style Query fill:#dbeafe,stroke:#3b82f6
-    style Agent fill:#fae8ff,stroke:#a855f7
-    style Response fill:#dcfce7,stroke:#22c55e
+    style Query fill:#dbeafe,stroke:#3b82f6,color:#1e3a5f
+    style Agent fill:#fae8ff,stroke:#a855f7,color:#581c87
+    style Response fill:#dcfce7,stroke:#22c55e,color:#14532d
 ```
 
 **Key Patterns (from Google Whitepaper):**
@@ -334,9 +334,9 @@ flowchart LR
     Decompose -.-> |Sub-questions| Decompose
     MultiHop -.-> |Evidence chains| MultiHop
 
-    style Query fill:#dbeafe,stroke:#3b82f6
-    style Reason fill:#fae8ff,stroke:#a855f7
-    style Synthesize fill:#dcfce7,stroke:#22c55e
+    style Query fill:#dbeafe,stroke:#3b82f6,color:#1e3a5f
+    style Reason fill:#fae8ff,stroke:#a855f7,color:#581c87
+    style Synthesize fill:#dcfce7,stroke:#22c55e,color:#14532d
 ```
 
 **Research:** Based on [2025 Reasoning RAG Survey](https://arxiv.org/html/2506.10408v1)
@@ -418,13 +418,13 @@ flowchart TD
     Coord -->|P2P| PeerHandoff[🤝 Peer Handoff]
     Coord -->|Collab| CollabSynth[🎭 Collab Synthesis]
 
-    style SingleAgent fill:#dbeafe,stroke:#3b82f6
-    style ToolUsing fill:#dbeafe,stroke:#3b82f6
-    style Diamond fill:#fef3c7,stroke:#f59e0b
-    style Adaptive fill:#fae8ff,stroke:#a855f7
-    style Hierarchical fill:#dcfce7,stroke:#22c55e
-    style PeerHandoff fill:#dcfce7,stroke:#22c55e
-    style CollabSynth fill:#dcfce7,stroke:#22c55e
+    style SingleAgent fill:#dbeafe,stroke:#3b82f6,color:#1e3a5f
+    style ToolUsing fill:#dbeafe,stroke:#3b82f6,color:#1e3a5f
+    style Diamond fill:#fef3c7,stroke:#f59e0b,color:#78350f
+    style Adaptive fill:#fae8ff,stroke:#a855f7,color:#581c87
+    style Hierarchical fill:#dcfce7,stroke:#22c55e,color:#14532d
+    style PeerHandoff fill:#dcfce7,stroke:#22c55e,color:#14532d
+    style CollabSynth fill:#dcfce7,stroke:#22c55e,color:#14532d
 ```
 
 ### Pattern Details
@@ -446,8 +446,8 @@ flowchart LR
     LLM --> Response[💬 Response]
     SystemPrompt[📝 System Prompt] -.-> |defines behavior| LLM
 
-    style UserQuery fill:#dbeafe,stroke:#3b82f6
-    style Response fill:#dcfce7,stroke:#22c55e
+    style UserQuery fill:#dbeafe,stroke:#3b82f6,color:#1e3a5f
+    style Response fill:#dcfce7,stroke:#22c55e,color:#14532d
 ```
 
 **Cost:** $
@@ -478,10 +478,10 @@ flowchart LR
     ToolSelect --> Search[🔍 Search]
     ToolSelect --> DB[(🗄️ Database)]
 
-    style UserQuery fill:#dbeafe,stroke:#3b82f6
-    style Response fill:#dcfce7,stroke:#22c55e
-    style Agent fill:#fae8ff,stroke:#a855f7
-    style Agent2 fill:#fae8ff,stroke:#a855f7
+    style UserQuery fill:#dbeafe,stroke:#3b82f6,color:#1e3a5f
+    style Response fill:#dcfce7,stroke:#22c55e,color:#14532d
+    style Agent fill:#fae8ff,stroke:#a855f7,color:#581c87
+    style Agent2 fill:#fae8ff,stroke:#a855f7,color:#581c87
 ```
 
 **Google Use Case:** Navigation, search, structured data retrieval
@@ -510,10 +510,10 @@ flowchart TB
     Orch --> Expert2[💻 Expert 2<br/>Technical]
     Orch --> Expert3[💰 Expert 3<br/>Financial]
 
-    style Orch fill:#fae8ff,stroke:#a855f7
-    style Expert1 fill:#dbeafe,stroke:#3b82f6
-    style Expert2 fill:#dbeafe,stroke:#3b82f6
-    style Expert3 fill:#dbeafe,stroke:#3b82f6
+    style Orch fill:#fae8ff,stroke:#a855f7,color:#581c87
+    style Expert1 fill:#dbeafe,stroke:#3b82f6,color:#1e3a5f
+    style Expert2 fill:#dbeafe,stroke:#3b82f6,color:#1e3a5f
+    style Expert3 fill:#dbeafe,stroke:#3b82f6,color:#1e3a5f
 ```
 
 **Google Use Case:** Connected vehicle system with separate agents for navigation, entertainment, climate control.
@@ -543,11 +543,11 @@ flowchart TB
     Moderator -->|Pass| Response[✅ Response]
     Moderator -->|Block/Modify| SafeResponse[🔒 Safe Response]
 
-    style UserQuery fill:#dbeafe,stroke:#3b82f6
-    style Generator fill:#fae8ff,stroke:#a855f7
-    style Moderator fill:#fef3c7,stroke:#f59e0b
-    style Response fill:#dcfce7,stroke:#22c55e
-    style SafeResponse fill:#dcfce7,stroke:#22c55e
+    style UserQuery fill:#dbeafe,stroke:#3b82f6,color:#1e3a5f
+    style Generator fill:#fae8ff,stroke:#a855f7,color:#581c87
+    style Moderator fill:#fef3c7,stroke:#f59e0b,color:#78350f
+    style Response fill:#dcfce7,stroke:#22c55e,color:#14532d
+    style SafeResponse fill:#dcfce7,stroke:#22c55e,color:#14532d
 ```
 
 **Google Use Case:** Content safety, preventing harmful outputs
@@ -575,9 +575,9 @@ flowchart LR
     AgentC -.->|can route back| AgentA
     AgentC -.->|can route back| AgentB
 
-    style AgentA fill:#dbeafe,stroke:#3b82f6
-    style AgentB fill:#fae8ff,stroke:#a855f7
-    style AgentC fill:#fecaca,stroke:#dc2626
+    style AgentA fill:#dbeafe,stroke:#3b82f6,color:#1e3a5f
+    style AgentB fill:#fae8ff,stroke:#a855f7,color:#581c87
+    style AgentC fill:#fecaca,stroke:#dc2626,color:#7f1d1d
 ```
 
 **Google Use Case:** User support flows with seamless topic transitions
@@ -612,12 +612,12 @@ flowchart TB
 
     Mixer --> Response[💬 Response]
 
-    style UserQuery fill:#dbeafe,stroke:#3b82f6
-    style AgentA fill:#fae8ff,stroke:#a855f7
-    style AgentB fill:#fae8ff,stroke:#a855f7
-    style AgentC fill:#fae8ff,stroke:#a855f7
-    style Mixer fill:#fef3c7,stroke:#f59e0b
-    style Response fill:#dcfce7,stroke:#22c55e
+    style UserQuery fill:#dbeafe,stroke:#3b82f6,color:#1e3a5f
+    style AgentA fill:#fae8ff,stroke:#a855f7,color:#581c87
+    style AgentB fill:#fae8ff,stroke:#a855f7,color:#581c87
+    style AgentC fill:#fae8ff,stroke:#a855f7,color:#581c87
+    style Mixer fill:#fef3c7,stroke:#f59e0b,color:#78350f
+    style Response fill:#dcfce7,stroke:#22c55e,color:#14532d
 ```
 
 **Google Use Case:** Response mixer pattern for comprehensive answers
@@ -648,10 +648,10 @@ flowchart LR
     Threshold -->|No| Agent
     Threshold -->|Yes| Response[✅ Response]
 
-    style Query fill:#dbeafe,stroke:#3b82f6
-    style Agent fill:#fae8ff,stroke:#a855f7
-    style Threshold fill:#fef3c7,stroke:#f59e0b
-    style Response fill:#dcfce7,stroke:#22c55e
+    style Query fill:#dbeafe,stroke:#3b82f6,color:#1e3a5f
+    style Agent fill:#fae8ff,stroke:#a855f7,color:#581c87
+    style Threshold fill:#fef3c7,stroke:#f59e0b,color:#78350f
+    style Response fill:#dcfce7,stroke:#22c55e,color:#14532d
 ```
 
 **Google Use Case:** Complex reasoning tasks requiring iteration
@@ -756,13 +756,13 @@ flowchart LR
     Simple --> OpenAI[📦 OpenAI Agents SDK]
     HT --> vLLM[📦 vLLM or TGI]
 
-    style UseCase fill:#dbeafe,stroke:#3b82f6
-    style LlamaIndex fill:#dcfce7,stroke:#22c55e
-    style LangGraph fill:#dcfce7,stroke:#22c55e
-    style CrewAI fill:#dcfce7,stroke:#22c55e
-    style AutoGen fill:#dcfce7,stroke:#22c55e
-    style OpenAI fill:#dcfce7,stroke:#22c55e
-    style vLLM fill:#dcfce7,stroke:#22c55e
+    style UseCase fill:#dbeafe,stroke:#3b82f6,color:#1e3a5f
+    style LlamaIndex fill:#dcfce7,stroke:#22c55e,color:#14532d
+    style LangGraph fill:#dcfce7,stroke:#22c55e,color:#14532d
+    style CrewAI fill:#dcfce7,stroke:#22c55e,color:#14532d
+    style AutoGen fill:#dcfce7,stroke:#22c55e,color:#14532d
+    style OpenAI fill:#dcfce7,stroke:#22c55e,color:#14532d
+    style vLLM fill:#dcfce7,stroke:#22c55e,color:#14532d
 ```
 
 ### Framework Details
@@ -974,15 +974,15 @@ flowchart LR
     Volume --> CheapFast[⚡ GPT-4o-mini, Haiku, Flash]
     Agent --> AgentModels[🔧 Gemini 2.0, Claude 3.5]
 
-    style Constraints fill:#dbeafe,stroke:#3b82f6
-    style OnPrem fill:#dcfce7,stroke:#22c55e
-    style EUModels fill:#dcfce7,stroke:#22c55e
-    style OpenSource fill:#dcfce7,stroke:#22c55e
-    style TopModels fill:#dcfce7,stroke:#22c55e
-    style LongCtx fill:#dcfce7,stroke:#22c55e
-    style CodeModels fill:#dcfce7,stroke:#22c55e
-    style CheapFast fill:#dcfce7,stroke:#22c55e
-    style AgentModels fill:#dcfce7,stroke:#22c55e
+    style Constraints fill:#dbeafe,stroke:#3b82f6,color:#1e3a5f
+    style OnPrem fill:#dcfce7,stroke:#22c55e,color:#14532d
+    style EUModels fill:#dcfce7,stroke:#22c55e,color:#14532d
+    style OpenSource fill:#dcfce7,stroke:#22c55e,color:#14532d
+    style TopModels fill:#dcfce7,stroke:#22c55e,color:#14532d
+    style LongCtx fill:#dcfce7,stroke:#22c55e,color:#14532d
+    style CodeModels fill:#dcfce7,stroke:#22c55e,color:#14532d
+    style CheapFast fill:#dcfce7,stroke:#22c55e,color:#14532d
+    style AgentModels fill:#dcfce7,stroke:#22c55e,color:#14532d
 ```
 
 ### Model Comparison by Use Case

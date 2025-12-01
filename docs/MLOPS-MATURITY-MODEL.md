@@ -38,8 +38,8 @@ flowchart LR
 
     ds -->|Handoff| eng
 
-    style ds fill:#fef3c7,stroke:#f59e0b
-    style eng fill:#fecaca,stroke:#dc2626
+    style ds fill:#fef3c7,stroke:#f59e0b,color:#78350f
+    style eng fill:#fecaca,stroke:#dc2626,color:#7f1d1d
 ```
 
 **Key Risks**:
@@ -80,8 +80,8 @@ flowchart LR
 
     Note[⚠️ But: Manual trigger,<br/>manual deployment,<br/>manual monitoring]
 
-    style pipeline fill:#dcfce7,stroke:#22c55e
-    style Note fill:#fef3c7,stroke:#f59e0b
+    style pipeline fill:#dcfce7,stroke:#22c55e,color:#14532d
+    style Note fill:#fef3c7,stroke:#f59e0b,color:#78350f
 ```
 
 **Key Improvements Over Level 0**:
@@ -128,8 +128,8 @@ flowchart LR
 
     Note[⚠️ But: Manual retraining triggers,<br/>basic monitoring only]
 
-    style cicd fill:#dbeafe,stroke:#3b82f6
-    style Note fill:#fef3c7,stroke:#f59e0b
+    style cicd fill:#dbeafe,stroke:#3b82f6,color:#1e3a5f
+    style Note fill:#fef3c7,stroke:#f59e0b,color:#78350f
 ```
 
 **Key Improvements Over Level 1**:
@@ -178,8 +178,8 @@ flowchart TB
 
     Label[<b>CI/CD + Continuous Training + Continuous Monitoring</b>]
 
-    style ct fill:#dcfce7,stroke:#22c55e
-    style Deploy fill:#fae8ff,stroke:#a855f7
+    style ct fill:#dcfce7,stroke:#22c55e,color:#14532d
+    style Deploy fill:#fae8ff,stroke:#a855f7,color:#581c87
 ```
 
 **Key Capabilities**:

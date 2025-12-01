@@ -53,12 +53,12 @@ flowchart TB
         L6 --> L5 --> L4 --> L3 --> L2 --> L1
     end
 
-    style L6 fill:#dbeafe,stroke:#3b82f6
-    style L5 fill:#fecaca,stroke:#dc2626
-    style L4 fill:#fef3c7,stroke:#f59e0b
-    style L3 fill:#fae8ff,stroke:#a855f7
-    style L2 fill:#dcfce7,stroke:#22c55e
-    style L1 fill:#e0e7ff,stroke:#6366f1
+    style L6 fill:#dbeafe,stroke:#3b82f6,color:#1e3a5f
+    style L5 fill:#fecaca,stroke:#dc2626,color:#7f1d1d
+    style L4 fill:#fef3c7,stroke:#f59e0b,color:#78350f
+    style L3 fill:#fae8ff,stroke:#a855f7,color:#581c87
+    style L2 fill:#dcfce7,stroke:#22c55e,color:#14532d
+    style L1 fill:#e0e7ff,stroke:#6366f1,color:#312e81
 ```
 
 ---
@@ -426,10 +426,10 @@ flowchart TB
     U -.-> T
     U -.-> Y
 
-    style C fill:#fef3c7,stroke:#f59e0b
-    style T fill:#dbeafe,stroke:#3b82f6
-    style Y fill:#dcfce7,stroke:#22c55e
-    style U fill:#fecaca,stroke:#dc2626,stroke-dasharray: 5 5
+    style C fill:#fef3c7,stroke:#f59e0b,color:#78350f
+    style T fill:#dbeafe,stroke:#3b82f6,color:#1e3a5f
+    style Y fill:#dcfce7,stroke:#22c55e,color:#14532d
+    style U fill:#fecaca,stroke:#dc2626,stroke-dasharray: 5 5,color:#7f1d1d
 ```
 
 **Do-Calculus (Pearl):** Rules for computing causal effects from observational data.
@@ -913,10 +913,10 @@ flowchart TB
 
     Note["🔑 Key: Negative output requires ALL layers to agree.<br/>Any positive triggers escalation."]
 
-    style Safe fill:#dcfce7,stroke:#22c55e
-    style Escalate1 fill:#fecaca,stroke:#dc2626
-    style Escalate2 fill:#fecaca,stroke:#dc2626
-    style Human fill:#fef3c7,stroke:#f59e0b
+    style Safe fill:#dcfce7,stroke:#22c55e,color:#14532d
+    style Escalate1 fill:#fecaca,stroke:#dc2626,color:#7f1d1d
+    style Escalate2 fill:#fecaca,stroke:#dc2626,color:#7f1d1d
+    style Human fill:#fef3c7,stroke:#f59e0b,color:#78350f
 ```
 
 ### Implementation Checklist
