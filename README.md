@@ -149,9 +149,31 @@ This checklist helps you systematically evaluate your AI system's readiness for 
 
 ```mermaid
 flowchart LR
-    S1[💡 Ideation] --> S2[🔍 Discovery] --> S3[🧪 POC] --> S4[🔧 MVP]
-    S4 --> S5[👥 Pilot] --> S6[🚀 Production] --> S7[📈 Scale] --> S8[⚡ Optimize]
-    S8 -.->|Feedback| S1
+    subgraph Planning["📋 PLANNING"]
+        S1[💡 Ideation]
+        S2[🔍 Discovery]
+    end
+
+    subgraph Development["🔨 DEVELOPMENT"]
+        S3[🧪 POC]
+        S4[🔧 MVP]
+        S5[👥 Pilot]
+    end
+
+    subgraph Operations["⚙️ OPERATIONS"]
+        S6[🚀 Production]
+        S7[📈 Scale]
+        S8[⚡ Optimize]
+    end
+
+    S1 -->|Business Approved| S2
+    S2 -->|Feasible| S3
+    S3 -->|Viable| S4
+    S4 -->|Usable| S5
+    S5 -->|Safe & Effective| S6
+    S6 -->|Stable| S7
+    S7 -->|SLAs Met| S8
+    S8 -.->|Continuous Improvement| S1
 
     style S1 fill:#dbeafe,stroke:#3b82f6,color:#1e3a5f
     style S2 fill:#dbeafe,stroke:#3b82f6,color:#1e3a5f
@@ -161,6 +183,10 @@ flowchart LR
     style S6 fill:#dcfce7,stroke:#22c55e,color:#14532d
     style S7 fill:#dcfce7,stroke:#22c55e,color:#14532d
     style S8 fill:#dcfce7,stroke:#22c55e,color:#14532d
+
+    style Planning fill:#eff6ff,stroke:#3b82f6,color:#1e3a5f
+    style Development fill:#fdf4ff,stroke:#a855f7,color:#581c87
+    style Operations fill:#f0fdf4,stroke:#22c55e,color:#14532d
 ```
 
 <details>
