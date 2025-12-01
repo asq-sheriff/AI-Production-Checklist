@@ -58,7 +58,7 @@ After 27 years of building enterprise systems and analyzing why AI projects fail
 
 ## 🏗️ AI Production Architecture
 
-![AI Production Architecture - Component Diagram](ai-production-architecture.png)
+![AI Production Architecture - Component Diagram](AI%20Production%20Checklist.png)
 
 ## 📖 How to Use This Checklist
 
