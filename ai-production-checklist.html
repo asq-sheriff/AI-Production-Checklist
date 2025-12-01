@@ -3,21 +3,152 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Production Readiness Checklist | Interactive Assessment Tool</title>
-    <meta name="description" content="Interactive AI Production Readiness Checklist - Assess your enterprise AI deployment readiness with auto-scoring, progress tracking, and comprehensive FAQ.">
-    <meta name="keywords" content="AI Production, LLM Deployment, MLOps, AI Governance, Enterprise AI, Generative AI, AI Strategy, AI Architecture, Multi-Agent Systems, RAG, Prompt Engineering, AI Security, LLM Evaluation, AI FinOps, Red Teaming, OWASP LLM, AI Compliance, EU AI Act, Responsible AI">
+
+    <!-- Primary SEO Meta Tags -->
+    <title>AI Production Readiness Checklist 2025 | Enterprise MLOps & LLM Deployment Assessment</title>
+    <meta name="description" content="Comprehensive AI Production Readiness Checklist with 400+ items covering MLOps, LLM deployment, Conformal Prediction, Causal AI, Zero-False-Negative engineering. Interactive scoring, lifecycle stages, gate classifications. Free enterprise AI assessment tool.">
+    <meta name="keywords" content="AI Production Checklist, LLM Production Deployment, MLOps Best Practices, Enterprise AI Readiness, Generative AI Assessment, AI Governance Framework, Multi-Agent Systems Architecture, RAG Implementation Guide, Prompt Engineering Standards, AI Security OWASP, LLM Evaluation Framework, AI FinOps Cost Optimization, Red Teaming AI, EU AI Act Compliance, NIST AI RMF, ISO 42001, Responsible AI Deployment, Conformal Prediction ML, Causal AI Validation, Uncertainty Quantification, Probability Calibration ML, Selective Prediction Abstention, Zero-False-Negative Engineering, Model Calibration ECE, OOD Detection, DoWhy CausalML, ATE CATE Estimation, Counterfactual Fairness, AI Safety Verification, Production ML Checklist, AI Architecture Blueprint, Data Pipeline Validation, Model Monitoring Drift, Feature Store MLOps, Vector Database RAG, LangGraph CrewAI AutoGen, vLLM Inference Optimization, GPU Kubernetes ML, AI Incident Response, Model Card Documentation, AI Risk Assessment, Bias Detection ML, Fairness Metrics AI, Explainable AI XAI, Model Interpretability, AI Audit Compliance, Healthcare AI HIPAA, Financial AI Compliance, AI Lifecycle Management">
+    <meta name="author" content="Aejaz Sheriff - Pragmatic Logic AI">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://github.com/asq-sheriff/AI-Production-Checklist">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://github.com/asq-sheriff/AI-Production-Checklist">
+    <meta property="og:title" content="AI Production Readiness Checklist 2025 | Enterprise MLOps Assessment Tool">
+    <meta property="og:description" content="400+ item checklist for production AI. Covers MLOps, LLM deployment, Conformal Prediction, Causal AI, Zero-False-Negative engineering. Free interactive tool with auto-scoring.">
+    <meta property="og:image" content="https://raw.githubusercontent.com/asq-sheriff/AI-Production-Checklist/main/ai-architecture-diagram.png">
+    <meta property="og:site_name" content="AI Production Checklist by Pragmatic Logic AI">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://github.com/asq-sheriff/AI-Production-Checklist">
+    <meta name="twitter:title" content="AI Production Readiness Checklist 2025 | Enterprise MLOps Assessment">
+    <meta name="twitter:description" content="400+ item checklist for production AI. Conformal Prediction, Causal AI, Zero-False-Negative engineering. Free interactive tool.">
+    <meta name="twitter:image" content="https://raw.githubusercontent.com/asq-sheriff/AI-Production-Checklist/main/ai-architecture-diagram.png">
+
+    <!-- Additional SEO -->
+    <meta name="application-name" content="AI Production Checklist">
+    <meta name="theme-color" content="#2563eb">
+    <meta name="category" content="Technology, Artificial Intelligence, Machine Learning, MLOps">
+
+    <!-- Structured Data / JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "AI Production Readiness Checklist",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Web Browser",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "author": {
+            "@type": "Person",
+            "name": "Aejaz Sheriff",
+            "url": "https://pragmaticlogic.ai"
+        },
+        "description": "Comprehensive interactive checklist for AI production readiness assessment with 400+ items covering MLOps, LLM deployment, Conformal Prediction, Causal AI validation, and enterprise governance.",
+        "featureList": [
+            "400+ Production Readiness Items",
+            "Auto-Scoring with Progress Tracking",
+            "8 Lifecycle Stage Classifications",
+            "Mandatory/Advisory/Configurable Gates",
+            "Assured Intelligence & Quantitative Safety",
+            "Conformal Prediction Implementation",
+            "Causal AI Validation Protocols",
+            "Zero-False-Negative Engineering",
+            "OWASP LLM Top 10 Security",
+            "EU AI Act & NIST AI RMF Compliance",
+            "Export/Import Progress JSON",
+            "Local Storage Persistence"
+        ],
+        "keywords": "AI Production, MLOps, LLM Deployment, Conformal Prediction, Causal AI, Enterprise AI, AI Governance"
+    }
+    </script>
+
     <style>
+        /* Apple Human Interface Guidelines Inspired Design System */
         :root {
-            --primary: #2563eb;
-            --primary-dark: #1d4ed8;
-            --success: #16a34a;
-            --warning: #f59e0b;
-            --danger: #dc2626;
-            --bg: #f8fafc;
-            --card-bg: #ffffff;
-            --text: #1e293b;
-            --text-muted: #64748b;
-            --border: #e2e8f0;
+            /* Apple SF Pro system colors */
+            --apple-blue: #007AFF;
+            --apple-blue-dark: #0056CC;
+            --apple-green: #34C759;
+            --apple-orange: #FF9500;
+            --apple-red: #FF3B30;
+            --apple-purple: #AF52DE;
+            --apple-teal: #5AC8FA;
+            --apple-indigo: #5856D6;
+
+            /* Semantic colors */
+            --primary: var(--apple-blue);
+            --primary-dark: var(--apple-blue-dark);
+            --success: var(--apple-green);
+            --warning: var(--apple-orange);
+            --danger: var(--apple-red);
+
+            /* Background & Surface colors (Light Mode) */
+            --bg-primary: #F2F2F7;
+            --bg-secondary: #FFFFFF;
+            --bg-tertiary: #F9F9FB;
+            --bg-elevated: rgba(255, 255, 255, 0.72);
+
+            /* Text colors */
+            --text-primary: #1D1D1F;
+            --text-secondary: #86868B;
+            --text-tertiary: #AEAEB2;
+
+            /* System colors */
+            --separator: rgba(60, 60, 67, 0.12);
+            --separator-opaque: #C6C6C8;
+            --fill-primary: rgba(120, 120, 128, 0.2);
+            --fill-secondary: rgba(120, 120, 128, 0.16);
+
+            /* Shadows & Effects */
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
+            --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.16);
+            --blur-regular: saturate(180%) blur(20px);
+
+            /* Animation */
+            --timing-smooth: cubic-bezier(0.25, 0.1, 0.25, 1);
+            --timing-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+            /* Spacing (8-point grid) */
+            --space-xs: 4px;
+            --space-sm: 8px;
+            --space-md: 16px;
+            --space-lg: 24px;
+            --space-xl: 32px;
+            --space-2xl: 48px;
+
+            /* Border radius */
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 20px;
+            --radius-full: 9999px;
+        }
+
+        /* Dark mode support */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-primary: #000000;
+                --bg-secondary: #1C1C1E;
+                --bg-tertiary: #2C2C2E;
+                --bg-elevated: rgba(28, 28, 30, 0.72);
+                --text-primary: #F5F5F7;
+                --text-secondary: #A1A1A6;
+                --text-tertiary: #6E6E73;
+                --separator: rgba(84, 84, 88, 0.65);
+                --separator-opaque: #38383A;
+                --fill-primary: rgba(120, 120, 128, 0.36);
+                --fill-secondary: rgba(120, 120, 128, 0.32);
+            }
         }
 
         * {
@@ -27,239 +158,394 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.47059;
+            letter-spacing: -0.022em;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            padding: var(--space-lg);
         }
 
+        /* Header with vibrancy effect */
         header {
             text-align: center;
-            padding: 40px 20px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            padding: var(--space-2xl) var(--space-lg);
+            background: linear-gradient(180deg, var(--apple-blue) 0%, var(--apple-indigo) 100%);
             color: white;
-            margin-bottom: 30px;
+            margin-bottom: var(--space-xl);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at 30% 0%, rgba(255,255,255,0.15) 0%, transparent 50%);
+            pointer-events: none;
         }
 
         header h1 {
             font-size: 2.5rem;
-            margin-bottom: 10px;
+            font-weight: 700;
+            letter-spacing: -0.025em;
+            margin-bottom: var(--space-sm);
         }
 
         header p {
             font-size: 1.1rem;
-            opacity: 0.9;
+            opacity: 0.95;
+            font-weight: 400;
         }
 
+        /* Score Panel with glassmorphism */
         .score-panel {
-            background: var(--card-bg);
-            border-radius: 12px;
-            padding: 30px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            background: var(--bg-elevated);
+            backdrop-filter: var(--blur-regular);
+            -webkit-backdrop-filter: var(--blur-regular);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+            margin-bottom: var(--space-xl);
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--separator);
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
+            gap: var(--space-lg);
         }
 
         .score-item {
             text-align: center;
-            padding: 20px;
-            border-radius: 8px;
-            background: var(--bg);
+            padding: var(--space-lg);
+            border-radius: var(--radius-md);
+            background: var(--bg-tertiary);
+            transition: transform 0.3s var(--timing-smooth), box-shadow 0.3s var(--timing-smooth);
+        }
+
+        .score-item:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
         }
 
         .score-item h3 {
             font-size: 2.5rem;
-            margin-bottom: 5px;
+            font-weight: 600;
+            margin-bottom: var(--space-xs);
+            letter-spacing: -0.03em;
         }
 
         .score-item p {
-            color: var(--text-muted);
-            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            font-weight: 500;
         }
 
         .score-item.overall .score-value {
-            font-size: 3rem;
-            font-weight: bold;
+            font-size: 3.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--apple-blue) 0%, var(--apple-purple) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
+        /* Readiness badges with Apple pill style */
         .readiness-badge {
-            display: inline-block;
-            padding: 8px 16px;
-            border-radius: 20px;
+            display: inline-flex;
+            align-items: center;
+            padding: var(--space-sm) var(--space-md);
+            border-radius: var(--radius-full);
             font-weight: 600;
-            margin-top: 10px;
+            font-size: 0.8125rem;
+            margin-top: var(--space-md);
+            transition: transform 0.2s var(--timing-spring);
         }
 
-        .readiness-prototype { background: #fecaca; color: #991b1b; }
-        .readiness-alpha { background: #fed7aa; color: #9a3412; }
-        .readiness-beta { background: #fef08a; color: #854d0e; }
-        .readiness-production { background: #bbf7d0; color: #166534; }
-        .readiness-enterprise { background: #c7d2fe; color: #3730a3; }
+        .readiness-badge:hover {
+            transform: scale(1.05);
+        }
 
+        .readiness-prototype { background: rgba(255, 59, 48, 0.15); color: var(--apple-red); }
+        .readiness-alpha { background: rgba(255, 149, 0, 0.15); color: var(--apple-orange); }
+        .readiness-beta { background: rgba(255, 204, 0, 0.15); color: #CC8800; }
+        .readiness-production { background: rgba(52, 199, 89, 0.15); color: var(--apple-green); }
+        .readiness-enterprise { background: rgba(88, 86, 214, 0.15); color: var(--apple-indigo); }
+
+        /* Progress bar with gradient */
         .progress-bar {
             width: 100%;
-            height: 20px;
-            background: var(--border);
-            border-radius: 10px;
+            height: 8px;
+            background: var(--fill-secondary);
+            border-radius: var(--radius-full);
             overflow: hidden;
-            margin-top: 10px;
+            margin-top: var(--space-md);
         }
 
         .progress-fill {
             height: 100%;
-            background: linear-gradient(90deg, var(--danger) 0%, var(--warning) 40%, var(--success) 100%);
-            transition: width 0.5s ease;
+            background: linear-gradient(90deg, var(--apple-red) 0%, var(--apple-orange) 30%, var(--apple-green) 100%);
+            border-radius: var(--radius-full);
+            transition: width 0.6s var(--timing-smooth);
         }
 
+        /* Segmented Control style tabs */
         .tabs {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
+            display: inline-flex;
+            background: var(--fill-secondary);
+            border-radius: var(--radius-md);
+            padding: 2px;
+            margin-bottom: var(--space-lg);
+            gap: 0;
         }
 
         .tab {
-            padding: 12px 24px;
+            padding: var(--space-sm) var(--space-lg);
             border: none;
-            background: var(--card-bg);
-            border-radius: 8px;
+            background: transparent;
+            border-radius: calc(var(--radius-md) - 2px);
             cursor: pointer;
-            font-size: 1rem;
-            transition: all 0.2s;
-            border: 2px solid var(--border);
+            font-size: 0.9375rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            transition: all 0.2s var(--timing-smooth);
+            position: relative;
+            z-index: 1;
         }
 
         .tab:hover {
-            border-color: var(--primary);
+            color: var(--text-primary);
         }
 
         .tab.active {
-            background: var(--primary);
-            color: white;
-            border-color: var(--primary);
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
         }
 
         .tab-content {
             display: none;
+            animation: fadeIn 0.3s var(--timing-smooth);
         }
 
         .tab-content.active {
             display: block;
         }
 
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Section cards with Apple grouped list style */
         .section {
-            background: var(--card-bg);
-            border-radius: 12px;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            background: var(--bg-secondary);
+            border-radius: var(--radius-lg);
+            margin-bottom: var(--space-lg);
+            box-shadow: var(--shadow-sm);
             overflow: hidden;
+            border: 1px solid var(--separator);
+            transition: box-shadow 0.3s var(--timing-smooth);
+        }
+
+        .section:hover {
+            box-shadow: var(--shadow-md);
         }
 
         .section-header {
-            padding: 20px;
-            background: var(--bg);
-            border-bottom: 1px solid var(--border);
+            padding: var(--space-md) var(--space-lg);
+            background: var(--bg-tertiary);
+            border-bottom: 1px solid var(--separator);
             cursor: pointer;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            transition: background 0.2s var(--timing-smooth);
+        }
+
+        .section-header:hover {
+            background: var(--fill-secondary);
+        }
+
+        .section-header:active {
+            background: var(--fill-primary);
         }
 
         .section-header h2 {
-            font-size: 1.3rem;
+            font-size: 1.125rem;
+            font-weight: 600;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: var(--space-sm);
+            letter-spacing: -0.01em;
         }
 
         .section-progress {
-            font-size: 0.9rem;
-            color: var(--text-muted);
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            background: var(--fill-secondary);
+            padding: var(--space-xs) var(--space-sm);
+            border-radius: var(--radius-sm);
         }
 
         .section-body {
-            padding: 20px;
+            padding: var(--space-lg);
         }
 
         .subsection {
-            margin-bottom: 25px;
+            margin-bottom: var(--space-xl);
+        }
+
+        .subsection:last-child {
+            margin-bottom: 0;
         }
 
         .subsection h3 {
-            font-size: 1.1rem;
-            margin-bottom: 15px;
-            color: var(--primary);
+            font-size: 0.9375rem;
+            font-weight: 600;
+            margin-bottom: var(--space-md);
+            color: var(--apple-blue);
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
         }
 
+        /* Checklist items with Apple list row style */
         .checklist-item {
             display: flex;
             align-items: flex-start;
-            gap: 12px;
-            padding: 12px;
-            border-radius: 8px;
-            margin-bottom: 8px;
-            transition: background 0.2s;
+            gap: var(--space-md);
+            padding: var(--space-md);
+            border-radius: var(--radius-md);
+            margin-bottom: var(--space-sm);
+            transition: all 0.2s var(--timing-smooth);
+            background: transparent;
         }
 
         .checklist-item:hover {
-            background: var(--bg);
+            background: var(--fill-secondary);
         }
 
+        .checklist-item:active {
+            background: var(--fill-primary);
+            transform: scale(0.99);
+        }
+
+        /* Custom checkbox with Apple style */
         .checklist-item input[type="checkbox"] {
-            width: 20px;
-            height: 20px;
-            margin-top: 2px;
+            -webkit-appearance: none;
+            appearance: none;
+            width: 22px;
+            height: 22px;
+            min-width: 22px;
+            margin-top: 1px;
             cursor: pointer;
-            accent-color: var(--primary);
+            border: 2px solid var(--separator-opaque);
+            border-radius: 50%;
+            background: var(--bg-secondary);
+            transition: all 0.2s var(--timing-spring);
+            position: relative;
+        }
+
+        .checklist-item input[type="checkbox"]:hover {
+            border-color: var(--apple-blue);
+        }
+
+        .checklist-item input[type="checkbox"]:checked {
+            background: var(--apple-blue);
+            border-color: var(--apple-blue);
+        }
+
+        .checklist-item input[type="checkbox"]:checked::after {
+            content: '';
+            position: absolute;
+            left: 6px;
+            top: 3px;
+            width: 6px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
         }
 
         .checklist-item label {
             cursor: pointer;
             flex: 1;
+            font-size: 0.9375rem;
+            line-height: 1.5;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: var(--space-sm);
         }
 
-        .checklist-item.checked label {
-            color: var(--text-muted);
+        .checklist-item.checked label span:first-child {
+            color: var(--text-tertiary);
             text-decoration: line-through;
         }
 
+        /* FAQ Section with disclosure style */
         .faq-section {
-            background: var(--card-bg);
-            border-radius: 12px;
-            padding: 30px;
-            margin-bottom: 20px;
+            background: var(--bg-secondary);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            margin-bottom: var(--space-lg);
+            border: 1px solid var(--separator);
         }
 
         .faq-item {
-            border-bottom: 1px solid var(--border);
-            padding: 20px 0;
+            border-bottom: 1px solid var(--separator);
+            padding: var(--space-lg) 0;
+        }
+
+        .faq-item:first-child {
+            padding-top: 0;
         }
 
         .faq-item:last-child {
             border-bottom: none;
+            padding-bottom: 0;
         }
 
         .faq-question {
             font-weight: 600;
-            font-size: 1.1rem;
+            font-size: 1rem;
             cursor: pointer;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            color: var(--text-primary);
+            transition: color 0.2s var(--timing-smooth);
+        }
+
+        .faq-question:hover {
+            color: var(--apple-blue);
+        }
+
+        .faq-toggle {
+            transition: transform 0.3s var(--timing-smooth);
+            color: var(--text-tertiary);
         }
 
         .faq-answer {
-            margin-top: 15px;
-            color: var(--text-muted);
+            margin-top: var(--space-md);
+            color: var(--text-secondary);
             display: none;
+            line-height: 1.6;
+            animation: slideDown 0.3s var(--timing-smooth);
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-8px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .faq-item.open .faq-answer {
@@ -270,61 +556,87 @@
             transform: rotate(180deg);
         }
 
+        /* Action buttons with Apple button style */
         .actions {
             display: flex;
-            gap: 10px;
-            margin-bottom: 30px;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-xl);
             flex-wrap: wrap;
         }
 
         .btn {
-            padding: 12px 24px;
+            padding: var(--space-sm) var(--space-lg);
             border: none;
-            border-radius: 8px;
+            border-radius: var(--radius-md);
             cursor: pointer;
-            font-size: 1rem;
+            font-size: 0.9375rem;
             font-weight: 500;
-            transition: all 0.2s;
+            transition: all 0.2s var(--timing-smooth);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-xs);
+            min-height: 44px; /* Apple touch target */
+        }
+
+        .btn:active {
+            transform: scale(0.97);
         }
 
         .btn-primary {
-            background: var(--primary);
+            background: var(--apple-blue);
             color: white;
         }
 
         .btn-primary:hover {
-            background: var(--primary-dark);
+            background: var(--apple-blue-dark);
         }
 
         .btn-secondary {
-            background: var(--card-bg);
-            color: var(--text);
-            border: 2px solid var(--border);
+            background: var(--fill-secondary);
+            color: var(--text-primary);
         }
 
         .btn-secondary:hover {
-            border-color: var(--primary);
+            background: var(--fill-primary);
         }
 
         .btn-danger {
-            background: var(--danger);
-            color: white;
+            background: rgba(255, 59, 48, 0.15);
+            color: var(--apple-red);
         }
 
+        .btn-danger:hover {
+            background: rgba(255, 59, 48, 0.25);
+        }
+
+        /* Footer */
         footer {
             text-align: center;
-            padding: 40px 20px;
-            color: var(--text-muted);
+            padding: var(--space-2xl) var(--space-lg);
+            color: var(--text-secondary);
+            font-size: 0.875rem;
         }
 
         footer a {
-            color: var(--primary);
+            color: var(--apple-blue);
             text-decoration: none;
+            transition: opacity 0.2s;
         }
 
+        footer a:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+
+        /* Responsive design */
         @media (max-width: 768px) {
             header h1 {
-                font-size: 1.8rem;
+                font-size: 1.75rem;
+            }
+
+            header p {
+                font-size: 0.9375rem;
             }
 
             .score-panel {
@@ -333,38 +645,360 @@
 
             .tabs {
                 flex-direction: column;
+                border-radius: var(--radius-md);
             }
 
             .tab {
-                width: 100%;
-                text-align: center;
+                border-radius: 0;
+            }
+
+            .tab:first-child {
+                border-radius: var(--radius-md) var(--radius-md) 0 0;
+            }
+
+            .tab:last-child {
+                border-radius: 0 0 var(--radius-md) var(--radius-md);
+            }
+
+            .container {
+                padding: var(--space-md);
+            }
+
+            .checklist-item label {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .item-badges {
+                margin-top: var(--space-xs);
             }
         }
 
+        /* Stats grid for 2025 Statistics */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 15px;
-            margin-bottom: 30px;
+            gap: var(--space-md);
+            margin-bottom: var(--space-xl);
         }
 
         .stat-card {
-            background: var(--card-bg);
-            padding: 20px;
-            border-radius: 8px;
-            border-left: 4px solid var(--primary);
+            background: var(--bg-secondary);
+            padding: var(--space-lg);
+            border-radius: var(--radius-md);
+            border-left: 4px solid var(--apple-blue);
+            transition: transform 0.2s var(--timing-smooth), box-shadow 0.2s var(--timing-smooth);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
         }
 
         .stat-card strong {
             font-size: 1.5rem;
-            color: var(--primary);
+            background: linear-gradient(135deg, var(--apple-blue) 0%, var(--apple-purple) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Stage badges with Apple pill style */
+        .stage-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: var(--space-xs) var(--space-sm);
+            border-radius: var(--radius-full);
+            font-size: 0.6875rem;
+            font-weight: 600;
+            white-space: nowrap;
+            letter-spacing: 0.01em;
+            transition: transform 0.2s var(--timing-spring);
+        }
+
+        .stage-badge:hover {
+            transform: scale(1.05);
+        }
+
+        /* Apple-inspired stage colors */
+        .stage-ideation { background: rgba(175, 82, 222, 0.15); color: var(--apple-purple); }
+        .stage-discovery { background: rgba(0, 122, 255, 0.15); color: var(--apple-blue); }
+        .stage-poc { background: rgba(52, 199, 89, 0.15); color: var(--apple-green); }
+        .stage-mvp { background: rgba(255, 149, 0, 0.15); color: var(--apple-orange); }
+        .stage-pilot { background: rgba(255, 59, 48, 0.12); color: #E64A3B; }
+        .stage-production { background: rgba(52, 199, 89, 0.2); color: #28A745; }
+        .stage-scale { background: rgba(90, 200, 250, 0.15); color: #0A97D9; }
+        .stage-optimize { background: rgba(88, 86, 214, 0.15); color: var(--apple-indigo); }
+
+        /* Gate badges with symbol emphasis */
+        .gate-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 24px;
+            height: 24px;
+            padding: 0 var(--space-xs);
+            border-radius: var(--radius-sm);
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: transform 0.2s var(--timing-spring);
+        }
+
+        .gate-badge:hover {
+            transform: scale(1.1);
+        }
+
+        .gate-mandatory { background: rgba(255, 59, 48, 0.15); }
+        .gate-advisory { background: rgba(255, 149, 0, 0.15); }
+        .gate-configurable { background: rgba(52, 199, 89, 0.15); }
+
+        /* Stage filter panel with Apple segmented look */
+        .filter-panel {
+            background: var(--bg-secondary);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+            margin-bottom: var(--space-lg);
+            border: 1px solid var(--separator);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .filter-panel h3 {
+            font-size: 0.8125rem;
+            font-weight: 600;
+            margin-bottom: var(--space-md);
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-sm);
+        }
+
+        .filter-btn {
+            padding: var(--space-sm) var(--space-md);
+            border: none;
+            background: var(--fill-secondary);
+            border-radius: var(--radius-full);
+            cursor: pointer;
+            font-size: 0.8125rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            transition: all 0.2s var(--timing-smooth);
+            min-height: 36px;
+        }
+
+        .filter-btn:hover {
+            background: var(--fill-primary);
+            color: var(--text-primary);
+        }
+
+        .filter-btn:active {
+            transform: scale(0.97);
+        }
+
+        .filter-btn.active {
+            background: var(--apple-blue);
+            color: white;
+        }
+
+        .checklist-item.hidden {
+            display: none;
+        }
+
+        .item-badges {
+            display: flex;
+            align-items: center;
+            flex-wrap: nowrap;
+            gap: var(--space-xs);
+            flex-shrink: 0;
+        }
+
+        /* Mobile responsive adjustments */
+        @media (max-width: 768px) {
+            .filter-buttons {
+                gap: var(--space-xs);
+            }
+
+            .filter-btn {
+                padding: var(--space-xs) var(--space-sm);
+                font-size: 0.75rem;
+            }
+
+            .stage-badge {
+                font-size: 0.625rem;
+                padding: 2px 6px;
+            }
+
+            .gate-badge {
+                min-width: 20px;
+                height: 20px;
+                font-size: 0.75rem;
+            }
+        }
+
+        /* Print styles */
+        @media print {
+            header {
+                background: var(--apple-blue) !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .actions, .tabs, .filter-panel {
+                display: none !important;
+            }
+
+            .section-body {
+                display: block !important;
+            }
+
+            .checklist-item {
+                break-inside: avoid;
+            }
+        }
+
+        /* Smooth scroll behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Focus styles for accessibility */
+        .btn:focus-visible,
+        .tab:focus-visible,
+        .filter-btn:focus-visible,
+        .checklist-item input:focus-visible {
+            outline: 2px solid var(--apple-blue);
+            outline-offset: 2px;
+        }
+
+        /* Selection color */
+        ::selection {
+            background: rgba(0, 122, 255, 0.3);
+        }
+
+        /* Doc link styles */
+        .doc-link {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-xs);
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--apple-blue);
+            text-decoration: none;
+            padding: var(--space-xs) var(--space-sm);
+            background: rgba(0, 122, 255, 0.08);
+            border-radius: var(--radius-sm);
+            transition: all 0.2s var(--timing-smooth);
+            margin-left: var(--space-sm);
+        }
+
+        .doc-link:hover {
+            background: rgba(0, 122, 255, 0.15);
+            transform: translateY(-1px);
+        }
+
+        .doc-link::before {
+            content: '📖';
+            font-size: 0.875rem;
+        }
+
+        /* Tooltip for rationale */
+        .info-tooltip {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 16px;
+            height: 16px;
+            margin-left: var(--space-xs);
+            background: var(--fill-secondary);
+            border-radius: 50%;
+            cursor: help;
+            font-size: 0.625rem;
+            color: var(--text-tertiary);
+            transition: all 0.2s var(--timing-smooth);
+        }
+
+        .info-tooltip::after {
+            content: 'i';
+            font-weight: 600;
+            font-style: italic;
+        }
+
+        .info-tooltip:hover {
+            background: var(--apple-blue);
+            color: white;
+        }
+
+        .info-tooltip .tooltip-content {
+            position: absolute;
+            bottom: calc(100% + 8px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            padding: var(--space-sm) var(--space-md);
+            border-radius: var(--radius-sm);
+            font-size: 0.75rem;
+            font-weight: 400;
+            font-style: normal;
+            white-space: nowrap;
+            max-width: 280px;
+            white-space: normal;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--separator);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.2s var(--timing-smooth);
+            z-index: 1000;
+        }
+
+        .info-tooltip .tooltip-content::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 6px solid transparent;
+            border-top-color: var(--bg-secondary);
+        }
+
+        .info-tooltip:hover .tooltip-content {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Gate legend */
+        .gate-legend {
+            display: flex;
+            gap: var(--space-md);
+            flex-wrap: wrap;
+            padding: var(--space-md);
+            background: var(--bg-tertiary);
+            border-radius: var(--radius-md);
+            margin-bottom: var(--space-lg);
+            font-size: 0.8125rem;
+        }
+
+        .gate-legend-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+        }
+
+        .gate-legend-item span:first-child {
+            font-size: 1rem;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>AI Production Readiness Checklist</h1>
-        <p>The Ultimate Guide to Enterprise AI Deployment | Interactive Assessment Tool</p>
+        <h1>AI Production Readiness Checklist 2025</h1>
+        <p>Enterprise MLOps & LLM Deployment Assessment | Conformal Prediction | Causal AI | Zero-False-Negative Engineering</p>
+        <p style="font-size: 0.9rem; margin-top: 8px; opacity: 0.85;">400+ Items | 8 Lifecycle Stages | Assured Intelligence | Interactive Scoring</p>
     </header>
 
     <div class="container">
@@ -403,6 +1037,21 @@
             <button class="tab active" onclick="showTab('checklist')">Checklist</button>
             <button class="tab" onclick="showTab('stats')">2025 Statistics</button>
             <button class="tab" onclick="showTab('faq')">FAQ</button>
+        </div>
+
+        <div class="filter-panel" id="filterPanel">
+            <h3>Filter by Lifecycle Stage</h3>
+            <div class="filter-buttons">
+                <button class="filter-btn active" onclick="filterByStage('all')">All Stages</button>
+                <button class="filter-btn" onclick="filterByStage('ideation')">1. Ideation</button>
+                <button class="filter-btn" onclick="filterByStage('discovery')">2. Discovery</button>
+                <button class="filter-btn" onclick="filterByStage('poc')">3. POC</button>
+                <button class="filter-btn" onclick="filterByStage('mvp')">4. MVP</button>
+                <button class="filter-btn" onclick="filterByStage('pilot')">5. Pilot</button>
+                <button class="filter-btn" onclick="filterByStage('production')">6. Production</button>
+                <button class="filter-btn" onclick="filterByStage('scale')">7. Scale</button>
+                <button class="filter-btn" onclick="filterByStage('optimize')">8. Optimize</button>
+            </div>
         </div>
 
         <div id="checklist-tab" class="tab-content active">
@@ -660,6 +1309,85 @@
                         <p style="margin-top: 10px;"><strong>Recommendation:</strong> Start with task-oriented single agents, then progress to multi-agent as complexity grows.</p>
                     </div>
                 </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        What is Training-Serving Skew?
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p><strong>Definition:</strong> Differences between how data is processed during training versus inference.</p>
+                        <p style="margin-top: 10px;"><strong>Why It's Dangerous:</strong></p>
+                        <ul style="margin-left: 20px; margin-top: 10px;">
+                            <li>It's a <strong>silent failure</strong> - no errors, just garbage predictions with high confidence</li>
+                            <li>Often caused by "dual pipeline" anti-pattern (Python for training, Java/Go for serving)</li>
+                            <li>Numerical precision differences, timezone handling, missing value imputation can all cause skew</li>
+                        </ul>
+                        <p style="margin-top: 10px;"><strong>Prevention:</strong> Use Feature Stores (Feast, Tecton) to ensure identical feature calculation.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        How do I detect data leakage?
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p><strong>Signs of Data Leakage:</strong></p>
+                        <ul style="margin-left: 20px; margin-top: 10px;">
+                            <li>Suspiciously high accuracy (>95%) on complex problems</li>
+                            <li>Features with near-perfect correlation to target</li>
+                            <li>Model performs much worse in production than in testing</li>
+                        </ul>
+                        <p style="margin-top: 10px;"><strong>Common Causes:</strong></p>
+                        <ul style="margin-left: 20px; margin-top: 10px;">
+                            <li><strong>Target Leakage:</strong> Using future information not available at prediction time</li>
+                            <li><strong>Train-Test Contamination:</strong> Preprocessing before splitting data</li>
+                            <li><strong>Temporal Leakage:</strong> Random splits on time-series data</li>
+                        </ul>
+                        <p style="margin-top: 10px;"><strong>Prevention:</strong> Audit feature provenance, use chronological splits for time data.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        What is Goodhart's Law?
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p><strong>"When a measure becomes a target, it ceases to be a good measure."</strong></p>
+                        <p style="margin-top: 10px;"><strong>ML Examples:</strong></p>
+                        <ul style="margin-left: 20px; margin-top: 10px;">
+                            <li><strong>Recommenders:</strong> Optimizing CTR promotes clickbait → users churn</li>
+                            <li><strong>Call Centers:</strong> Optimizing Average Handle Time → agents hang up on customers</li>
+                            <li><strong>Hiring:</strong> Optimizing for resume keywords → keyword stuffing, missed talent</li>
+                        </ul>
+                        <p style="margin-top: 10px;"><strong>Prevention:</strong> Use multi-metric dashboards, include guardrail metrics, regular human qualitative review.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        What is the CACE Principle?
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p><strong>CACE = Changing Anything Changes Everything</strong></p>
+                        <p style="margin-top: 10px;">Unlike traditional software where modules are independent, in ML systems:</p>
+                        <ul style="margin-left: 20px; margin-top: 10px;">
+                            <li>Changing one feature affects optimal weights for ALL features</li>
+                            <li>Data preprocessing changes propagate through entire pipeline</li>
+                            <li>"Small" upstream changes can break downstream models</li>
+                            <li>No true modularity in ML systems</li>
+                        </ul>
+                        <p style="margin-top: 10px;"><strong>Implications:</strong></p>
+                        <ul style="margin-left: 20px; margin-top: 10px;">
+                            <li>Document feature dependencies</li>
+                            <li>Set up upstream change notifications</li>
+                            <li>Every change requires full regression testing</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -674,139 +1402,226 @@
     </footer>
 
     <script>
+        // Stage definitions for reference
+        const STAGES = {
+            ideation: { name: 'Ideation', order: 1 },
+            discovery: { name: 'Discovery', order: 2 },
+            poc: { name: 'POC', order: 3 },
+            mvp: { name: 'MVP', order: 4 },
+            pilot: { name: 'Pilot', order: 5 },
+            production: { name: 'Production', order: 6 },
+            scale: { name: 'Scale', order: 7 },
+            optimize: { name: 'Optimize', order: 8 }
+        };
+
+        // Gate types: mandatory (must have), advisory (should have), configurable (nice to have)
+        const GATES = {
+            mandatory: { name: 'Mandatory', symbol: '🔴', rationale: 'Required before proceeding - blocks deployment if missing' },
+            advisory: { name: 'Advisory', symbol: '🟡', rationale: 'Strongly recommended but not blocking' },
+            configurable: { name: 'Configurable', symbol: '🟢', rationale: 'Context-dependent - implement based on your needs' }
+        };
+
+        // Companion document mapping
+        const COMPANION_DOCS = {
+            architecture: { doc: 'docs/TECHNOLOGY-SELECTION-GUIDE.md', title: 'Technology Selection Guide' },
+            dataQuality: { doc: 'docs/FAILURE-TAXONOMY.md', title: 'Failure Taxonomy' },
+            agenticAI: { doc: 'docs/TECHNOLOGY-SELECTION-GUIDE.md', title: 'Agent Pattern Selection' },
+            security: { doc: 'docs/CASE-STUDIES.md', title: 'Security Case Studies' },
+            redTeaming: { doc: 'docs/CASE-STUDIES.md', title: 'Red Teaming Case Studies' },
+            safety: { doc: 'docs/HEALTHCARE-AI-CASE-STUDIES.md', title: 'Safety Case Studies' },
+            monitoring: { doc: 'docs/MLOPS-MATURITY-MODEL.md', title: 'MLOps Maturity Model' },
+            operations: { doc: 'docs/LIFECYCLE-STAGES.md', title: 'Lifecycle Stages Guide' },
+            technicalDebt: { doc: 'docs/FAILURE-TAXONOMY.md', title: 'Technical Debt Patterns' },
+            governance: { doc: 'docs/LIFECYCLE-STAGES.md', title: 'Gate Requirements' },
+            evaluation: { doc: 'docs/CASE-STUDIES.md', title: 'Evaluation Failures' },
+            metricAlignment: { doc: 'docs/CASE-STUDIES.md', title: 'Metric Gaming Case Studies' },
+            assuredIntelligence: { doc: 'docs/ASSURED-INTELLIGENCE.md', title: 'Assured Intelligence Guide' },
+            healthcare: { doc: 'docs/HEALTHCARE-AI-CASE-STUDIES.md', title: 'Healthcare AI Case Studies' },
+            antiPatterns: { doc: 'docs/CASE-STUDIES.md', title: 'Anti-Pattern Case Studies' }
+        };
+
         const checklistData = {
             "architecture": {
                 "title": "Architecture & Design",
                 "icon": "🏗️",
+                "doc": "docs/TECHNOLOGY-SELECTION-GUIDE.md",
+                "docTitle": "Technology Selection Guide - RAG patterns, agent architectures, framework comparisons",
                 "subsections": {
                     "AI-Native Architecture Blueprint": [
-                        "Data lakehouse combining flexibility with structure",
-                        "Governed data pipelines ensuring quality and compliance",
-                        "Semantic layers for consistent definitions",
-                        "Specialized infrastructure for LLMs and prompt management",
-                        "MLOps integration with CI/CD for models & prompts",
-                        "Bias checks and red-teaming processes",
-                        "Safety/quality gates and runtime guardrails",
-                        "Prompts and model configs as versioned artifacts",
-                        "Kubernetes with GPU operators",
-                        "Autoscaling and mixed precision configured"
+                        { text: "Data lakehouse combining flexibility with structure", stage: "discovery", gate: "advisory" },
+                        { text: "Governed data pipelines ensuring quality and compliance", stage: "discovery", gate: "mandatory" },
+                        { text: "Semantic layers for consistent definitions", stage: "poc", gate: "advisory" },
+                        { text: "Specialized infrastructure for LLMs and prompt management", stage: "poc", gate: "mandatory" },
+                        { text: "MLOps integration with CI/CD for models & prompts", stage: "mvp", gate: "mandatory" },
+                        { text: "Bias checks and red-teaming processes", stage: "pilot", gate: "mandatory" },
+                        { text: "Safety/quality gates and runtime guardrails", stage: "mvp", gate: "mandatory" },
+                        { text: "Prompts and model configs as versioned artifacts", stage: "poc", gate: "advisory" },
+                        { text: "Kubernetes with GPU operators", stage: "production", gate: "configurable" },
+                        { text: "Autoscaling and mixed precision configured", stage: "scale", gate: "advisory" }
                     ],
                     "Data Pipeline Design": [
-                        "Defined data ingestion strategy",
-                        "Implemented data validation and quality checks",
-                        "Set up data versioning system",
-                        "Created data lineage tracking",
-                        "Established data retention policies",
-                        "Schema validation with real-time checks",
-                        "Data contracts between producers/consumers"
+                        { text: "Defined data ingestion strategy", stage: "discovery", gate: "mandatory" },
+                        { text: "Implemented data validation and quality checks", stage: "poc", gate: "mandatory" },
+                        { text: "Set up data versioning system", stage: "mvp", gate: "advisory" },
+                        { text: "Created data lineage tracking", stage: "mvp", gate: "advisory" },
+                        { text: "Established data retention policies", stage: "pilot", gate: "mandatory" },
+                        { text: "Schema validation with real-time checks", stage: "mvp", gate: "mandatory" },
+                        { text: "Data contracts between producers/consumers", stage: "production", gate: "advisory" }
                     ],
                     "Model Architecture": [
-                        "Evaluated multiple model options",
-                        "Performed cost-benefit analysis",
-                        "Tested fallback models",
-                        "Documented model limitations",
-                        "Created model cards"
+                        { text: "Evaluated multiple model options", stage: "poc", gate: "mandatory" },
+                        { text: "Performed cost-benefit analysis", stage: "poc", gate: "advisory" },
+                        { text: "Tested fallback models", stage: "mvp", gate: "mandatory" },
+                        { text: "Documented model limitations", stage: "mvp", gate: "advisory" },
+                        { text: "Created model cards", stage: "pilot", gate: "advisory" }
                     ],
                     "RAG Implementation": [
-                        "Designed chunking strategy",
-                        "Optimized embedding dimensions",
-                        "Implemented hybrid search (vector + keyword)",
-                        "Set up reranking pipeline",
-                        "Configured context window management"
+                        { text: "Designed chunking strategy", stage: "poc", gate: "mandatory" },
+                        { text: "Optimized embedding dimensions", stage: "mvp", gate: "advisory" },
+                        { text: "Implemented hybrid search (vector + keyword)", stage: "mvp", gate: "mandatory" },
+                        { text: "Set up reranking pipeline", stage: "pilot", gate: "advisory" },
+                        { text: "Configured context window management", stage: "mvp", gate: "mandatory" }
                     ],
                     "System Architecture": [
-                        "Loose coupling: Agents as services",
-                        "Clear interfaces: APIs, event buses",
-                        "Policy-driven control: Guardrails",
-                        "Zero-trust security for agents",
-                        "Versioning & rollback automation"
+                        { text: "Loose coupling: Agents as services", stage: "poc", gate: "advisory" },
+                        { text: "Clear interfaces: APIs, event buses", stage: "mvp", gate: "mandatory" },
+                        { text: "Policy-driven control: Guardrails", stage: "pilot", gate: "mandatory" },
+                        { text: "Zero-trust security for agents", stage: "pilot", gate: "mandatory" },
+                        { text: "Versioning & rollback automation", stage: "production", gate: "mandatory" }
+                    ]
+                }
+            },
+            "dataQuality": {
+                "title": "Data Quality & Statistical Validity",
+                "icon": "🔬",
+                "doc": "docs/FAILURE-TAXONOMY.md",
+                "docTitle": "Failure Taxonomy - Training-serving skew, data leakage patterns, drift detection",
+                "subsections": {
+                    "Training-Serving Skew Prevention": [
+                        { text: "Single Pipeline Architecture (no dual-pipeline anti-pattern)", stage: "mvp", gate: "mandatory" },
+                        { text: "Feature Store implemented for consistency", stage: "mvp", gate: "mandatory" },
+                        { text: "Schema enforcement at inference time", stage: "pilot", gate: "mandatory" },
+                        { text: "Numerical precision parity across environments", stage: "pilot", gate: "advisory" },
+                        { text: "Time zone handling standardized (UTC)", stage: "mvp", gate: "advisory" },
+                        { text: "Missing value strategy production-identical", stage: "pilot", gate: "mandatory" },
+                        { text: "Shadow mode validation for new models", stage: "pilot", gate: "advisory" }
+                    ],
+                    "Data Leakage Prevention": [
+                        { text: "Target leakage audit completed", stage: "poc", gate: "mandatory" },
+                        { text: "Train-test contamination check passed", stage: "poc", gate: "mandatory" },
+                        { text: "Temporal discipline enforced (chronological splits)", stage: "poc", gate: "mandatory" },
+                        { text: "Feature provenance documented", stage: "mvp", gate: "advisory" },
+                        { text: "Leakage detection tests automated", stage: "pilot", gate: "advisory" },
+                        { text: "Cross-validation strategy appropriate for data type", stage: "poc", gate: "advisory" }
+                    ],
+                    "Distribution Drift Detection": [
+                        { text: "Covariate shift monitoring (KS-test, PSI)", stage: "production", gate: "mandatory" },
+                        { text: "Concept drift detection with feedback loops", stage: "production", gate: "mandatory" },
+                        { text: "Label shift tracking implemented", stage: "production", gate: "advisory" },
+                        { text: "Automated retraining triggers configured", stage: "scale", gate: "advisory" },
+                        { text: "Windowed performance tracking (daily/weekly)", stage: "production", gate: "mandatory" },
+                        { text: "Seasonality patterns factored in", stage: "optimize", gate: "configurable" }
+                    ],
+                    "External Validation": [
+                        { text: "Multi-source validation completed", stage: "pilot", gate: "mandatory" },
+                        { text: "Demographic stratification tested", stage: "pilot", gate: "mandatory" },
+                        { text: "Geographic validation (if applicable)", stage: "pilot", gate: "configurable" },
+                        { text: "Temporal holdout validation done", stage: "pilot", gate: "mandatory" },
+                        { text: "Site-specific calibration plan exists", stage: "production", gate: "advisory" },
+                        { text: "Model card with external results published", stage: "production", gate: "advisory" }
                     ]
                 }
             },
             "agents": {
                 "title": "Agentic AI & Multi-Agent Systems",
                 "icon": "🤖",
+                "doc": "docs/TECHNOLOGY-SELECTION-GUIDE.md",
+                "docTitle": "Agent Patterns from Google Whitepaper - Single, Hierarchical, Diamond, Peer-to-Peer architectures",
                 "subsections": {
                     "Task-Oriented Agents": [
-                        "Clear success criteria defined",
-                        "Error handling and retry logic implemented",
-                        "High reliability for repeatable operations"
+                        { text: "Clear success criteria defined", stage: "poc", gate: "mandatory" },
+                        { text: "Error handling and retry logic implemented", stage: "mvp", gate: "mandatory" },
+                        { text: "High reliability for repeatable operations", stage: "pilot", gate: "mandatory" }
                     ],
                     "Multi-Agent Collaboration": [
-                        "Communication patterns established",
-                        "Cross-check outputs to reduce hallucinations",
-                        "Conflict resolution mechanisms",
-                        "Distributed expertise coordination"
+                        { text: "Communication patterns established", stage: "mvp", gate: "mandatory" },
+                        { text: "Cross-check outputs to reduce hallucinations", stage: "pilot", gate: "advisory" },
+                        { text: "Conflict resolution mechanisms", stage: "pilot", gate: "advisory" },
+                        { text: "Distributed expertise coordination", stage: "production", gate: "configurable" }
                     ],
                     "MAS Architecture": [
-                        "Agents with distinct roles and contexts",
-                        "Human-in-the-loop for critical scenarios",
-                        "Specialized tools configured",
-                        "Memory systems for context retention",
-                        "Comprehensive monitoring framework"
+                        { text: "Agents with distinct roles and contexts", stage: "mvp", gate: "mandatory" },
+                        { text: "Human-in-the-loop for critical scenarios", stage: "pilot", gate: "mandatory" },
+                        { text: "Specialized tools configured", stage: "mvp", gate: "advisory" },
+                        { text: "Memory systems for context retention", stage: "pilot", gate: "advisory" },
+                        { text: "Comprehensive monitoring framework", stage: "production", gate: "mandatory" }
                     ]
                 }
             },
             "security": {
                 "title": "Security & Compliance",
                 "icon": "🔐",
+                "doc": "docs/CASE-STUDIES.md",
+                "docTitle": "Security failures, data breach case studies, compliance violations",
                 "subsections": {
                     "Access Control": [
-                        "Implemented JWT/OAuth 2.0",
-                        "Set up API key management",
-                        "Created role-based access control (RBAC)",
-                        "Implemented rate limiting per user/tier",
-                        "Added IP allowlisting capabilities"
+                        { text: "Implemented JWT/OAuth 2.0", stage: "mvp", gate: "mandatory" },
+                        { text: "Set up API key management", stage: "mvp", gate: "mandatory" },
+                        { text: "Created role-based access control (RBAC)", stage: "pilot", gate: "mandatory" },
+                        { text: "Implemented rate limiting per user/tier", stage: "mvp", gate: "mandatory" },
+                        { text: "Added IP allowlisting capabilities", stage: "production", gate: "configurable" }
                     ],
                     "Encryption": [
-                        "TLS 1.3+ for data in transit",
-                        "AES-256 for data at rest",
-                        "Encrypted model weights storage",
-                        "Secure key management (KMS)",
-                        "Implemented secrets rotation"
+                        { text: "TLS 1.3+ for data in transit", stage: "mvp", gate: "mandatory" },
+                        { text: "AES-256 for data at rest", stage: "mvp", gate: "mandatory" },
+                        { text: "Encrypted model weights storage", stage: "pilot", gate: "advisory" },
+                        { text: "Secure key management (KMS)", stage: "pilot", gate: "mandatory" },
+                        { text: "Implemented secrets rotation", stage: "production", gate: "advisory" }
                     ],
                     "Privacy": [
-                        "PII detection and masking",
-                        "GDPR compliance (right to deletion)",
-                        "Data residency controls",
-                        "Audit logging for all data access",
-                        "Consent management system"
+                        { text: "PII detection and masking", stage: "pilot", gate: "mandatory" },
+                        { text: "GDPR compliance (right to deletion)", stage: "pilot", gate: "mandatory" },
+                        { text: "Data residency controls", stage: "production", gate: "advisory" },
+                        { text: "Audit logging for all data access", stage: "pilot", gate: "mandatory" },
+                        { text: "Consent management system", stage: "production", gate: "advisory" }
                     ],
                     "Industry Standards": [
-                        "HIPAA compliance (if healthcare)",
-                        "PCI DSS (if payments)",
-                        "SOC 2 Type II",
-                        "ISO 27001",
-                        "FedRAMP (if government)"
+                        { text: "HIPAA compliance (if healthcare)", stage: "production", gate: "configurable" },
+                        { text: "PCI DSS (if payments)", stage: "production", gate: "configurable" },
+                        { text: "SOC 2 Type II", stage: "scale", gate: "advisory" },
+                        { text: "ISO 27001", stage: "scale", gate: "configurable" },
+                        { text: "FedRAMP (if government)", stage: "scale", gate: "configurable" }
                     ]
                 }
             },
             "redteam": {
                 "title": "Red Teaming & LLM Security",
                 "icon": "🛡️",
+                "doc": "docs/CASE-STUDIES.md",
+                "docTitle": "OWASP LLM Top 10, prompt injection attacks, red team frameworks",
                 "subsections": {
                     "OWASP LLM Top 10": [
-                        "LLM01: Prompt Injection - tested and mitigated",
-                        "LLM02: Sensitive Data Leakage - prevention in place",
-                        "LLM07: System Prompt Leakage - protected",
-                        "Model theft prevention",
-                        "Data poisoning prevention",
-                        "RAG exploitation protection"
+                        { text: "LLM01: Prompt Injection - tested and mitigated", stage: "pilot", gate: "mandatory" },
+                        { text: "LLM02: Sensitive Data Leakage - prevention in place", stage: "pilot", gate: "mandatory" },
+                        { text: "LLM07: System Prompt Leakage - protected", stage: "pilot", gate: "mandatory" },
+                        { text: "Model theft prevention", stage: "production", gate: "advisory" },
+                        { text: "Data poisoning prevention", stage: "pilot", gate: "advisory" },
+                        { text: "RAG exploitation protection", stage: "pilot", gate: "mandatory" }
                     ],
                     "Red Teaming Framework": [
-                        "Scope and goals defined",
-                        "Diverse team assembled",
-                        "Adversarial inputs created",
-                        "Production-like environment testing",
-                        "Vulnerabilities documented",
-                        "Guardrails implemented",
-                        "Regression testing after fixes"
+                        { text: "Scope and goals defined", stage: "mvp", gate: "mandatory" },
+                        { text: "Diverse team assembled", stage: "pilot", gate: "advisory" },
+                        { text: "Adversarial inputs created", stage: "pilot", gate: "mandatory" },
+                        { text: "Production-like environment testing", stage: "pilot", gate: "mandatory" },
+                        { text: "Vulnerabilities documented", stage: "pilot", gate: "mandatory" },
+                        { text: "Guardrails implemented", stage: "pilot", gate: "mandatory" },
+                        { text: "Regression testing after fixes", stage: "production", gate: "mandatory" }
                     ],
                     "Output Security": [
-                        "Sanitize all LLM output",
-                        "Image content security policies",
-                        "Display entire links before connecting",
-                        "LLM-generated code execution sandboxed"
+                        { text: "Sanitize all LLM output", stage: "mvp", gate: "mandatory" },
+                        { text: "Image content security policies", stage: "pilot", gate: "advisory" },
+                        { text: "Display entire links before connecting", stage: "mvp", gate: "advisory" },
+                        { text: "LLM-generated code execution sandboxed", stage: "pilot", gate: "mandatory" }
                     ]
                 }
             },
@@ -815,24 +1630,24 @@
                 "icon": "⚡",
                 "subsections": {
                     "Response Time Targets": [
-                        "Time to First Token (TTFT) < 350ms",
-                        "Time to Incremental Token (TTIT) < 25ms",
-                        "P50 latency < 200ms",
-                        "P99 latency < 1s",
-                        "Caching strategy implemented"
+                        { text: "Time to First Token (TTFT) < 350ms", stage: "mvp", gate: "advisory" },
+                        { text: "Time to Incremental Token (TTIT) < 25ms", stage: "mvp", gate: "advisory" },
+                        { text: "P50 latency < 200ms", stage: "pilot", gate: "mandatory" },
+                        { text: "P99 latency < 1s", stage: "pilot", gate: "mandatory" },
+                        { text: "Caching strategy implemented", stage: "pilot", gate: "mandatory" }
                     ],
                     "Scalability": [
-                        "Tested with expected peak load",
-                        "Implemented auto-scaling policies",
-                        "Set up load balancing",
-                        "Configured queue management",
-                        "Batch inference capabilities"
+                        { text: "Tested with expected peak load", stage: "pilot", gate: "mandatory" },
+                        { text: "Implemented auto-scaling policies", stage: "production", gate: "mandatory" },
+                        { text: "Set up load balancing", stage: "production", gate: "mandatory" },
+                        { text: "Configured queue management", stage: "production", gate: "advisory" },
+                        { text: "Batch inference capabilities", stage: "scale", gate: "configurable" }
                     ],
                     "Parallelism Techniques": [
-                        "Data parallelism configured",
-                        "Model parallelism for large models",
-                        "Tensor parallelism for inference",
-                        "Context parallelism for long sequences"
+                        { text: "Data parallelism configured", stage: "scale", gate: "configurable" },
+                        { text: "Model parallelism for large models", stage: "scale", gate: "configurable" },
+                        { text: "Tensor parallelism for inference", stage: "scale", gate: "configurable" },
+                        { text: "Context parallelism for long sequences", stage: "scale", gate: "configurable" }
                     ]
                 }
             },
@@ -841,144 +1656,243 @@
                 "icon": "💰",
                 "subsections": {
                     "Cost Tracking": [
-                        "Token usage monitoring",
-                        "GPU compute tracking",
-                        "API call tracking",
-                        "Cost Per Token calculated",
-                        "Cost Per Unit of Work tracked"
+                        { text: "Token usage monitoring", stage: "mvp", gate: "mandatory" },
+                        { text: "GPU compute tracking", stage: "pilot", gate: "advisory" },
+                        { text: "API call tracking", stage: "mvp", gate: "mandatory" },
+                        { text: "Cost Per Token calculated", stage: "production", gate: "mandatory" },
+                        { text: "Cost Per Unit of Work tracked", stage: "production", gate: "advisory" }
                     ],
                     "Budget Management": [
-                        "Spending alerts configured",
-                        "Hard limits implemented",
-                        "Usage quotas created",
-                        "Chargeback/showback system",
-                        "Weekly/monthly forecasting"
+                        { text: "Spending alerts configured", stage: "pilot", gate: "mandatory" },
+                        { text: "Hard limits implemented", stage: "pilot", gate: "mandatory" },
+                        { text: "Usage quotas created", stage: "production", gate: "advisory" },
+                        { text: "Chargeback/showback system", stage: "scale", gate: "configurable" },
+                        { text: "Weekly/monthly forecasting", stage: "scale", gate: "advisory" }
                     ],
                     "Optimization": [
-                        "Prompt engineering for token reduction",
-                        "Response caching implemented",
-                        "Request batching configured",
-                        "Smart LLM routing",
-                        "Spot instances for non-critical"
+                        { text: "Prompt engineering for token reduction", stage: "mvp", gate: "advisory" },
+                        { text: "Response caching implemented", stage: "pilot", gate: "advisory" },
+                        { text: "Request batching configured", stage: "scale", gate: "configurable" },
+                        { text: "Smart LLM routing", stage: "scale", gate: "advisory" },
+                        { text: "Spot instances for non-critical", stage: "optimize", gate: "configurable" }
                     ]
                 }
             },
             "safety": {
                 "title": "Safety & Ethics",
                 "icon": "🛡️",
+                "doc": "docs/HEALTHCARE-AI-CASE-STUDIES.md",
+                "docTitle": "Safety failures, bias incidents, harmful output case studies",
                 "subsections": {
                     "Input Validation": [
-                        "Prompt injection detection",
-                        "Malicious input filtering",
-                        "Size limits enforcement",
-                        "Format validation"
+                        { text: "Prompt injection detection", stage: "mvp", gate: "mandatory" },
+                        { text: "Malicious input filtering", stage: "mvp", gate: "mandatory" },
+                        { text: "Size limits enforcement", stage: "mvp", gate: "mandatory" },
+                        { text: "Format validation", stage: "mvp", gate: "advisory" }
                     ],
                     "Output Safety": [
-                        "Toxicity filtering",
-                        "Bias detection",
-                        "Factuality checking",
-                        "PII scrubbing"
+                        { text: "Toxicity filtering", stage: "pilot", gate: "mandatory" },
+                        { text: "Bias detection", stage: "pilot", gate: "mandatory" },
+                        { text: "Factuality checking", stage: "pilot", gate: "advisory" },
+                        { text: "PII scrubbing", stage: "pilot", gate: "mandatory" }
                     ],
                     "Responsible AI": [
-                        "Bias testing completed",
-                        "Fairness metrics defined",
-                        "Transparency documentation",
-                        "Human-in-the-loop options",
-                        "Opt-out mechanisms"
+                        { text: "Bias testing completed", stage: "pilot", gate: "mandatory" },
+                        { text: "Fairness metrics defined", stage: "pilot", gate: "advisory" },
+                        { text: "Transparency documentation", stage: "production", gate: "mandatory" },
+                        { text: "Human-in-the-loop options", stage: "pilot", gate: "mandatory" },
+                        { text: "Opt-out mechanisms", stage: "production", gate: "advisory" }
                     ]
                 }
             },
             "monitoring": {
                 "title": "Monitoring & Observability",
                 "icon": "📊",
+                "doc": "docs/MLOPS-MATURITY-MODEL.md",
+                "docTitle": "MLOps maturity levels, observability patterns, monitoring best practices",
                 "subsections": {
                     "Infrastructure Metrics": [
-                        "CPU/Memory/Disk usage",
-                        "Network latency",
-                        "Queue depths",
-                        "Error rates",
-                        "Service health checks"
+                        { text: "CPU/Memory/Disk usage", stage: "pilot", gate: "mandatory" },
+                        { text: "Network latency", stage: "pilot", gate: "advisory" },
+                        { text: "Queue depths", stage: "production", gate: "advisory" },
+                        { text: "Error rates", stage: "pilot", gate: "mandatory" },
+                        { text: "Service health checks", stage: "pilot", gate: "mandatory" }
                     ],
                     "AI-Specific Metrics": [
-                        "Model inference time",
-                        "Token usage per request",
-                        "Cache hit rates",
-                        "Context retrieval accuracy",
-                        "Hallucination rate tracking"
+                        { text: "Model inference time", stage: "pilot", gate: "mandatory" },
+                        { text: "Token usage per request", stage: "pilot", gate: "mandatory" },
+                        { text: "Cache hit rates", stage: "production", gate: "advisory" },
+                        { text: "Context retrieval accuracy", stage: "production", gate: "mandatory" },
+                        { text: "Hallucination rate tracking", stage: "production", gate: "mandatory" }
                     ],
                     "Alerting": [
-                        "Anomaly detection",
-                        "Threshold-based alerts",
-                        "Escalation policies",
-                        "On-call rotation",
-                        "Incident response runbooks"
+                        { text: "Anomaly detection", stage: "production", gate: "advisory" },
+                        { text: "Threshold-based alerts", stage: "pilot", gate: "mandatory" },
+                        { text: "Escalation policies", stage: "production", gate: "mandatory" },
+                        { text: "On-call rotation", stage: "production", gate: "mandatory" },
+                        { text: "Incident response runbooks", stage: "production", gate: "mandatory" }
                     ]
                 }
             },
             "operations": {
                 "title": "Operations & Maintenance",
                 "icon": "🔄",
+                "doc": "docs/LIFECYCLE-STAGES.md",
+                "docTitle": "Stage gates, deployment procedures, maintenance requirements",
                 "subsections": {
                     "Release Management": [
-                        "Blue-green deployments",
-                        "Canary releases",
-                        "Feature flags",
-                        "Rollback procedures"
+                        { text: "Blue-green deployments", stage: "production", gate: "advisory" },
+                        { text: "Canary releases", stage: "production", gate: "advisory" },
+                        { text: "Feature flags", stage: "pilot", gate: "advisory" },
+                        { text: "Rollback procedures", stage: "pilot", gate: "mandatory" }
                     ],
                     "Model Management": [
-                        "Model versioning system",
-                        "A/B testing framework",
-                        "Model registry",
-                        "Retraining pipeline"
+                        { text: "Model versioning system", stage: "mvp", gate: "mandatory" },
+                        { text: "A/B testing framework", stage: "pilot", gate: "advisory" },
+                        { text: "Model registry", stage: "production", gate: "mandatory" },
+                        { text: "Retraining pipeline", stage: "scale", gate: "advisory" }
                     ],
                     "Disaster Recovery": [
-                        "Backup strategy (3-2-1 rule)",
-                        "RTO defined",
-                        "RPO defined",
-                        "Failover procedures tested"
+                        { text: "Backup strategy (3-2-1 rule)", stage: "pilot", gate: "mandatory" },
+                        { text: "RTO defined", stage: "production", gate: "mandatory" },
+                        { text: "RPO defined", stage: "production", gate: "mandatory" },
+                        { text: "Failover procedures tested", stage: "production", gate: "mandatory" }
+                    ]
+                }
+            },
+            "technicalDebt": {
+                "title": "Technical Debt & System Integrity",
+                "icon": "🔧",
+                "doc": "docs/FAILURE-TAXONOMY.md",
+                "docTitle": "CACE principle, pipeline jungles, hidden technical debt patterns",
+                "subsections": {
+                    "CACE Principle": [
+                        { text: "Feature dependency map documented", stage: "mvp", gate: "advisory" },
+                        { text: "Upstream change notifications automated", stage: "production", gate: "advisory" },
+                        { text: "Full retraining policy defined", stage: "production", gate: "mandatory" },
+                        { text: "Hyperparameter sensitivity analysis done", stage: "pilot", gate: "configurable" },
+                        { text: "Model-data version binding enforced", stage: "production", gate: "mandatory" },
+                        { text: "Impact analysis process in place", stage: "scale", gate: "advisory" }
+                    ],
+                    "Pipeline Jungle Prevention": [
+                        { text: "Pipeline DAG visualization created", stage: "mvp", gate: "advisory" },
+                        { text: "Data contracts enforced", stage: "production", gate: "mandatory" },
+                        { text: "Intermediate checkpoints implemented", stage: "pilot", gate: "advisory" },
+                        { text: "Glue code eliminated (testable modules)", stage: "production", gate: "advisory" },
+                        { text: "Pipeline unit tests in place", stage: "pilot", gate: "mandatory" },
+                        { text: "Null propagation alerts configured", stage: "production", gate: "advisory" },
+                        { text: "Idempotency guaranteed", stage: "production", gate: "mandatory" }
+                    ],
+                    "Feedback Loop Management": [
+                        { text: "Direct feedback loops cataloged", stage: "pilot", gate: "advisory" },
+                        { text: "Hidden feedback loops identified", stage: "production", gate: "advisory" },
+                        { text: "Loop damping mechanisms in place", stage: "scale", gate: "configurable" },
+                        { text: "Exploration budget allocated", stage: "scale", gate: "configurable" },
+                        { text: "Counterfactual data collection enabled", stage: "optimize", gate: "configurable" }
+                    ],
+                    "Undeclared Consumer Management": [
+                        { text: "Consumer registry maintained", stage: "production", gate: "advisory" },
+                        { text: "Deprecation policy defined", stage: "production", gate: "mandatory" },
+                        { text: "Output schema versioning implemented", stage: "production", gate: "mandatory" },
+                        { text: "Contract testing for downstream systems", stage: "scale", gate: "advisory" },
+                        { text: "Threshold documentation complete", stage: "production", gate: "advisory" },
+                        { text: "Breaking change protocol established", stage: "production", gate: "mandatory" }
                     ]
                 }
             },
             "governance": {
                 "title": "AI Governance",
                 "icon": "📜",
+                "doc": "docs/LIFECYCLE-STAGES.md",
+                "docTitle": "Gate requirements, regulatory frameworks (EU AI Act, NIST AI RMF, ISO 42001)",
                 "subsections": {
                     "Regulatory Compliance": [
-                        "EU AI Act mapping completed",
-                        "NIST AI RMF implemented",
-                        "ISO 42001 alignment",
-                        "Regional frameworks addressed"
+                        { text: "EU AI Act mapping completed", stage: "discovery", gate: "mandatory" },
+                        { text: "NIST AI RMF implemented", stage: "pilot", gate: "advisory" },
+                        { text: "ISO 42001 alignment", stage: "production", gate: "configurable" },
+                        { text: "Regional frameworks addressed", stage: "production", gate: "configurable" }
+                    ],
+                    "EU AI Act Prohibited Practices": [
+                        { text: "Social scoring ban verified", stage: "discovery", gate: "mandatory" },
+                        { text: "Emotion recognition ban (workplace/education) verified", stage: "discovery", gate: "mandatory" },
+                        { text: "Real-time biometric ID ban verified", stage: "discovery", gate: "mandatory" },
+                        { text: "Subliminal manipulation ban verified", stage: "discovery", gate: "mandatory" },
+                        { text: "Vulnerability exploitation ban verified", stage: "discovery", gate: "mandatory" },
+                        { text: "Biometric categorization ban verified", stage: "discovery", gate: "mandatory" },
+                        { text: "Untargeted facial recognition ban verified", stage: "discovery", gate: "mandatory" },
+                        { text: "Risk classification completed", stage: "poc", gate: "mandatory" },
+                        { text: "Legal review for EU deployment done", stage: "pilot", gate: "mandatory" }
                     ],
                     "Governance Pillars": [
-                        "Cross-functional team assembled",
-                        "Risk assessment methodology defined",
-                        "Ethical guidelines published",
-                        "Data governance framework established",
-                        "Audit trails implemented"
+                        { text: "Cross-functional team assembled", stage: "ideation", gate: "mandatory" },
+                        { text: "Risk assessment methodology defined", stage: "discovery", gate: "mandatory" },
+                        { text: "Ethical guidelines published", stage: "pilot", gate: "advisory" },
+                        { text: "Data governance framework established", stage: "discovery", gate: "mandatory" },
+                        { text: "Audit trails implemented", stage: "production", gate: "mandatory" }
                     ]
                 }
             },
             "evaluation": {
                 "title": "LLM Evaluation & Testing",
                 "icon": "🧪",
+                "doc": "docs/CASE-STUDIES.md",
+                "docTitle": "Evaluation failures (Epic 67% miss), testing frameworks, quality metrics",
                 "subsections": {
                     "Evaluation Methods": [
-                        "Benchmark-based testing (MMLU)",
-                        "LLM-as-Judge implemented",
-                        "Golden datasets created (~200 prompts)",
-                        "Human review process"
+                        { text: "Benchmark-based testing (MMLU)", stage: "poc", gate: "advisory" },
+                        { text: "LLM-as-Judge implemented", stage: "mvp", gate: "advisory" },
+                        { text: "Golden datasets created (~200 prompts)", stage: "mvp", gate: "mandatory" },
+                        { text: "Human review process", stage: "pilot", gate: "mandatory" }
                     ],
                     "Quality Metrics": [
-                        "Accuracy tracking",
-                        "Relevancy scoring",
-                        "Faithfulness measurement",
-                        "Hallucination rate monitoring"
+                        { text: "Accuracy tracking", stage: "mvp", gate: "mandatory" },
+                        { text: "Relevancy scoring", stage: "mvp", gate: "mandatory" },
+                        { text: "Faithfulness measurement", stage: "pilot", gate: "advisory" },
+                        { text: "Hallucination rate monitoring", stage: "pilot", gate: "mandatory" }
                     ],
                     "Testing Types": [
-                        "Functional testing pre-deployment",
-                        "Regression testing after changes",
-                        "Adversarial testing for security",
-                        "A/B testing in production"
+                        { text: "Functional testing pre-deployment", stage: "mvp", gate: "mandatory" },
+                        { text: "Regression testing after changes", stage: "pilot", gate: "mandatory" },
+                        { text: "Adversarial testing for security", stage: "pilot", gate: "mandatory" },
+                        { text: "A/B testing in production", stage: "production", gate: "advisory" }
+                    ]
+                }
+            },
+            "metricAlignment": {
+                "title": "Metric Alignment & Evaluation Integrity",
+                "icon": "📐",
+                "doc": "docs/CASE-STUDIES.md",
+                "docTitle": "Goodhart's Law failures, proxy problems, metric gaming case studies",
+                "subsections": {
+                    "The Proxy Problem": [
+                        { text: "Metric mapping document created", stage: "discovery", gate: "mandatory" },
+                        { text: "Negative correlation testing done", stage: "pilot", gate: "advisory" },
+                        { text: "Long-term impact assessment completed", stage: "production", gate: "advisory" },
+                        { text: "Multi-objective evaluation defined", stage: "pilot", gate: "advisory" },
+                        { text: "Stakeholder metric sign-off obtained", stage: "mvp", gate: "mandatory" }
+                    ],
+                    "Goodhart's Law Awareness": [
+                        { text: "Adversarial metric analysis documented", stage: "pilot", gate: "advisory" },
+                        { text: "Multi-metric dashboard in place", stage: "production", gate: "mandatory" },
+                        { text: "Human-in-loop reviews scheduled", stage: "production", gate: "advisory" },
+                        { text: "Metric validity refresh cadence set", stage: "optimize", gate: "advisory" },
+                        { text: "Unintended consequence monitoring active", stage: "production", gate: "advisory" }
+                    ],
+                    "Counterfactual & Feedback Loop Awareness": [
+                        { text: "Feedback loops identified and documented", stage: "pilot", gate: "mandatory" },
+                        { text: "Hidden loop detection completed", stage: "production", gate: "advisory" },
+                        { text: "Exploration strategy implemented", stage: "scale", gate: "configurable" },
+                        { text: "Off-policy evaluation capability", stage: "optimize", gate: "configurable" },
+                        { text: "Censored data acknowledged", stage: "pilot", gate: "advisory" },
+                        { text: "Debiasing strategy defined", stage: "pilot", gate: "advisory" }
+                    ],
+                    "Online Evaluation Infrastructure": [
+                        { text: "A/B testing framework in place", stage: "pilot", gate: "mandatory" },
+                        { text: "Shadow mode deployment capability", stage: "pilot", gate: "advisory" },
+                        { text: "Interleaving capability (for ranking)", stage: "scale", gate: "configurable" },
+                        { text: "Guardrail metrics defined", stage: "pilot", gate: "mandatory" },
+                        { text: "Statistical rigor documented", stage: "production", gate: "advisory" },
+                        { text: "Experiment velocity optimized", stage: "optimize", gate: "configurable" }
                     ]
                 }
             },
@@ -987,17 +1901,17 @@
                 "icon": "✍️",
                 "subsections": {
                     "Design Principles": [
-                        "Clear context provided",
-                        "Customized for each task",
-                        "Tasks broken into steps",
-                        "Output specifications defined",
-                        "Input validation implemented"
+                        { text: "Clear context provided", stage: "poc", gate: "mandatory" },
+                        { text: "Customized for each task", stage: "poc", gate: "advisory" },
+                        { text: "Tasks broken into steps", stage: "poc", gate: "advisory" },
+                        { text: "Output specifications defined", stage: "mvp", gate: "mandatory" },
+                        { text: "Input validation implemented", stage: "mvp", gate: "mandatory" }
                     ],
                     "Prompt Operations": [
-                        "Version control for prompts",
-                        "CI/CD integration",
-                        "Monitoring and iteration process",
-                        "Prompts treated as software artifacts"
+                        { text: "Version control for prompts", stage: "mvp", gate: "mandatory" },
+                        { text: "CI/CD integration", stage: "pilot", gate: "advisory" },
+                        { text: "Monitoring and iteration process", stage: "production", gate: "mandatory" },
+                        { text: "Prompts treated as software artifacts", stage: "production", gate: "advisory" }
                     ]
                 }
             },
@@ -1006,18 +1920,18 @@
                 "icon": "📈",
                 "subsections": {
                     "Strategy Workstreams": [
-                        "AI vision defined",
-                        "Build/buy decisions made",
-                        "Data quality evaluated",
-                        "Resourcing plan created",
-                        "Use cases prioritized"
+                        { text: "AI vision defined", stage: "ideation", gate: "mandatory" },
+                        { text: "Build/buy decisions made", stage: "discovery", gate: "mandatory" },
+                        { text: "Data quality evaluated", stage: "discovery", gate: "mandatory" },
+                        { text: "Resourcing plan created", stage: "discovery", gate: "mandatory" },
+                        { text: "Use cases prioritized", stage: "ideation", gate: "mandatory" }
                     ],
                     "Success Factors": [
-                        "Leadership buy-in secured",
-                        "Cross-functional teams formed",
-                        "Clear business objectives",
-                        "Change management program",
-                        "Governance framework established"
+                        { text: "Leadership buy-in secured", stage: "ideation", gate: "mandatory" },
+                        { text: "Cross-functional teams formed", stage: "discovery", gate: "advisory" },
+                        { text: "Clear business objectives", stage: "ideation", gate: "mandatory" },
+                        { text: "Change management program", stage: "production", gate: "advisory" },
+                        { text: "Governance framework established", stage: "pilot", gate: "mandatory" }
                     ]
                 }
             },
@@ -1026,28 +1940,196 @@
                 "icon": "👥",
                 "subsections": {
                     "Documentation": [
-                        "Architecture diagrams",
-                        "API documentation",
-                        "Runbooks",
-                        "Troubleshooting guides"
+                        { text: "Architecture diagrams", stage: "mvp", gate: "advisory" },
+                        { text: "API documentation", stage: "mvp", gate: "mandatory" },
+                        { text: "Runbooks", stage: "production", gate: "mandatory" },
+                        { text: "Troubleshooting guides", stage: "production", gate: "advisory" }
                     ],
                     "Team Readiness": [
-                        "On-call training completed",
-                        "Security training",
-                        "Incident response training",
-                        "Cross-functional understanding"
+                        { text: "On-call training completed", stage: "production", gate: "mandatory" },
+                        { text: "Security training", stage: "pilot", gate: "mandatory" },
+                        { text: "Incident response training", stage: "production", gate: "mandatory" },
+                        { text: "Cross-functional understanding", stage: "pilot", gate: "advisory" }
                     ],
                     "Organizational Readiness": [
-                        "Data: Clean, accessible, API-ready",
-                        "Talent: AI skill-building program",
-                        "Governance: Documented policies",
-                        "Culture: AI exploration encouraged"
+                        { text: "Data: Clean, accessible, API-ready", stage: "discovery", gate: "mandatory" },
+                        { text: "Talent: AI skill-building program", stage: "pilot", gate: "advisory" },
+                        { text: "Governance: Documented policies", stage: "pilot", gate: "mandatory" },
+                        { text: "Culture: AI exploration encouraged", stage: "ideation", gate: "advisory" }
+                    ]
+                }
+            },
+            "healthcareAI": {
+                "title": "Healthcare & Mental Health AI Safety",
+                "doc": "docs/HEALTHCARE-AI-CASE-STUDIES.md",
+                "docTitle": "Clinical AI failures, crisis detection, patient safety case studies",
+                "icon": "🏥",
+                "subsections": {
+                    "Crisis Detection & Intervention": [
+                        { text: "Suicide/self-harm detection (explicit AND indirect)", stage: "mvp", gate: "mandatory" },
+                        { text: "Crisis response protocol triggers safety resources", stage: "mvp", gate: "mandatory" },
+                        { text: "24/7 human escalation path available", stage: "pilot", gate: "mandatory" },
+                        { text: "Responses validated to never encourage self-harm", stage: "pilot", gate: "mandatory" },
+                        { text: "Dependency/addiction patterns monitored", stage: "pilot", gate: "advisory" },
+                        { text: "Age-appropriate safeguards for minors", stage: "pilot", gate: "mandatory" }
+                    ],
+                    "Therapeutic AI Ethics": [
+                        { text: "Contextual adaptation (not one-size-fits-all)", stage: "mvp", gate: "advisory" },
+                        { text: "Collaborative therapeutic style", stage: "mvp", gate: "advisory" },
+                        { text: "Honest empathy (no deceptive phrases)", stage: "pilot", gate: "mandatory" },
+                        { text: "Bias testing across gender, culture, religion", stage: "pilot", gate: "mandatory" },
+                        { text: "No reinforcement of false beliefs", stage: "pilot", gate: "mandatory" },
+                        { text: "Stigma testing across conditions", stage: "pilot", gate: "advisory" },
+                        { text: "Responses don't amplify rejection feelings", stage: "pilot", gate: "mandatory" }
+                    ],
+                    "Clinical AI Validation": [
+                        { text: "Independent third-party clinical validation", stage: "pilot", gate: "mandatory" },
+                        { text: "Geographic validation in all regions", stage: "pilot", gate: "mandatory" },
+                        { text: "Demographic validation across groups", stage: "pilot", gate: "mandatory" },
+                        { text: "Unsafe recommendation prevention", stage: "mvp", gate: "mandatory" },
+                        { text: "Regulatory approval obtained (FDA/CE)", stage: "production", gate: "mandatory" },
+                        { text: "Clinician override always available", stage: "pilot", gate: "mandatory" }
+                    ],
+                    "Human-in-the-Loop": [
+                        { text: "Human review for clinical recommendations", stage: "pilot", gate: "mandatory" },
+                        { text: "Clear AI disclosure to users", stage: "mvp", gate: "mandatory" },
+                        { text: "Human handoff triggers defined", stage: "pilot", gate: "mandatory" },
+                        { text: "Usability tested with real patients", stage: "pilot", gate: "mandatory" },
+                        { text: "Clinical context preserved in automation", stage: "production", gate: "advisory" }
+                    ],
+                    "Longitudinal Safety": [
+                        { text: "Cross-session pattern tracking", stage: "pilot", gate: "mandatory" },
+                        { text: "Deterioration detection over time", stage: "pilot", gate: "mandatory" },
+                        { text: "Session history integration", stage: "mvp", gate: "advisory" },
+                        { text: "Trend alerting for human review", stage: "production", gate: "mandatory" }
+                    ],
+                    "Scope Boundaries": [
+                        { text: "Clear scope definition (will/won't do)", stage: "poc", gate: "mandatory" },
+                        { text: "Technical enforcement of boundaries", stage: "mvp", gate: "mandatory" },
+                        { text: "User expectation setting upfront", stage: "mvp", gate: "mandatory" },
+                        { text: "Graceful exit for out-of-scope needs", stage: "mvp", gate: "mandatory" },
+                        { text: "Team prepared to shut down if needed", stage: "pilot", gate: "mandatory" }
+                    ],
+                    "Healthcare Regulatory": [
+                        { text: "HIPAA/HITECH compliance verified", stage: "pilot", gate: "mandatory" },
+                        { text: "FDA SaMD classification determined", stage: "discovery", gate: "mandatory" },
+                        { text: "State mental health laws compliance", stage: "pilot", gate: "mandatory" },
+                        { text: "Professional liability insurance adequate", stage: "production", gate: "mandatory" }
+                    ]
+                }
+            },
+            "antiPatterns": {
+                "title": "Anti-Patterns: Case Studies",
+                "icon": "⚠️",
+                "doc": "docs/CASE-STUDIES.md",
+                "docTitle": "Zillow ($500M), Amazon bias, Epic Sepsis (67% miss) - detailed failure analysis",
+                "subsections": {
+                    "Zillow Offers ($500M+ Loss)": [
+                        { text: "Adverse selection analysis completed", stage: "pilot", gate: "mandatory" },
+                        { text: "Regime change planning documented", stage: "production", gate: "mandatory" },
+                        { text: "Uncertainty quantification in decisions", stage: "mvp", gate: "advisory" },
+                        { text: "Human override protocol defined", stage: "pilot", gate: "mandatory" },
+                        { text: "Asymmetric error costs evaluated", stage: "poc", gate: "mandatory" }
+                    ],
+                    "Amazon Recruiting (Bias)": [
+                        { text: "Proxy variable audit completed", stage: "poc", gate: "mandatory" },
+                        { text: "Historical bias assessment done", stage: "poc", gate: "mandatory" },
+                        { text: "Disparate impact testing performed", stage: "pilot", gate: "mandatory" },
+                        { text: "Bias reconstruction testing done", stage: "pilot", gate: "mandatory" },
+                        { text: "Regular fairness audits scheduled", stage: "production", gate: "mandatory" },
+                        { text: "Diverse evaluation team included", stage: "pilot", gate: "advisory" }
+                    ],
+                    "Epic Sepsis Model (67% Miss)": [
+                        { text: "External validation mandatory", stage: "pilot", gate: "mandatory" },
+                        { text: "PPV calculated in deployment context", stage: "pilot", gate: "mandatory" },
+                        { text: "Alert fatigue assessment completed", stage: "pilot", gate: "mandatory" },
+                        { text: "User trust tracking implemented", stage: "production", gate: "advisory" },
+                        { text: "Local calibration strategy defined", stage: "production", gate: "mandatory" },
+                        { text: "Regime change detection active", stage: "production", gate: "mandatory" }
+                    ],
+                    "Universal Anti-Pattern Checks": [
+                        { text: "Adversarial/gaming scenarios considered", stage: "poc", gate: "advisory" },
+                        { text: "Historical bias in training data assessed", stage: "poc", gate: "mandatory" },
+                        { text: "Proxy discrimination possibility checked", stage: "pilot", gate: "mandatory" },
+                        { text: "External validation completed", stage: "pilot", gate: "mandatory" },
+                        { text: "Alert/recommendation fatigue evaluated", stage: "pilot", gate: "advisory" },
+                        { text: "Regime change blindness addressed", stage: "production", gate: "advisory" },
+                        { text: "Point estimates include uncertainty", stage: "mvp", gate: "advisory" }
+                    ]
+                }
+            },
+            "assuredIntelligence": {
+                "title": "Assured Intelligence & Quantitative Safety",
+                "icon": "🔬",
+                "doc": "docs/ASSURED-INTELLIGENCE.md",
+                "docTitle": "Conformal Prediction, Calibration, Causal Inference, Zero-False-Negative - implementation patterns",
+                "subsections": {
+                    "Uncertainty Quantification (Conformal Prediction)": [
+                        { text: "Conformal prediction implemented with coverage guarantee ≥90%", stage: "mvp", gate: "mandatory" },
+                        { text: "Calibration set properly held out (min 1000 samples)", stage: "poc", gate: "mandatory" },
+                        { text: "Prediction sets/intervals computed for all outputs", stage: "mvp", gate: "mandatory" },
+                        { text: "Coverage guarantee validated on test data", stage: "pilot", gate: "mandatory" },
+                        { text: "Adaptive conformal methods for distribution shift", stage: "production", gate: "advisory" },
+                        { text: "Conformalized quantile regression for continuous targets", stage: "mvp", gate: "advisory" },
+                        { text: "MAPIE or similar library integrated for classification", stage: "poc", gate: "configurable" },
+                        { text: "Uncertainty bounds displayed in user interface", stage: "pilot", gate: "mandatory" }
+                    ],
+                    "Probability Calibration": [
+                        { text: "Expected Calibration Error (ECE) measured <5%", stage: "mvp", gate: "mandatory" },
+                        { text: "Reliability diagrams generated and reviewed", stage: "poc", gate: "mandatory" },
+                        { text: "Temperature scaling applied post-training", stage: "mvp", gate: "advisory" },
+                        { text: "Platt scaling or isotonic regression evaluated", stage: "mvp", gate: "advisory" },
+                        { text: "Brier score tracked alongside accuracy", stage: "pilot", gate: "mandatory" },
+                        { text: "Calibration monitored in production dashboards", stage: "production", gate: "mandatory" },
+                        { text: "Recalibration triggers defined for drift scenarios", stage: "production", gate: "mandatory" },
+                        { text: "Per-class calibration verified for imbalanced data", stage: "pilot", gate: "advisory" }
+                    ],
+                    "Selective Prediction & Abstention": [
+                        { text: "Abstention mechanism implemented for low-confidence predictions", stage: "mvp", gate: "mandatory" },
+                        { text: "Confidence threshold determined via coverage-accuracy tradeoff", stage: "pilot", gate: "mandatory" },
+                        { text: "OOD (Out-of-Distribution) detection integrated", stage: "mvp", gate: "mandatory" },
+                        { text: "Epistemic vs aleatoric uncertainty distinguished", stage: "pilot", gate: "advisory" },
+                        { text: "Human escalation path defined for abstained predictions", stage: "pilot", gate: "mandatory" },
+                        { text: "Abstention rate monitored (<15% target in production)", stage: "production", gate: "advisory" },
+                        { text: "SelectiveNet or similar architecture evaluated", stage: "poc", gate: "configurable" },
+                        { text: "Coverage-accuracy curves documented for stakeholders", stage: "pilot", gate: "advisory" }
+                    ],
+                    "Causal Intelligence (Do-Calculus)": [
+                        { text: "Causal DAG constructed for domain problem", stage: "poc", gate: "advisory" },
+                        { text: "Confounders identified and documented", stage: "poc", gate: "mandatory" },
+                        { text: "Intervention effects estimated (ATE/CATE)", stage: "mvp", gate: "advisory" },
+                        { text: "DoWhy or CausalML library integrated", stage: "poc", gate: "configurable" },
+                        { text: "Proxy discrimination paths audited", stage: "pilot", gate: "mandatory" },
+                        { text: "Counterfactual fairness analysis completed", stage: "pilot", gate: "advisory" },
+                        { text: "Backdoor/frontdoor criteria validated for estimates", stage: "mvp", gate: "advisory" },
+                        { text: "Causal assumptions documented and justified", stage: "poc", gate: "mandatory" }
+                    ],
+                    "Zero-False-Negative Engineering": [
+                        { text: "Asymmetric error costs explicitly quantified", stage: "poc", gate: "mandatory" },
+                        { text: "High-recall first stage implemented (≥99.5% sensitivity)", stage: "mvp", gate: "mandatory" },
+                        { text: "Layered ensemble architecture designed", stage: "mvp", gate: "advisory" },
+                        { text: "Anomaly detection layer for edge cases", stage: "pilot", gate: "advisory" },
+                        { text: "Human-in-the-loop for remaining uncertainty", stage: "pilot", gate: "mandatory" },
+                        { text: "False negative rate monitored with alerts", stage: "production", gate: "mandatory" },
+                        { text: "Cost-sensitive learning applied where appropriate", stage: "mvp", gate: "advisory" },
+                        { text: "Recall-precision tradeoff documented for stakeholders", stage: "pilot", gate: "mandatory" }
+                    ],
+                    "Formal Verification & Safety": [
+                        { text: "Input bounds verification implemented", stage: "pilot", gate: "advisory" },
+                        { text: "Output range constraints enforced", stage: "mvp", gate: "mandatory" },
+                        { text: "Monotonicity constraints where domain-appropriate", stage: "mvp", gate: "configurable" },
+                        { text: "Adversarial robustness testing completed", stage: "pilot", gate: "advisory" },
+                        { text: "Safety envelope defined for autonomous decisions", stage: "pilot", gate: "mandatory" },
+                        { text: "Constraint violation logging and alerting", stage: "production", gate: "mandatory" },
+                        { text: "Formal methods tools evaluated (α,β-CROWN, Marabou)", stage: "poc", gate: "configurable" },
+                        { text: "Safety-critical paths identified and hardened", stage: "pilot", gate: "mandatory" }
                     ]
                 }
             }
         };
 
         let checkedItems = JSON.parse(localStorage.getItem('aiChecklist') || '{}');
+        let currentStageFilter = 'all';
 
         function initChecklist() {
             const container = document.getElementById('checklist-tab');
@@ -1065,25 +2147,42 @@
                 for (const [subsection, items] of Object.entries(section.subsections)) {
                     itemsHtml += `<div class="subsection"><h3>${subsection}</h3>`;
                     for (const item of items) {
-                        const itemId = `${sectionId}-${item.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase()}`;
+                        const itemText = typeof item === 'object' ? item.text : item;
+                        const stage = typeof item === 'object' ? item.stage : 'poc';
+                        const gate = typeof item === 'object' ? item.gate : 'advisory';
+                        const itemId = `${sectionId}-${itemText.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase()}`;
                         const isChecked = checkedItems[itemId] || false;
                         if (isChecked) sectionChecked++;
                         sectionItems++;
                         totalItems++;
 
+                        const stageName = STAGES[stage]?.name || stage.toUpperCase();
+                        const gateInfo = GATES[gate] || { name: gate, symbol: '🟡', rationale: '' };
+                        const gateTooltip = gateInfo.rationale ? `${gateInfo.name}: ${gateInfo.rationale}` : gateInfo.name;
+
                         itemsHtml += `
-                            <div class="checklist-item ${isChecked ? 'checked' : ''}">
+                            <div class="checklist-item ${isChecked ? 'checked' : ''}" data-stage="${stage}" data-gate="${gate}">
                                 <input type="checkbox" id="${itemId}" ${isChecked ? 'checked' : ''} onchange="toggleItem('${itemId}', this)">
-                                <label for="${itemId}">${item}</label>
+                                <label for="${itemId}">
+                                    <span>${itemText}</span>
+                                    <span class="item-badges">
+                                        <span class="stage-badge stage-${stage}">${stageName}</span>
+                                        <span class="gate-badge gate-${gate}" title="${gateTooltip}">${gateInfo.symbol}</span>
+                                    </span>
+                                </label>
                             </div>
                         `;
                     }
                     itemsHtml += '</div>';
                 }
 
+                // Generate doc link if available
+                const docLink = section.doc ?
+                    `<a href="${section.doc}" class="doc-link" target="_blank" title="${section.docTitle || 'Learn more'}" onclick="event.stopPropagation()">Learn More</a>` : '';
+
                 sectionEl.innerHTML = `
                     <div class="section-header" onclick="toggleSection('${sectionId}')">
-                        <h2>${section.icon} ${section.title}</h2>
+                        <h2>${section.icon} ${section.title}${docLink}</h2>
                         <span class="section-progress" id="progress-${sectionId}">${sectionChecked}/${sectionItems}</span>
                     </div>
                     <div class="section-body" id="body-${sectionId}">
@@ -1095,6 +2194,33 @@
             }
 
             document.getElementById('totalCount').textContent = totalItems;
+            updateScores();
+        }
+
+        function filterByStage(stage) {
+            currentStageFilter = stage;
+
+            // Update button states
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelector(`.filter-btn[onclick="filterByStage('${stage}')"]`).classList.add('active');
+
+            // Filter items
+            document.querySelectorAll('.checklist-item').forEach(item => {
+                const itemStage = item.dataset.stage;
+                if (stage === 'all' || itemStage === stage) {
+                    item.classList.remove('hidden');
+                } else {
+                    item.classList.add('hidden');
+                }
+            });
+
+            // Hide empty subsections
+            document.querySelectorAll('.subsection').forEach(subsection => {
+                const visibleItems = subsection.querySelectorAll('.checklist-item:not(.hidden)');
+                subsection.style.display = visibleItems.length === 0 ? 'none' : 'block';
+            });
+
+            // Update counts to show filtered counts
             updateScores();
         }
 
@@ -1114,23 +2240,33 @@
         }
 
         function updateScores() {
-            const total = document.querySelectorAll('.checklist-item input').length;
-            const checked = document.querySelectorAll('.checklist-item input:checked').length;
-            const percentage = total > 0 ? Math.round((checked / total) * 100) : 0;
+            // When filtering, show filtered counts but calculate overall from all items
+            const allItems = document.querySelectorAll('.checklist-item input');
+            const allChecked = document.querySelectorAll('.checklist-item input:checked');
+            const visibleItems = document.querySelectorAll('.checklist-item:not(.hidden) input');
+            const visibleChecked = document.querySelectorAll('.checklist-item:not(.hidden) input:checked');
+
+            // Overall percentage is always based on ALL items (not filtered)
+            const percentage = allItems.length > 0 ? Math.round((allChecked.length / allItems.length) * 100) : 0;
+
+            // Display counts based on filter
+            const displayTotal = currentStageFilter === 'all' ? allItems.length : visibleItems.length;
+            const displayChecked = currentStageFilter === 'all' ? allChecked.length : visibleChecked.length;
 
             document.getElementById('overallScore').textContent = percentage + '%';
-            document.getElementById('checkedCount').textContent = checked;
-            document.getElementById('remainingCount').textContent = total - checked;
+            document.getElementById('checkedCount').textContent = displayChecked;
+            document.getElementById('totalCount').textContent = displayTotal;
+            document.getElementById('remainingCount').textContent = displayTotal - displayChecked;
             document.getElementById('progressFill').style.width = percentage + '%';
 
-            // Update section progress
+            // Update section progress (filtered)
             for (const sectionId of Object.keys(checklistData)) {
-                const sectionItems = document.querySelectorAll(`#section-${sectionId} .checklist-item input`);
-                const sectionChecked = document.querySelectorAll(`#section-${sectionId} .checklist-item input:checked`);
+                const sectionItems = document.querySelectorAll(`#section-${sectionId} .checklist-item:not(.hidden) input`);
+                const sectionChecked = document.querySelectorAll(`#section-${sectionId} .checklist-item:not(.hidden) input:checked`);
                 document.getElementById(`progress-${sectionId}`).textContent = `${sectionChecked.length}/${sectionItems.length}`;
             }
 
-            // Update readiness badge
+            // Update readiness badge (always based on ALL items)
             const badge = document.getElementById('readinessBadge');
             badge.className = 'readiness-badge';
             if (percentage <= 20) {
@@ -1157,6 +2293,10 @@
 
             document.querySelector(`.tab[onclick="showTab('${tabName}')"]`).classList.add('active');
             document.getElementById(`${tabName}-tab`).classList.add('active');
+
+            // Show filter panel only for checklist tab
+            const filterPanel = document.getElementById('filterPanel');
+            filterPanel.style.display = tabName === 'checklist' ? 'block' : 'none';
         }
 
         function toggleFaq(element) {

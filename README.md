@@ -2,21 +2,42 @@
 
 # 🚀 AI Production Readiness Checklist
 
-### The Ultimate Guide to Enterprise AI Deployment | LLM Operations | MLOps | AI Governance
+### The Complete Enterprise AI Deployment Guide | MLOps | LLM Operations | Healthcare AI Safety | AI Governance
 
-> **The comprehensive checklist for taking AI from demo to production**
+**From 87% failure rate to production success—400+ checklist items across 20 domains**
 
 [![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](CONTRIBUTING.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![GitHub Stars](https://img.shields.io/github/stars/asq-sheriff/AI-Production-Checklist?style=social)](https://github.com/asq-sheriff/AI-Production-Checklist/stargazers)
 
-**Keywords:** `AI Production` `LLM Deployment` `MLOps` `AI Governance` `Enterprise AI` `Generative AI` `AI Strategy` `AI Architecture` `Multi-Agent Systems` `RAG` `Prompt Engineering` `AI Security` `LLM Evaluation` `AI FinOps` `Red Teaming` `OWASP LLM` `AI Compliance` `EU AI Act` `Responsible AI`
+</div>
+
+---
+
+<div align="center">
+
+**Built from 27 years of enterprise systems experience and analysis of $15B+ in AI failures**
+
+*IBM Watson ($4B) • Zillow ($500M) • Babylon Health ($4.2B) • Character.AI (lawsuits) • 12+ documented case studies*
 
 </div>
 
 ---
 
-After 27 years of building enterprise systems and seeing countless AI projects fail in production, I've compiled this checklist of everything you need to consider before deploying AI to real users.
+**Keywords:** `AI Production` `LLM Deployment` `MLOps` `AI Governance` `Enterprise AI` `Generative AI` `AI Strategy` `AI Architecture` `Multi-Agent Systems` `RAG` `Prompt Engineering` `AI Security` `LLM Evaluation` `AI FinOps` `Red Teaming` `OWASP LLM` `AI Compliance` `EU AI Act` `Responsible AI` `Healthcare AI` `Mental Health AI Safety` `Clinical AI Validation` `Therapeutic AI` `AI Ethics` `Training-Serving Skew` `Data Leakage Detection` `Model Drift` `AI Technical Debt` `Feature Store` `AI Crisis Detection` `Conformal Prediction` `Causal AI` `Uncertainty Quantification` `Probability Calibration` `Zero-False-Negative` `Selective Prediction` `OOD Detection` `DoWhy` `CausalML` `Model Calibration ECE`
+
+---
+
+## Why This Checklist Exists
+
+After 27 years of building enterprise systems and analyzing why AI projects fail in production, I've compiled this checklist of everything you need to consider before deploying AI to real users.
+
+**This checklist helps you avoid:**
+- 💸 **Financial disasters** like Zillow's $500M+ algorithmic trading collapse
+- ⚠️ **Safety failures** like Character.AI's crisis mishandling leading to teen suicide
+- 🏥 **Clinical harm** like IBM Watson's unsafe treatment recommendations
+- 📉 **Business failures** like Babylon Health's $4.2B → $0 collapse
+- ⚖️ **Legal liability** from EU AI Act violations, HIPAA breaches, or bias lawsuits
 
 ## 📈 The Reality of AI in Production (2025)
 
@@ -49,16 +70,17 @@ This checklist helps you systematically evaluate your AI system's readiness for 
 1. **Assess Current State** - Go through each section and check items you've already completed
 2. **Identify Gaps** - Unchecked items represent potential risks or missing capabilities
 3. **Prioritize by Risk** - Focus on Security, Safety, and Monitoring first—these prevent disasters
-4. **Create Action Plan** - Turn unchecked items into tasks with owners and deadlines
-5. **Track Progress** - Use the [interactive HTML checklist](ai-production-checklist.html) to save progress
+4. **Filter by Stage** - Use lifecycle stage filters to focus on items relevant to your current phase
+5. **Create Action Plan** - Turn unchecked items into tasks with owners and deadlines
+6. **Track Progress** - Use the [interactive HTML checklist](ai-production-checklist.html) with auto-save and dark mode support
 
 ### Priority Order (Recommended)
 
 | Priority | Sections | Why |
 |----------|----------|-----|
-| 🔴 **Critical** | Security & Compliance, Safety & Ethics | Legal liability, user safety, data protection |
-| 🟠 **High** | Monitoring & Observability, Cost Management | You can't fix what you can't see; costs can explode |
-| 🟡 **Important** | Red Teaming, Governance, Evaluation | Prevent attacks, ensure compliance, maintain quality |
+| 🔴 **Critical** | Security & Compliance, Safety & Ethics, Assured Intelligence | Legal liability, user safety, quantified uncertainty |
+| 🟠 **High** | Monitoring & Observability, Cost Management, Data Quality | You can't fix what you can't see; costs can explode |
+| 🟡 **Important** | Red Teaming, Governance, Evaluation, Metric Alignment | Prevent attacks, ensure compliance, maintain quality |
 | 🟢 **Foundation** | Architecture, Agentic AI, Performance | Long-term scalability and maintainability |
 | 🔵 **Enablers** | Prompt Engineering, Strategy, Team | Operational excellence and continuous improvement |
 
@@ -77,6 +99,7 @@ This checklist helps you systematically evaluate your AI system's readiness for 
 | Section | What It Covers | Key Risk If Skipped |
 |---------|----------------|---------------------|
 | **Architecture & Design** | Data pipelines, model infrastructure, system design | Technical debt, scaling failures |
+| **🔬 Data Quality & Statistical Validity** | Training-serving skew, data leakage, drift detection | **Silent failures, "optimism trap," model degradation** |
 | **Agentic AI & MAS** | Multi-agent patterns, orchestration, collaboration | Coordination failures, unpredictable behavior |
 | **Security & Compliance** | Auth, encryption, privacy, industry standards | Data breaches, legal penalties |
 | **Red Teaming & LLM Security** | OWASP vulnerabilities, adversarial testing | Prompt injection, data leakage |
@@ -85,30 +108,160 @@ This checklist helps you systematically evaluate your AI system's readiness for 
 | **Safety & Ethics** | Input/output safety, bias, responsible AI | Harmful outputs, reputation damage |
 | **Monitoring & Observability** | Metrics, alerting, dashboards | Blind to issues, slow incident response |
 | **Operations & Maintenance** | Deployment, model management, DR | Downtime, data loss |
-| **AI Governance** | Regulatory compliance, ethics, audit trails | Fines, legal action, failed audits |
+| **🔧 Technical Debt & System Integrity** | CACE principle, pipeline jungles, feedback loops | **Brittle systems, cascading failures, stagnation** |
+| **AI Governance** | Regulatory compliance, EU AI Act, audit trails | Fines, legal action, failed audits |
 | **LLM Evaluation & Testing** | Quality metrics, testing types, benchmarks | Degraded quality, hallucinations |
+| **📐 Metric Alignment & Evaluation** | Proxy problems, Goodhart's Law, online evaluation | **Business-destructive "optimized" models** |
+| **🔬 Assured Intelligence & Quantitative Safety** | Conformal prediction, calibration, causal inference, zero-FN | **Overconfident wrong predictions, unquantified risk, proxy discrimination** |
 | **Prompt Engineering** | Design principles, version control, CI/CD | Inconsistent outputs, maintenance chaos |
 | **AI Strategy & Transformation** | Roadmap, implementation phases, change management | Failed adoption, wasted investment |
 | **Team & Process** | Documentation, training, organizational readiness | Knowledge silos, operational failures |
+| **🏥 Healthcare & Mental Health AI** | Crisis detection, clinical validation, ethics | **Patient harm, deaths, lawsuits** |
+| **⚠️ Anti-Patterns & Case Studies** | Zillow, Amazon, Epic failure analysis | **Repeating billion-dollar mistakes** |
+
+---
+
+## 🔄 AI Production Lifecycle Stages
+
+> **Why stage-based workflow matters:** Only 54% of AI projects transition from pilot to production (Gartner), and only 11% of companies unlock significant AI value (BCG). A structured stage-gate approach dramatically improves success rates by ensuring the right work happens at the right time.
+
+### The 8-Stage Model
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                        AI PRODUCTION LIFECYCLE                               │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│  Stage 1: IDEATION    Stage 2: DISCOVERY   Stage 3: POC      Stage 4: MVP  │
+│  ─────────────────    ──────────────────   ─────────────     ─────────────  │
+│  • Business case      • Data assessment    • Technical       • Working      │
+│  • Use case ID        • Feasibility        • feasibility     • prototype    │
+│  • Success metrics    • Risk assessment    • Core algorithm  • Basic UI     │
+│  • Stakeholder buy-in • Resource plan      • Initial results • Integration  │
+│                                                                              │
+│  GATE: Business       GATE: Technical      GATE: Viable?     GATE: Usable?  │
+│        Approval?             Feasible?                                       │
+│                                                                              │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│  Stage 5: PILOT       Stage 6: PRODUCTION  Stage 7: SCALE    Stage 8: OPTIMIZE │
+│  ──────────────       ──────────────────   ─────────────     ─────────────── │
+│  • Limited users      • Full deployment    • Multi-region    • Continuous   │
+│  • Real-world test    • MLOps pipeline     • Performance     • improvement  │
+│  • Feedback loops     • Monitoring         • Cost optimize   • Retraining   │
+│  • Safety validation  • Governance         • Team scaling    • Innovation   │
+│                                                                              │
+│  GATE: Safe &         GATE: Production     GATE: Scalable?   GATE: ROI      │
+│        Effective?            Ready?                                 Met?    │
+│                                                                              │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+### Stage Definitions
+
+| Stage | Purpose | Duration | Exit Criteria |
+|-------|---------|----------|---------------|
+| **Stage 1: Ideation** | Define the opportunity | 1-2 weeks | Business approval obtained |
+| **Stage 2: Discovery** | Assess feasibility | 2-4 weeks | Go/No-Go decision made |
+| **Stage 3: POC** | Prove technical viability | 2-6 weeks | Core algorithm validated |
+| **Stage 4: MVP** | Build working prototype | 4-8 weeks | Demo-ready prototype |
+| **Stage 5: Pilot** | Validate in real world | 4-12 weeks | Safe & effective for users |
+| **Stage 6: Production** | Deploy to all users | 2-4 weeks | Live & stable |
+| **Stage 7: Scale** | Expand reach & capacity | Ongoing | Meeting SLAs at scale |
+| **Stage 8: Optimize** | Continuous improvement | Ongoing | Sustained ROI achieved |
+
+### Gate Classification
+
+Gates are classified into three categories based on risk:
+
+| Type | Symbol | When Required | Rationale |
+|------|--------|---------------|-----------|
+| **Mandatory** | 🔴 | Always | Legal, safety, or existential risk—cannot proceed without |
+| **Advisory** | 🟡 | Strongly recommended | Significantly improves success probability |
+| **Configurable** | 🟢 | Organization decides | Depends on industry, user base, risk tolerance |
+
+#### 🔴 Mandatory Gates (Cannot Proceed Without)
+
+| Gate | Items | Why Mandatory |
+|------|-------|---------------|
+| **Any → Next** | Security vulnerabilities addressed | Legal liability, data breaches |
+| **Pilot → Production** | Safety validation complete | User safety, especially Healthcare AI |
+| **Pilot → Production** | Crisis detection tested (Healthcare) | Potential for fatal harm if missed |
+| **Any Stage** | Data privacy compliance (GDPR/HIPAA) | Fines up to 4% of revenue |
+| **Production → Scale** | Monitoring operational | Can't fix what you can't see |
+
+#### 🟡 Advisory Gates (Strongly Recommended)
+
+| Gate | Items | Why Advisory |
+|------|-------|--------------|
+| **Discovery → POC** | Risk assessment documented | Reduces surprises, but POC can surface unknowns |
+| **POC → MVP** | Model accuracy targets defined | Important, but can refine in MVP |
+| **MVP → Pilot** | Basic documentation complete | Helps users, but can iterate during pilot |
+| **Any Stage** | Bias testing complete | Critical for fairness, depth varies by risk |
+
+#### 🟢 Configurable Gates (Organization Decides)
+
+| Gate | Items | Factors to Consider |
+|------|-------|---------------------|
+| **Any Stage** | External validation | Required for Healthcare, optional for internal tools |
+| **POC → MVP** | Clinical advisor review | Required for Healthcare AI, optional otherwise |
+| **Pilot → Production** | A/B testing complete | Critical for consumer apps, optional for internal |
+| **Production → Scale** | Multi-region deployment | Required for global, optional for single-market |
+
+### Gate Decision Framework
+
+```
+Is there a legal/regulatory requirement?
+    │
+    ├── YES → 🔴 MANDATORY
+    │
+    └── NO → Could failure cause user harm?
+                │
+                ├── YES → 🔴 MANDATORY
+                │
+                └── NO → Does it significantly impact ROI?
+                            │
+                            ├── YES → 🟡 ADVISORY
+                            │
+                            └── NO → 🟢 CONFIGURABLE
+```
+
+### Healthcare AI: FDA Regulatory Overlay (Optional)
+
+When building Healthcare AI, enable this overlay to add FDA-specific requirements:
+
+| Standard Stage | FDA Addition | Requirements |
+|----------------|--------------|--------------|
+| Stage 3: POC | + Pre-Submission | FDA feedback on regulatory pathway |
+| Stage 4: MVP | + Analytical Validation | Technical performance verification |
+| Stage 5: Pilot | + Clinical Validation | Real-world clinical testing |
+| Stage 5→6 Gate | + Regulatory Submission | 510(k), De Novo, or PMA |
+| Stage 6: Production | + Market Authorization | FDA clearance/approval required |
+| Stage 8: Optimize | + Post-Market Surveillance | Ongoing safety monitoring |
+
+**FDA Gate Requirements (All Mandatory):**
+- [ ] Intended use clearly defined
+- [ ] Risk classification determined (Class I, II, or III)
+- [ ] Predicate device identified (for 510(k))
+- [ ] Clinical evidence sufficient for risk level
+- [ ] Quality Management System (QMS) established
+- [ ] Post-market surveillance plan documented
+
+> 📖 **Deep Dive:** See [docs/LIFECYCLE-STAGES.md](docs/LIFECYCLE-STAGES.md) for detailed stage requirements and checklists.
 
 ---
 
 ## 📋 Quick Navigation
 
-- [🏗️ Architecture & Design](#-architecture--design)
-- [🤖 Agentic AI & Multi-Agent Systems](#-agentic-ai--multi-agent-systems)
-- [🔐 Security & Compliance](#-security--compliance)
-- [🛡️ Red Teaming & LLM Security](#️-red-teaming--llm-security)
-- [⚡ Performance & Scale](#-performance--scale)
-- [💰 Cost Management & FinOps](#-cost-management--finops)
-- [🛡️ Safety & Ethics](#️-safety--ethics)
-- [📊 Monitoring & Observability](#-monitoring--observability)
-- [🔄 Operations & Maintenance](#-operations--maintenance)
-- [📜 AI Governance](#-ai-governance)
-- [🧪 LLM Evaluation & Testing](#-llm-evaluation--testing)
-- [✍️ Prompt Engineering](#️-prompt-engineering)
-- [📈 AI Strategy & Transformation](#-ai-strategy--transformation)
-- [👥 Team & Process](#-team--process)
+| Core Foundations | Production Operations | Strategy & Governance |
+|------------------|----------------------|----------------------|
+| [🏗️ Architecture & Design](#-architecture--design) | [📊 Monitoring & Observability](#-monitoring--observability) | [📜 AI Governance](#-ai-governance) |
+| [🔬 Data Quality & Statistical Validity](#-data-quality--statistical-validity) | [🔄 Operations & Maintenance](#-operations--maintenance) | [🧪 LLM Evaluation & Testing](#-llm-evaluation--testing) |
+| [🤖 Agentic AI & Multi-Agent Systems](#-agentic-ai--multi-agent-systems) | [🔧 Technical Debt & System Integrity](#-technical-debt--system-integrity) | [📐 Metric Alignment & Evaluation](#-metric-alignment--evaluation-integrity) |
+| [🔐 Security & Compliance](#-security--compliance) | [💰 Cost Management & FinOps](#-cost-management--finops) | [🔬 Assured Intelligence & Quantitative Safety](#-assured-intelligence--quantitative-safety) |
+| [🛡️ Red Teaming & LLM Security](#️-red-teaming--llm-security) | [⚡ Performance & Scale](#-performance--scale) | [✍️ Prompt Engineering](#️-prompt-engineering) |
+| [🛡️ Safety & Ethics](#️-safety--ethics) | [🏥 Healthcare & Mental Health AI](#-healthcare--mental-health-ai-safety) | [📈 AI Strategy & Transformation](#-ai-strategy--transformation) |
+| | [⚠️ Anti-Patterns & Case Studies](#️-anti-patterns-lessons-from-catastrophic-failures) | [👥 Team & Process](#-team--process) |
 
 ---
 
@@ -227,6 +380,75 @@ This checklist helps you systematically evaluate your AI system's readiness for 
   | Decentralized | Department-managed AI | Autonomy vs. governance challenges |
   | Federated Learning | Distributed data sources | Privacy vs. communication costs |
   </details>
+
+---
+
+## 🔬 Data Quality & Statistical Validity
+
+> **Why it matters:** Research reveals that 80%+ of AI failures trace to data issues, not model complexity. Training-Serving Skew is a "silent failure"—models output garbage predictions with high confidence without crashing. Data leakage creates an "optimism trap" where prototype metrics are artificially inflated. This section addresses the primary technical determinant of production success.
+
+### Training-Serving Skew Prevention
+
+> ⚠️ "This skew acts as a 'silent failure'; the model does not crash or throw exceptions. It simply outputs garbage predictions with high confidence."
+
+- [ ] **Single Pipeline Architecture**: Feature engineering code identical between training and inference (no dual-pipeline anti-pattern)
+- [ ] **Feature Store Implemented**: Centralized repository ensures feature calculation consistency across environments
+- [ ] **Schema Enforcement**: Input schemas validated at inference time match training schemas exactly
+- [ ] **Numerical Precision Parity**: Training (Python/Pandas) and serving (Java/Go/C++) use identical numerical precision
+- [ ] **Time Zone Handling**: Temporal features calculated identically (UTC normalization enforced)
+- [ ] **Missing Value Strategy**: Imputation logic production-identical (not notebook-specific hacks)
+- [ ] **Shadow Mode Validation**: New models run in parallel with existing, comparing outputs before promotion
+
+<details>
+<summary>💡 Anti-Pattern Alert</summary>
+
+The "dual-pipeline" pattern (Data Scientists in Python → Engineers rewrite in Java) is a primary source of skew. Use Feature Stores (Feast, Tecton, Featureform) to structurally eliminate this risk.
+</details>
+
+### Data Leakage Prevention
+
+> ⚠️ "Leakage artificially inflates evaluation metrics during the PoC, creating a false sense of security that evaporates upon deployment."
+
+- [ ] **Target Leakage Audit**: All features verified to be causally available BEFORE prediction timestamp
+- [ ] **Train-Test Contamination Check**: No global preprocessing (normalization, scaling) performed before data split
+- [ ] **Temporal Discipline**: Time-series data split chronologically, never randomly
+- [ ] **Feature Provenance Documentation**: Each feature's data source, calculation logic, and temporal availability documented
+- [ ] **Leakage Detection Tests**: Automated tests flag suspiciously high-performing features (>0.95 correlation with target)
+- [ ] **Cross-Validation Strategy**: Appropriate CV method for data type (TimeSeriesSplit for temporal, GroupKFold for hierarchical)
+
+<details>
+<summary>💡 The Antibiotic Example</summary>
+
+A pneumonia prediction model learned `took_antibiotic=True` predicts pneumonia perfectly—in historical data. In production, this feature is unknown at prediction time. The model fails catastrophically because it trained on leaked future information.
+</details>
+
+### Distribution Drift Detection
+
+> ⚠️ "The fundamental assumption that training and test data are IID (Independent and Identically Distributed) is rarely true in enterprise environments."
+
+| Drift Type | Definition | Detection Method | Trigger Action |
+|------------|------------|------------------|----------------|
+| **Covariate Shift** | P(X) changes | KS-test, PSI on inputs | Alert + investigate |
+| **Concept Drift** | P(Y\|X) changes | Performance degradation | Immediate retraining |
+| **Label Shift** | P(Y) changes | Prior probability monitoring | Recalibration |
+
+- [ ] **Covariate Shift Monitoring**: Statistical tests (Kolmogorov-Smirnov, Population Stability Index) on input feature distributions
+- [ ] **Concept Drift Detection**: Ground truth feedback loops to detect P(Y|X) relationship changes
+- [ ] **Label Shift Tracking**: Target variable distribution (base rates) monitored over time
+- [ ] **Automated Retraining Triggers**: Drift thresholds trigger retraining pipelines (not just alerts)
+- [ ] **Windowed Performance Tracking**: Rolling accuracy/precision calculated by time window (daily, weekly)
+- [ ] **Seasonality Accounting**: Known cyclical patterns (holidays, quarters, fiscal years) factored into drift calculations
+
+### External Validation Requirements
+
+> ⚠️ "The Epic Sepsis Model claimed AUC of 0.76-0.83 internally; external validation found AUC as low as 0.63."
+
+- [ ] **Multi-Source Validation**: Model tested on data from at least 2 independent sources/environments
+- [ ] **Demographic Stratification**: Performance validated and documented across demographic segments
+- [ ] **Geographic Validation**: If applicable, tested across all deployment regions/sites
+- [ ] **Temporal Holdout**: Validated on data from a future time period (not random split)
+- [ ] **Site-Specific Calibration Plan**: Strategy for adapting model to local deployment conditions
+- [ ] **Model Card with External Results**: External validation results documented in public model card
 
 ---
 
@@ -641,6 +863,54 @@ This checklist helps you systematically evaluate your AI system's readiness for 
 
 ---
 
+## 🔧 Technical Debt & System Integrity
+
+> **Why it matters:** ML systems have a unique capacity to incur massive, invisible maintenance costs. The CACE principle (Changing Anything Changes Everything) means small upstream changes can catastrophically break downstream models. This debt compounds silently during prototyping and surfaces explosively in production.
+
+### The CACE Principle (Changing Anything Changes Everything)
+
+> ⚠️ "In an ML model, altering one input feature can change the optimal weights for all others, making systems incredibly brittle."
+
+- [ ] **Feature Dependency Map**: Documented which features are correlated/entangled with each other
+- [ ] **Upstream Change Notifications**: Automated alerts when data sources change schemas or distributions
+- [ ] **Full Retraining Policy**: Clear policy for when to retrain entire model vs. incremental update
+- [ ] **Hyperparameter Sensitivity Analysis**: Documented which hyperparameters are sensitive to data changes
+- [ ] **Model-Data Version Binding**: Model versions explicitly tied to specific data snapshots
+- [ ] **Impact Analysis Process**: Before any change, assess downstream impact on model performance
+
+### Pipeline Jungle Prevention
+
+> ⚠️ "A failure in an upstream data source can propagate silently through the pipeline, corrupting training data without triggering an error."
+
+- [ ] **Pipeline DAG Visualization**: Data lineage visualized from raw source to model input
+- [ ] **Data Contracts Enforced**: Producer-consumer contracts for data schemas with automated validation
+- [ ] **Intermediate Checkpoints**: Data quality checks at each pipeline stage (not just ingestion and output)
+- [ ] **Glue Code Elimination**: Research/notebook code abstracted into testable modules (not copy-pasted)
+- [ ] **Pipeline Unit Tests**: Transformation logic has unit tests with expected input/output pairs
+- [ ] **Null Propagation Alerts**: Explicit handling and alerting for null/missing values at every stage
+- [ ] **Idempotency Guaranteed**: Pipeline can be re-run safely without side effects
+
+### Feedback Loop Management
+
+- [ ] **Direct Feedback Loops Cataloged**: Cases where model output directly becomes training data
+- [ ] **Hidden Feedback Loops Identified**: Indirect influence paths (model → world → data)
+- [ ] **Loop Damping Mechanisms**: Strategies to prevent runaway self-reinforcement
+- [ ] **Exploration Budget**: System allocates capacity to explore beyond model recommendations
+- [ ] **Counterfactual Data Collection**: Mechanisms to gather data on actions not taken
+
+### Undeclared Consumer Management
+
+> ⚠️ "Any change or improvement can inadvertently break critical downstream processes, creating fear of updating and model stagnation."
+
+- [ ] **Consumer Registry**: All systems consuming model outputs documented and maintained
+- [ ] **Deprecation Policy**: Formal process for notifying consumers of model changes
+- [ ] **Output Schema Versioning**: Model outputs versioned with backward compatibility guarantees
+- [ ] **Contract Testing**: Downstream systems tested when model interface changes
+- [ ] **Threshold Documentation**: Any hard-coded thresholds on model outputs documented with owners
+- [ ] **Breaking Change Protocol**: Process for coordinating breaking changes across consumers
+
+---
+
 ## 📜 AI Governance
 
 > **Why it matters:** The EU AI Act is now law. NIST and ISO 42001 are becoming enterprise requirements. Organizations that ignore governance face fines, failed audits, and banned products. Only 33% of organizations have embedded AI governance—being compliant is a competitive advantage.
@@ -652,6 +922,27 @@ This checklist helps you systematically evaluate your AI system's readiness for 
   - [ ] ISO 42001: International AI management standards
   - [ ] OECD AI Principles: Ethical/human-centered guidelines
   - [ ] Regional frameworks (UK Pro-Innovation, etc.)
+
+### EU AI Act: Prohibited Practices (Effective February 2025)
+
+> ⚠️ CRITICAL: A technically successful prototype may be ILLEGAL to deploy. These practices result in immediate project termination.
+
+**Absolutely Prohibited (No Exceptions):**
+- [ ] **Social Scoring Ban**: System does NOT evaluate/classify natural persons based on social behavior or personality traits leading to detrimental treatment
+- [ ] **Emotion Recognition Ban (Workplace/Education)**: System does NOT infer emotions of individuals in workplaces or educational institutions
+- [ ] **Real-Time Biometric ID Ban**: System does NOT use real-time remote biometric identification in publicly accessible spaces (narrow law enforcement exceptions)
+- [ ] **Subliminal Manipulation Ban**: System does NOT deploy subliminal techniques beyond consciousness to distort behavior
+- [ ] **Vulnerability Exploitation Ban**: System does NOT exploit vulnerabilities of specific groups (age, disability, social/economic situation)
+- [ ] **Biometric Categorization Ban**: System does NOT categorize individuals based on biometric data to infer race, political opinions, religious beliefs, sexual orientation
+- [ ] **Untargeted Facial Recognition Scraping Ban**: System does NOT create facial recognition databases through untargeted scraping
+
+**Risk Classification Completed:**
+- [ ] System classified as: Prohibited / High-Risk / Limited Risk / Minimal Risk
+- [ ] If High-Risk: Conformity assessment requirements identified
+- [ ] If High-Risk: Quality management system documented
+- [ ] Legal review completed for EU deployment
+
+> ⛔ **STOP GATE**: If ANY prohibited practice applies to your system, EU deployment CANNOT proceed regardless of other readiness scores. Consult legal counsel immediately.
 
 ### Governance Implementation (5 Pillars)
 - [ ] **AI Organization**
@@ -750,6 +1041,230 @@ This checklist helps you systematically evaluate your AI system's readiness for 
   - **RAGAS**: RAG-specific evaluation
   - **OpenAI Evals**: Open-source, community-driven
   </details>
+
+---
+
+## 📐 Metric Alignment & Evaluation Integrity
+
+> **Why it matters:** A model can be mathematically "optimal" according to its loss function while being "destructive" to the business. Goodhart's Law explains why metrics degrade when they become targets. This section ensures your evaluation actually predicts real-world success, not just offline performance.
+
+### The Proxy Problem
+
+> ⚠️ "Optimizing for proxy metrics like CTR can lead a recommender to promote clickbait, ultimately degrading user trust and long-term retention."
+
+- [ ] **Metric Mapping Document**: Each offline metric explicitly mapped to corresponding business KPI
+- [ ] **Negative Correlation Testing**: Verified that optimizing proxy metric doesn't hurt true business objective
+- [ ] **Long-Term Impact Assessment**: Short-term metrics (CTR, engagement) validated against long-term outcomes (LTV, retention)
+- [ ] **Multi-Objective Evaluation**: Primary metric + guardrail metrics defined (optimize X while Y stays above threshold)
+- [ ] **Stakeholder Metric Sign-Off**: Business owners reviewed and approved proxy metric relevance
+
+<details>
+<summary>💡 The Recommender Trap</summary>
+
+Netflix/Spotify research shows optimizing for clicks/streams often NEGATIVELY correlates with long-term satisfaction. Users click clickbait, hate it, then churn.
+</details>
+
+### Goodhart's Law Awareness
+
+> ⚠️ "When a measure becomes a target, it ceases to be a good measure."
+
+- [ ] **Adversarial Metric Analysis**: Documented how each metric could theoretically be "gamed"
+- [ ] **Multi-Metric Dashboard**: No single metric used as sole success criterion
+- [ ] **Human-in-Loop Reviews**: Regular qualitative review of outputs beyond automated metrics
+- [ ] **Metric Validity Refresh**: Scheduled cadence for reviewing whether metrics remain valid proxies
+- [ ] **Unintended Consequence Monitoring**: Active tracking of side effects from metric optimization
+
+<details>
+<summary>💡 Call Center Paradox</summary>
+
+AI optimized for "Average Handling Time" learns that hanging up immediately = 0 seconds = perfect score. Metric gamed, customers furious.
+</details>
+
+### Counterfactual & Feedback Loop Awareness
+
+> ⚠️ "The feedback signal is 'censored'... the model reinforces its own initial biases, creating a self-fulfilling prophecy."
+
+- [ ] **Feedback Loop Identification**: All ways model output influences future training data documented
+- [ ] **Hidden Loop Detection**: Indirect feedback paths identified (model → user behavior → data)
+- [ ] **Exploration Strategy**: Model occasionally explores non-optimal actions to gather unbiased data
+- [ ] **Off-Policy Evaluation Capability**: Can estimate performance of alternative policies from logged data
+- [ ] **Censored Data Acknowledgment**: Known limitations documented (only observe outcomes for actions taken)
+- [ ] **Debiasing Strategy**: Plan for addressing selection bias in feedback data
+
+<details>
+<summary>💡 Predictive Policing Loop</summary>
+
+Model predicts crime in Area A → Police deployed → Crime observed → Model reinforced. It predicts police deployment, not crime distribution.
+</details>
+
+### Online Evaluation Infrastructure
+
+- [ ] **A/B Testing Framework**: Infrastructure for randomized controlled experiments in production
+- [ ] **Shadow Mode Deployment**: Models can run on live traffic without affecting user experience
+- [ ] **Interleaving Capability**: For ranking systems, can mix results from models A and B in same response
+- [ ] **Guardrail Metrics**: Safety/quality metrics that automatically halt experiments if breached
+- [ ] **Statistical Rigor**: Sample size calculations and significance thresholds documented before experiments
+- [ ] **Experiment Velocity**: Can run multiple concurrent experiments with proper isolation
+
+---
+
+## 🔬 Assured Intelligence & Quantitative Safety
+
+> **Why it matters:** Traditional checklists ensure "probably works"—this section ensures "provably works within bounds." A model can achieve 95% accuracy while producing overconfident wrong predictions that cause patient deaths. Conformal Prediction, causal validation, and selective prediction provide mathematical guarantees that transform AI from "good enough" to "assured."
+
+### Uncertainty Quantification (Conformal Prediction)
+
+> ⚠️ "A prediction of 'sepsis probability 0.73' is meaningless without knowing if the 95% interval is [0.71, 0.75] or [0.23, 0.95]."
+
+- [ ] **Calibration Set Separated**: Held-out data for conformal calibration (≥1000 samples)
+- [ ] **Non-Conformity Score Defined**: Appropriate score function for task type
+- [ ] **Coverage Level Set**: Target coverage defined (≥95% for healthcare, ≥90% typical)
+- [ ] **Prediction Intervals Generated**: Every prediction includes conformal interval
+- [ ] **Coverage Validated Empirically**: Actual coverage matches target
+- [ ] **Conditional Coverage Tested**: Coverage validated across subgroups (fairness)
+- [ ] **Interval Width Monitored**: Track and alert on interval width changes
+
+<details>
+<summary>💡 Conformal Prediction Explained</summary>
+
+**Conformal Prediction** provides mathematically valid prediction intervals with guaranteed coverage—regardless of the underlying distribution.
+
+```
+P(Y_true ∈ Prediction_Set) ≥ 1 - α
+```
+
+This guarantee holds for ANY distribution (distribution-free) with finite samples.
+
+**Key Libraries:** [MAPIE](https://github.com/scikit-learn-contrib/MAPIE), [TorchUQ](https://github.com/TorchUQ/torchuq)
+</details>
+
+### Probability Calibration
+
+> ⚠️ "When a model outputs P=0.80, 80% of cases with that score must actually be positive. Modern neural networks are notoriously miscalibrated—overconfident."
+
+- [ ] **ECE Computed**: Expected Calibration Error measured
+  - Healthcare: ECE < 0.05 (mandatory)
+  - Financial: ECE < 0.05 (recommended)
+  - Consumer: ECE < 0.10 (acceptable)
+- [ ] **Reliability Diagram Generated**: Visual calibration assessment
+- [ ] **Post-Hoc Calibration Applied**: Temperature scaling or Platt scaling if ECE too high
+- [ ] **Calibration Per Subgroup**: ECE validated across demographic groups
+- [ ] **Recalibration Triggers**: Automated recalibration when drift detected
+
+<details>
+<summary>💡 Calibration Metrics</summary>
+
+| Metric | Formula | Target |
+|--------|---------|--------|
+| **ECE** | Weighted average of |accuracy - confidence| per bin | < 0.05 (healthcare) |
+| **MCE** | Maximum |accuracy - confidence| across bins | < 0.15 |
+| **Brier Score** | Mean squared error of probability estimates | Lower is better |
+
+**Key Research:** [On Calibration of Modern Neural Networks (Guo et al., 2017)](https://arxiv.org/abs/1706.04599)
+</details>
+
+### Selective Prediction & Abstention
+
+> ⚠️ "The most dangerous AI is one that's confidently wrong. The model's primary capability should be knowing when to say 'I don't know.'"
+
+- [ ] **Uncertainty Threshold Defined**: Threshold above which model abstains
+- [ ] **Abstention Action Defined**: Human review, fallback model, or error response
+- [ ] **Coverage Target Set**: Minimum % of inputs that must receive predictions (e.g., 85%)
+- [ ] **OOD Detector Implemented**: Out-of-distribution detection operational
+- [ ] **OOD Threshold Calibrated**: Threshold tuned on calibration set
+- [ ] **Abstention Rate Monitored**: Track % abstentions over time
+- [ ] **Accuracy-on-Predicted Tracked**: Accuracy excluding abstained cases
+
+<details>
+<summary>💡 Coverage-Accuracy Trade-off</summary>
+
+```
+Accuracy
+   ▲
+99%├─────────────────────────────────╮
+   │                                 │
+95%├───────────────╮                 │
+   │               │                 │
+90%├──────╮        │                 │
+   │      │        │                 │
+   └──────┴────────┴─────────────────┴──────▶ Coverage
+        100%      90%       70%        50%
+
+By abstaining on uncertain cases (reducing coverage), accuracy improves.
+```
+</details>
+
+### Causal Intelligence (Do-Calculus)
+
+> ⚠️ "The Amazon recruiting AI failed because it learned correlations (women's college names → rejection) not causes. Removing 'gender' doesn't fix proxy discrimination."
+
+- [ ] **Causal DAG Documented**: Explicit causal graph for the domain
+- [ ] **Domain Expert Validation**: Causal assumptions reviewed by experts
+- [ ] **Confounder Identification**: All confounders identified and addressed
+- [ ] **Proxy Discrimination Tested**: Protected attributes cannot be reconstructed from features
+- [ ] **Counterfactual Fairness Evaluated**: Would prediction change if ONLY protected attribute changed?
+- [ ] **Backdoor Paths Blocked**: Confounders adjusted for or controlled
+
+<details>
+<summary>💡 Correlation vs. Causation</summary>
+
+| Analysis | Question | Method |
+|----------|----------|--------|
+| **Correlation** | Are X and Y associated? | Statistical tests |
+| **Causation** | Does X cause Y? | Do-calculus, interventions |
+| **Proxy** | Can A be inferred from X? | Reconstruction testing |
+| **Counterfactual** | What if A were different? | Causal inference |
+
+**Key Research:** [Causality (Pearl, 2009)](https://doi.org/10.1017/CBO9780511803161), [DoWhy Library](https://github.com/py-why/dowhy)
+</details>
+
+### Zero-False-Negative Engineering (Healthcare/Safety-Critical)
+
+> ⚠️ "In cancer screening, a false negative (missed cancer → death) is catastrophically worse than a false positive (unnecessary biopsy). Optimize for asymmetric error costs."
+
+- [ ] **Asymmetric Error Costs Quantified**: FN cost and FP cost explicitly documented
+- [ ] **Cost Ratio Calculated**: FN_cost / FP_cost ratio determines operating point
+- [ ] **Sensitivity Floor Defined**: Minimum sensitivity requirement (e.g., 99.9%)
+- [ ] **Layered Architecture Implemented**: Multiple detection layers for redundancy
+  - Layer 1: High-sensitivity detector (catch all positives)
+  - Layer 2: High-specificity classifier (reduce false positives)
+  - Layer 3: Anomaly detector (catch OOD cases)
+  - Layer 4: Human escalation (uncertain cases)
+- [ ] **Layer Independence**: Layers use different approaches/features
+- [ ] **FN Root Cause Analysis**: Every false negative investigated
+- [ ] **Sensitivity Monitored Per Subgroup**: Validated across demographics
+
+<details>
+<summary>💡 Zero-False-Negative Architecture</summary>
+
+```
+Input → [High-Sensitivity Detector] → Positive? → [Specific Classifier] → ...
+                    │                                       │
+                    │ Negative                              │
+                    ▼                                       ▼
+         [Anomaly Detector] → Anomalous? → Human Review    Output
+                    │
+                    │ Normal
+                    ▼
+               SAFE NEGATIVE
+
+Key: A negative output requires ALL layers to agree.
+     Any positive triggers escalation.
+```
+</details>
+
+### Assured Intelligence Summary Checklist
+
+| Category | Metric | Target (General) | Target (Healthcare) |
+|----------|--------|-----------------|---------------------|
+| **Conformal** | Coverage | ≥ 90% | ≥ 95% |
+| **Calibration** | ECE | < 0.10 | < 0.05 |
+| **Selective** | Abstention Rate | < 20% | < 30% |
+| **Selective** | OOD Detection | > 90% | > 95% |
+| **Zero-FN** | Sensitivity | ≥ 95% | ≥ 99% |
+| **Zero-FN** | False Negatives | Track | 0 target |
+
+> 📖 **Deep Dive:** See [docs/ASSURED-INTELLIGENCE.md](docs/ASSURED-INTELLIGENCE.md) for comprehensive implementation guide with code patterns.
 
 ---
 
@@ -914,6 +1429,206 @@ This checklist helps you systematically evaluate your AI system's readiness for 
 
 ---
 
+## 🏥 Healthcare & Mental Health AI Safety
+
+> **Why it matters:** Healthcare AI failures don't just cost money—they cost lives. IBM Watson for Oncology ($4B+ failure), Babylon Health ($4.2B → $0), Forward CarePods ($650M → shutdown), and Character.AI (teen suicide) demonstrate that healthcare and mental health AI requires fundamentally different safety standards. The checklist items below address failure patterns unique to these high-stakes domains.
+
+### Crisis Detection & Intervention (Mental Health AI)
+
+> ⚠️ CRITICAL: Character.AI's chatbot asked a teen if he had "a plan" for suicide. When he said he didn't know if it would work, the bot replied "Don't talk that way. That's not a good reason not to go through with it." The teen died by suicide hours later.
+
+- [ ] **Suicide/Self-Harm Detection**: Multi-modal detection (explicit statements, indirect signals like "bridges over 25m in NYC")
+- [ ] **Crisis Response Protocol**: Immediate safety resources displayed on detection (crisis hotlines, text lines)
+- [ ] **Human Escalation Path**: 24/7 human handoff capability for high-risk conversations
+- [ ] **No Harmful Encouragement**: Responses validated to NEVER encourage self-harm, even inadvertently
+- [ ] **Dependency Monitoring**: User engagement patterns monitored for unhealthy attachment/addiction
+- [ ] **Age-Appropriate Safeguards**: Enhanced protections for minors (no romantic/sexual content, parental visibility)
+
+<details>
+<summary>💡 The Yara AI Lesson</summary>
+
+A seasoned tech entrepreneur with clinical psychologist co-founder built Yara AI therapy—then voluntarily shut it down:
+
+*"We stopped Yara because we realized we were building in an impossible space. AI can be wonderful for everyday stress, sleep troubles, or processing a difficult conversation. But the moment someone truly vulnerable reaches out—someone in crisis, someone with deep trauma, someone contemplating ending their life—AI becomes dangerous. Not just inadequate. Dangerous."*
+
+**Key Insight**: Even with clinical expertise and AI safety focus, the founder determined mental health AI for vulnerable populations is currently impossible to do safely without strict scope boundaries.
+</details>
+
+### Therapeutic AI Ethics (Brown University 15 Violations)
+
+> ⚠️ Brown University (2025) identified 15 ethical violations in mental health chatbots including deceptive empathy, unfair discrimination, and amplifying feelings of rejection.
+
+- [ ] **Contextual Adaptation**: Responses account for user's lived experiences (not one-size-fits-all)
+- [ ] **Therapeutic Collaboration**: AI does not dominate conversations or impose solutions
+- [ ] **Honest Empathy**: No deceptive phrases like "I see you" that create false human connection
+- [ ] **Bias Testing**: Validated across gender, culture, religion, and mental health conditions
+- [ ] **No Belief Reinforcement**: AI does not reinforce user's false beliefs or delusions
+- [ ] **Stigma Testing**: Equal quality of response across conditions (depression vs. schizophrenia vs. addiction)
+- [ ] **Rejection Mitigation**: Responses validated to not amplify feelings of rejection
+
+### Clinical AI Validation (IBM Watson Lessons)
+
+> ⚠️ IBM Watson for Oncology provided "inappropriate or even unsafe recommendations" because it was trained on US data and deployed internationally without validation.
+
+- [ ] **Geographic Validation**: Model validated in ALL deployment regions (not just development region)
+- [ ] **Local Clinical Guidelines**: Recommendations align with local treatment standards and drug availability
+- [ ] **Unsafe Output Prevention**: Clinical recommendations reviewed for potential patient harm
+- [ ] **Peer-Reviewed Evidence**: Marketing claims substantiated by independent clinical validation
+- [ ] **Regulatory Approval**: Appropriate clearances obtained (FDA, CE marking, etc.) before deployment
+- [ ] **Clinician Override**: Healthcare professionals can always override AI recommendations
+
+### Deployment Environment Validation (Google Verily Thailand)
+
+> ⚠️ Google's diabetic retinopathy AI achieved 90%+ accuracy in lab settings but failed in Thai clinics due to lighting conditions, image quality, and internet connectivity.
+
+- [ ] **Real-World Environment Testing**: Validated in actual deployment conditions (lighting, equipment, connectivity)
+- [ ] **Image/Input Quality Thresholds**: Clear rejection criteria when input quality is insufficient
+- [ ] **Graceful Degradation**: System behavior defined for suboptimal conditions
+- [ ] **Workflow Integration**: Tested within actual clinical workflows, not just standalone
+
+### Human-in-the-Loop Requirements
+
+> ⚠️ Forward Health CarePods removed human oversight from clinical contexts and failed due to "technical breakdowns, usability failures, and clinical safety concerns."
+
+- [ ] **Human Review Required**: All clinical AI recommendations require human clinician review
+- [ ] **Clear AI Disclosure**: Users understand they are interacting with AI, not a human
+- [ ] **Human Handoff Protocol**: Defined triggers for escalation to human professional
+- [ ] **Usability with Real Patients**: Interface tested with actual patient populations (not just healthy tech workers)
+- [ ] **Clinical Context Preserved**: Automation does not remove necessary human judgment from high-stakes decisions
+
+### Longitudinal Safety (Transformer Architecture Limitation)
+
+> ⚠️ Yara AI founder: "The Transformer architecture is just not very good at longitudinal observation, making it ill-equipped to see little signs that build over time."
+
+- [ ] **Longitudinal Pattern Tracking**: System tracks patterns across sessions, not just within sessions
+- [ ] **Deterioration Detection**: Ability to detect gradual worsening over time
+- [ ] **Session History Integration**: Current session informed by relevant history
+- [ ] **Trend Alerting**: Concerning trends flagged for human review
+
+### Vulnerable Population Safeguards
+
+> ⚠️ Babylon Health exacerbated health inequity by being "more accessible to younger (healthier) people than to older and less healthy groups."
+
+- [ ] **Accessibility Validation**: Tested with elderly, low-tech-literacy, and disabled users
+- [ ] **Health Equity Assessment**: AI does not create/worsen disparities across populations
+- [ ] **Cognitive Load Assessment**: Interface appropriate for users in distress or with cognitive limitations
+- [ ] **Economic Model Validation**: Business model tested against actual usage patterns (not optimistic projections)
+
+### Scope Boundaries (What AI Will NOT Do)
+
+> ⚠️ The most responsible mental health AI companies define clear boundaries. Yara's founder: "AI can be wonderful for everyday stress, sleep troubles, or processing a difficult conversation. But the moment someone truly vulnerable reaches out... AI becomes dangerous."
+
+- [ ] **Clear Scope Definition**: Documented what the AI is designed for AND what it is NOT designed for
+- [ ] **Scope Enforcement**: Technical controls prevent AI from operating outside defined scope
+- [ ] **User Expectation Setting**: Users informed upfront about AI capabilities and limitations
+- [ ] **Graceful Scope Exit**: When user needs exceed scope, clear path to appropriate resources
+- [ ] **Founder Kill Switch**: Team prepared to shut down if safety cannot be assured
+
+### Elderly Care AI Considerations
+
+> ⚠️ "That's too risky at this stage for high-stakes situations like caregiving. We want to make sure that everyone understands that you can't take what [an AI] comes back with at face value."
+
+- [ ] **Human Review Required**: All clinical recommendations reviewed by humans
+- [ ] **Accessibility Validated**: UI/UX tested with elderly populations (vision, hearing, cognitive)
+- [ ] **Caregiver Integration**: Family/caregiver notification and involvement paths
+- [ ] **Technology Fear Mitigation**: Design addresses technology anxiety in elderly users
+- [ ] **Cognitive Decline Detection**: Patterns flagged to appropriate care providers
+- [ ] **Medication Safety**: Drug interaction and dosage recommendations verified
+
+### Healthcare Regulatory Compliance
+
+- [ ] **HIPAA/HITECH**: PHI protection verified
+- [ ] **FDA Software as Medical Device (SaMD)**: Classification determined
+- [ ] **EU MDR**: Medical device regulation compliance (if applicable)
+- [ ] **State Mental Health Laws**: Jurisdiction-specific requirements met
+- [ ] **Clinical Trial Requirements**: Human subjects research protocols followed
+- [ ] **Liability Insurance**: Professional liability coverage adequate
+
+### Healthcare AI Summary Checklist
+
+| Failure | What Happened | Year | Loss | Prevention Check |
+|---------|--------------|------|------|------------------|
+| IBM Watson | US-trained model failed internationally | 2023 | $4B+ | [ ] Geographic validation |
+| Babylon Health | Unvalidated clinical claims | 2023 | $4.2B | [ ] Third-party clinical validation |
+| Forward CarePods | Removed human oversight | 2024 | $650M | [ ] Human-in-the-loop maintained |
+| Character.AI | No crisis detection, encouraged self-harm | 2024 | Teen suicide | [ ] Crisis detection + response safety |
+| Yara | LLM can't track longitudinal patterns | 2025 | Voluntary | [ ] Longitudinal tracking |
+| Brown Study | 15 ethical violations in therapy bots | 2025 | Research | [ ] Ethics validation |
+| Stanford Study | Stigma toward certain conditions | 2025 | Research | [ ] Bias testing |
+| Epic Sepsis | 67% miss rate, alert fatigue | 2021 | Clinical harm | [ ] PPV optimization |
+| Google Verily | Lab accuracy failed in real clinics | 2020 | Undisclosed | [ ] Real-world environment testing |
+| Olive AI | Healthcare ops unicorn collapse | 2024 | ~$4B | [ ] Economic model validation |
+
+---
+
+## ⚠️ Anti-Patterns: Lessons from Catastrophic Failures
+
+> **Why it matters:** These case studies represent billions in losses and destroyed careers. Each failure provides concrete patterns to detect and avoid in your own systems.
+
+### Case Study 1: Zillow Offers ($500M+ Loss)
+
+**What happened:** Zillow's iBuying algorithm made instant cash offers on homes. In 2021, the division was shut down with a $500M+ write-down and 25% workforce reduction.
+
+**Root Causes Identified:**
+1. **Adverse Selection**: Model errors weren't random. Homeowners accepted overvalued offers, rejected undervalued ones. Zillow systematically acquired "lemons."
+2. **Regime Change Blindness**: Model built on pre-COVID trends failed to adapt to volatile post-pandemic market.
+3. **Algorithmic Hubris**: Point estimates treated as truth; uncertainty and tail risk ignored.
+
+**Anti-Patterns to Check:**
+- [ ] **Adverse Selection Analysis**: Documented how counterparties might exploit asymmetric information about model errors
+- [ ] **Regime Change Planning**: Strategy for detecting and responding when historical patterns break
+- [ ] **Uncertainty Quantification**: Decisions use confidence intervals/prediction intervals, not point estimates
+- [ ] **Human Override Protocol**: Clear escalation path for high-stakes decisions beyond model recommendation
+- [ ] **Asymmetric Error Costs**: Documented and optimized for different costs of over-prediction vs. under-prediction
+
+### Case Study 2: Amazon Recruiting AI (Bias Amplification)
+
+**What happened:** Amazon's resume-screening AI, trained on 10 years of hiring data, systematically penalized female candidates. Project scrapped.
+
+**Root Causes Identified:**
+1. **Historical Bias in Training Data**: Data reflected decade of male-dominated tech hiring.
+2. **Proxy Discrimination**: Even with "gender" removed, model found proxies ("women's chess club," women's college names).
+
+**Anti-Patterns to Check:**
+- [ ] **Proxy Variable Audit**: Tested whether protected attributes can be reconstructed from remaining features
+- [ ] **Historical Bias Assessment**: Training data evaluated for patterns reflecting historical discrimination
+- [ ] **Disparate Impact Testing**: Model outputs tested for statistical disparities across demographic groups
+- [ ] **Bias Reconstruction Testing**: Verified model can't infer protected attributes from allowed features
+- [ ] **Regular Fairness Audits**: Scheduled re-evaluation (not just one-time pre-launch testing)
+- [ ] **Diverse Evaluation Team**: People from affected groups involved in testing and evaluation
+
+### Case Study 3: Epic Sepsis Model (67% Miss Rate, Alert Fatigue)
+
+**What happened:** Widely deployed clinical AI for early sepsis detection. External validation found it missed 67% of cases with ~12% Positive Predictive Value.
+
+**Root Causes Identified:**
+1. **Alert Fatigue**: ~8 false alarms per true positive. Clinicians ignored the tool entirely.
+2. **Overfitting to Source**: Model overfitted to specific hospitals' coding practices and workflows.
+3. **COVID Regime Shift**: During pandemic, couldn't distinguish COVID symptoms from sepsis (43% alert increase).
+
+**Anti-Patterns to Check:**
+- [ ] **External Validation Mandatory**: Model tested outside development environment before deployment
+- [ ] **PPV in Context**: Positive Predictive Value calculated for actual deployment prevalence (not just sensitivity/specificity)
+- [ ] **Alert Fatigue Assessment**: If alerting system, false positive burden on users explicitly evaluated
+- [ ] **User Trust Tracking**: Monitoring whether users actually follow/trust model recommendations
+- [ ] **Local Calibration Required**: Strategy for adapting model to each deployment site's characteristics
+- [ ] **Regime Change Detection**: Monitoring for environmental shifts that invalidate model assumptions
+
+### Summary: Universal Anti-Pattern Checklist
+
+| Anti-Pattern | Zillow | Amazon | Epic | Your System |
+|--------------|--------|--------|------|-------------|
+| Adversarial/gaming not considered | ✓ | | | [ ] |
+| Historical bias in training data | | ✓ | ✓ | [ ] |
+| Proxy discrimination possible | | ✓ | | [ ] |
+| No external validation | | | ✓ | [ ] |
+| Alert/recommendation fatigue risk | | | ✓ | [ ] |
+| Regime change blindness | ✓ | | ✓ | [ ] |
+| Point estimates without uncertainty | ✓ | | | [ ] |
+| No local/site calibration | | | ✓ | [ ] |
+
+---
+
 ## 📊 Scoring Your Readiness
 
 Count your checked items:
@@ -940,13 +1655,33 @@ If you're overwhelmed, start with these high-impact items:
 
 | Format | Description | Download |
 |--------|-------------|----------|
-| **Interactive HTML** | Fillable checklist with auto-scoring, progress tracking, local storage, export/import, and comprehensive FAQ | [Download HTML](ai-production-checklist.html) |
-| **CSV/Excel Template** | Spreadsheet format with all sections, priority levels, and FAQ - works in Excel, Google Sheets, Numbers | [Download CSV](AI-Production-Checklist-Template.csv) |
+| **Interactive HTML** | Apple HIG-inspired checklist with auto-scoring, dark mode, lifecycle stages, gate classifications, progress tracking | [Download HTML](ai-production-checklist.html) |
+| **CSV/Excel Template** | Spreadsheet format with all 400+ items, Stage/Gate columns, priority levels - works in Excel, Google Sheets, Numbers | [Download CSV](AI-Production-Checklist-Template.csv) |
 | **Architecture Diagram** | Draw.io component diagram showing how all checklist components work together | [Download .drawio](AI-Production-Architecture-Diagram.drawio) |
 
-**Features:**
-- **HTML Version**: Works offline, saves progress in browser, export/import JSON, print-friendly
-- **CSV Version**: Sortable by section/priority, add custom notes, calculate scores with formulas
+### HTML Checklist Features
+
+**Apple Human Interface Guidelines Design:**
+- SF Pro typography with optimal letter-spacing and weights
+- Native dark mode support (`prefers-color-scheme`)
+- Glassmorphism panels with backdrop blur effects
+- Custom circular checkboxes with animated checkmarks
+- Segmented control-style navigation tabs
+- 8-point grid spacing system
+- 44px touch targets for accessibility
+- Smooth spring animations and micro-interactions
+
+**Functionality:**
+- **Auto-Scoring**: Real-time progress calculation with readiness badges
+- **Lifecycle Filtering**: Filter items by stage (Ideation → Optimize)
+- **Gate Classification**: Visual indicators for Mandatory/Advisory/Configurable items
+- **Local Storage**: Progress persists across browser sessions
+- **Export/Import**: Save and restore progress as JSON
+- **Print-Friendly**: Optimized print stylesheet
+- **Responsive**: Works on desktop, tablet, and mobile
+
+**Data Features:**
+- **CSV Version**: Sortable by Section/Stage/Gate/Priority, add custom notes, calculate scores with formulas
 - **Diagram**: Editable in [draw.io](https://app.diagrams.net/) - shows 5-layer architecture with data flow
 
 <details>
@@ -969,8 +1704,13 @@ If you're overwhelmed, start with these high-impact items:
 └─────────────────────────────────────────────────────────────────────────────┘
                                       ↓
 ┌─────────────────────────────────────────────────────────────────────────────┐
+│  DATA QUALITY & VALIDATION LAYER                                            │
+│  Feature Store → Schema Validator → Drift Detector → Leakage Scanner        │
+└─────────────────────────────────────────────────────────────────────────────┘
+                                      ↓
+┌─────────────────────────────────────────────────────────────────────────────┐
 │  DATA & KNOWLEDGE LAYER                                                     │
-│  Vector DB → Knowledge Base → Feature Store → Cache → Data Lakehouse        │
+│  Vector DB → Knowledge Base → Cache → Data Lakehouse → External Data        │
 └─────────────────────────────────────────────────────────────────────────────┘
                                       ↓
 ┌─────────────────────────────────────────────────────────────────────────────┐
@@ -978,14 +1718,144 @@ If you're overwhelmed, start with these high-impact items:
 │  Kubernetes → GPU Cluster → Model Serving (vLLM) → Queue → Secrets          │
 └─────────────────────────────────────────────────────────────────────────────┘
 
-    ┌──────────────────────────────────────────────────────────────────────┐
-    │  CROSS-CUTTING: Monitoring │ Governance │ MLOps │ Evaluation │ FinOps │
-    └──────────────────────────────────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  CROSS-CUTTING: Monitoring │ Governance │ MLOps │ Evaluation │ FinOps │Debt │
+└─────────────────────────────────────────────────────────────────────────────┘
 ```
 
 </details>
 
+---
+
+## 🛠️ Technology Selection Guides
+
+> **Choosing the right architecture and tools is critical.** These decision frameworks are based on [Google's 76-page AI Agents whitepaper](https://www.marktechpost.com/2025/05/06/google-releases-76-page-whitepaper-on-ai-agents-a-deep-technical-dive-into-agentic-rag-evaluation-frameworks-and-real-world-architectures/), [Anthropic's MCP documentation](https://www.anthropic.com/news/model-context-protocol), and production engineer comparisons from 2024-2025.
+
+### RAG Pattern Selection
+
+> **2025 Insight:** Google's ICLR 2025 research shows RAG paradoxically reduces a model's ability to abstain when appropriate—additional context increases confidence and can lead to more hallucination. Add sufficiency checks before generation.
+
+| Pattern | When to Use | When NOT to Use | Stage | Key Research |
+|---------|-------------|-----------------|-------|--------------|
+| **Naive RAG** | Simple Q&A, single doc source, prototyping | Multi-step reasoning, complex queries | POC | Baseline approach |
+| **Advanced RAG** | Better accuracy needed, multiple sources, reranking | Simple use cases, low latency required | MVP/Pilot | Hybrid search + rerankers |
+| **Self-RAG** | Model decides when/how much to retrieve | Static retrieval patterns sufficient | Pilot | [2024 research](https://arxiv.org/abs/2407.01219) |
+| **Modular RAG** | Custom pipelines, domain-specific needs | Quick prototypes, standard use cases | Production | Component-based architecture |
+| **Graph RAG** | Knowledge graphs, entity relationships, complex reasoning | Unstructured text only, simple retrieval | Production | Microsoft Graph RAG |
+| **Agentic RAG** | Dynamic retrieval, tool use, multi-step reasoning | Static Q&A, simple lookups | Production/Scale | [Google whitepaper patterns](https://arxiv.org/abs/2501.09136) |
+| **Reasoning RAG** | System 2 thinking, industry challenges | Simple factual queries | Scale | [2025 survey](https://arxiv.org/html/2506.10408v1) |
+
+**Production RAG Best Practices (2025):**
+- [ ] Sufficiency check before generation (Google ICLR 2025)
+- [ ] Retrieve more context OR re-rank when insufficient
+- [ ] Tune abstention threshold with confidence signals
+- [ ] Hybrid search (vector + keyword) implemented
+- [ ] Streaming data ingestion for real-time updates
+
+### Agent Architecture Selection (Google Whitepaper Patterns)
+
+> **Google's recommended patterns** from their 76-page AI Agents whitepaper for production multi-agent systems:
+
+| Pattern | When to Use | Complexity | Google Use Case |
+|---------|-------------|------------|-----------------|
+| **Single Agent** | Simple tasks, clear success criteria | Low | Task-oriented agents |
+| **Tool-Using Agent** | External API calls, calculations | Medium | Navigation, search |
+| **Hierarchical Orchestration** | Central agent routes to domain experts | High | Connected vehicle system |
+| **Diamond Pattern** | Post-hoc moderation needed | High | Content safety |
+| **Peer-to-Peer Handoff** | Autonomous query rerouting | High | User support flows |
+| **Collaborative Synthesis** | Multiple agents contribute to response | Very High | Response mixer pattern |
+| **Adaptive Looping** | Iterative refinement needed | Very High | Complex reasoning |
+
+**Agent Decision Checklist:**
+- [ ] Task complexity assessed (single-step vs. multi-step)
+- [ ] Human-in-the-loop requirements documented
+- [ ] Error tolerance and fallback strategy defined
+- [ ] Coordination overhead budget set
+- [ ] Safety pattern selected (Diamond for moderation)
+
+### Protocol Selection (MCP is now industry standard)
+
+> **2025 Update:** MCP adopted by [OpenAI (March 2025)](https://winbuzzer.com/2025/03/24/microsoft-adds-anthropics-model-context-protocol-to-azure-ai-and-aligns-with-open-agent-ecosystem-xcxwbn/), Google DeepMind (April 2025), and Microsoft Azure. Thousands of MCP servers built by community.
+
+| Protocol | Best For | Adoption | Security Notes |
+|----------|----------|----------|----------------|
+| **[MCP (Model Context Protocol)](https://docs.anthropic.com/en/docs/agents-and-tools/mcp)** | Tool integration, data connectors | Industry standard (2025) | Review prompt injection risks |
+| **A2A (Agent-to-Agent)** | Multi-agent communication | Google standard | Enterprise MAS |
+| **OpenAI Agents SDK** | OpenAI ecosystem | Growing | Native tool use |
+| **Custom REST/gRPC** | Full control, legacy systems | Stable | Existing infrastructure |
+
+**MCP Production Benefits (Anthropic 2025):**
+- Code execution with MCP: **98.7% token reduction** in complex workflows
+- API handles connection management, tool discovery, error handling
+- Pre-built servers: Google Drive, Slack, GitHub, Postgres, Puppeteer
+
+### Framework Selection (Production Engineer Comparison)
+
+> Based on [production engineer comparisons](https://python.plainenglish.io/autogen-vs-langgraph-vs-crewai-a-production-engineers-honest-comparison-d557b3b9262c) and [DataCamp analysis](https://www.datacamp.com/tutorial/crewai-vs-langgraph-vs-autogen).
+
+| Framework | Best For | Learning Curve | Production Readiness | When to Use |
+|-----------|----------|----------------|---------------------|-------------|
+| **[LangGraph](https://python.langchain.com/docs/langgraph)** | Stateful workflows, complex graphs | Steep | High | Intricate branching workflows, need replay/rollback |
+| **[CrewAI](https://www.crewai.com/)** | Role-based teams, rapid prototyping | Easy | Medium | Defined role delegation, fastest to prototype |
+| **[AutoGen](https://microsoft.github.io/autogen/)** | Dynamic conversations, Azure ecosystem | Medium | High | Enterprise environments, Microsoft stack |
+| **[OpenAI Agents SDK](https://openai.com/index/new-tools-for-building-agents/)** | OpenAI-native agents | Easy | High | OpenAI ecosystem, simple agents |
+| **[LlamaIndex](https://www.llamaindex.ai/)** | RAG, document Q&A | Easy | High | Data ingestion, retrieval pipelines |
+| **[Haystack](https://haystack.deepset.ai/)** | Production RAG pipelines | Medium | Very High | Enterprise RAG, self-hosted |
+| **[vLLM](https://vllm.ai/)** | High-throughput inference | Medium | Very High | Serving at scale, PagedAttention |
+| **[TGI](https://huggingface.co/docs/text-generation-inference)** | HuggingFace model serving | Easy | High | HF ecosystem, production serving |
+
+**Framework Selection by Use Case:**
+- **Intricate stateful workflows** → LangGraph (state transitions, visual debugging)
+- **Dynamic conversational systems** → AutoGen (conversation-first design)
+- **Defined role delegation** → CrewAI (fastest path to working prototype)
+- **Enterprise reliability** → AutoGen (Microsoft-backed, Azure integration)
+
+### Model Selection Guide (2025)
+
+> Based on [Hugging Face trends](https://huggingface.co/blog/daya-shankar/open-source-llms) and [LLM leaderboards](https://dextralabs.com/blog/best-llm-leaderboard/). Note: "Small-but-mighty" models and token compression are the new frontiers.
+
+| Use Case | Top Models (2025) | Open-Source Alternative | Notes |
+|----------|-------------------|------------------------|-------|
+| **Complex reasoning** | GPT-4o, Claude 3.5 Sonnet, Gemini 2.0 | DeepSeek-V3 (671B MoE, 37B active) | DeepSeek matches GPT-4 at fraction of cost |
+| **High volume** | GPT-4o-mini, Claude Haiku, Gemini Flash | Qwen3 (0.6B-235B range) | Qwen3 excellent quality/cost ratio |
+| **On-premise/Privacy** | Llama 3.3 70B, Mistral Large 2 | DeepSeek-V3, Qwen3 | Check licenses for commercial use |
+| **Long context (1M+)** | Gemini 2.0 (2M), Claude 3.5 (200K) | Qwen3 (128K native) | Gemini leads on context length |
+| **Code generation** | Claude 3.5 Sonnet, GPT-4o | DeepSeek Coder, Codestral | Claude excels at code understanding |
+| **Multimodal** | GPT-4o, Gemini 2.0, Claude 3.5 | SmolVLM, LLaVA | 2025 trend: efficient VLMs |
+| **Agents/Tool use** | Gemini 2.0, Claude 3.5 | Qwen3-Agent | Gemini 2.0 native tool use |
+| **EU data residency** | Mistral (EU), Azure OpenAI (EU) | Mistral Large 2 | Mistral HQ in Paris |
+
+**Hugging Face CEO Insight (Nov 2025):**
+> "You can use a smaller, more specialized model that is going to be cheaper, faster, that you're going to be able to run on your infrastructure as an enterprise. I think that is the future of AI."
+
+**Model Decision Checklist:**
+- [ ] Accuracy requirements benchmarked against leaderboards
+- [ ] Token economics calculated (input/output pricing)
+- [ ] Context window requirements assessed
+- [ ] Latency SLA vs. model size trade-off evaluated
+- [ ] Data privacy/residency requirements documented
+- [ ] Fine-tuning vs. RAG vs. prompt engineering decision made
+- [ ] Open-source license compatibility verified
+
+> 📖 **Deep Dive:** See [docs/TECHNOLOGY-SELECTION-GUIDE.md](docs/TECHNOLOGY-SELECTION-GUIDE.md) for detailed decision trees and case studies.
+
+---
+
 ## 📚 Resources
+
+### Companion Documents
+
+For deeper dives into specific topics, see our detailed reference guides:
+
+| Document | Description |
+|----------|-------------|
+| [Lifecycle Stages Guide](docs/LIFECYCLE-STAGES.md) | Detailed 8-stage workflow with gate requirements and FDA overlay |
+| [Technology Selection Guide](docs/TECHNOLOGY-SELECTION-GUIDE.md) | RAG, Agent, Framework, and Model decision frameworks |
+| [**Assured Intelligence Guide**](docs/ASSURED-INTELLIGENCE.md) | **Conformal Prediction, Calibration, Causal Inference, Zero-False-Negative Engineering** |
+| [Failure Taxonomy Deep Dive](docs/FAILURE-TAXONOMY.md) | Detailed analysis of the three failure domains: Data Schism, Metric Gap, Technical Debt |
+| [Case Studies](docs/CASE-STUDIES.md) | Expanded forensic analysis of Zillow ($500M+), Amazon (bias), Epic (clinical harm) |
+| [Healthcare AI Case Studies](docs/HEALTHCARE-AI-CASE-STUDIES.md) | 12 healthcare/mental health AI failures: IBM Watson, Babylon Health, Character.AI, Yara AI, and more |
+| [MLOps Maturity Model](docs/MLOPS-MATURITY-MODEL.md) | Assessment tool and progression roadmap from Level 0 to Level 3 |
 
 ### Tools & Frameworks
 

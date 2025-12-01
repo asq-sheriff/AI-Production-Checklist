@@ -10,3 +10,10 @@
 
 # macOS
 .DS_Store
+
+# Local/Private documents (not for commit)
+*.local.md
+*.local.txt
+*.private.md
+SERENEAI-*
+LILO-*
