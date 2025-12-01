@@ -21,7 +21,7 @@
 
 ---
 
-> **TL;DR:** A battle-tested checklist built from 27 years of enterprise experience and analysis of $15B+ in AI failures (IBM Watson, Zillow, Babylon Health, Character.AI). Use it to avoid the mistakes that killed billion-dollar AI projects.
+**TL;DR:** A battle-tested checklist built from 27 years of enterprise experience and analysis of **$15B+ in AI failures** (IBM Watson, Zillow, Babylon Health, Character.AI). Use it to avoid the mistakes that killed billion-dollar AI projects.
 
 ---
 
