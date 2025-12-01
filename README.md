@@ -184,9 +184,9 @@ flowchart LR
     style S7 fill:#dcfce7,stroke:#22c55e,color:#14532d
     style S8 fill:#dcfce7,stroke:#22c55e,color:#14532d
 
-    style Planning fill:#eff6ff,stroke:#3b82f6,color:#1e3a5f
-    style Development fill:#fdf4ff,stroke:#a855f7,color:#581c87
-    style Operations fill:#f0fdf4,stroke:#22c55e,color:#14532d
+    style Planning fill:transparent,stroke:#3b82f6,stroke-width:2px,color:#1e3a5f
+    style Development fill:transparent,stroke:#a855f7,stroke-width:2px,color:#581c87
+    style Operations fill:transparent,stroke:#22c55e,stroke-width:2px,color:#14532d
 ```
 
 <details>
