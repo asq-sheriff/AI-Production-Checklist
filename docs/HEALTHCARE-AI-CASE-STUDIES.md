@@ -334,38 +334,44 @@ This case is especially important because:
 
 ## Universal Prevention Framework for Healthcare/Mental Health AI
 
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│              HEALTHCARE AI SAFETY FRAMEWORK                                  │
-├─────────────────────────────────────────────────────────────────────────────┤
-│                                                                              │
-│  BEFORE DEPLOYMENT                                                           │
-│  □ Independent clinical validation (not internal only)                       │
-│  □ Geographic/demographic validation in all deployment regions               │
-│  □ Regulatory pathway completed (FDA/CE/local)                              │
-│  □ Economic model validated against real usage                              │
-│  □ Real-world environment testing (not just lab)                            │
-│                                                                              │
-│  SAFETY SYSTEMS                                                              │
-│  □ Crisis detection (explicit AND implicit signals)                         │
-│  □ Human escalation path (24/7 for mental health)                           │
-│  □ Scope boundaries enforced technically                                    │
-│  □ No harmful response generation (validated by red team)                   │
-│  □ Longitudinal pattern tracking                                            │
-│                                                                              │
-│  ETHICAL VALIDATION                                                          │
-│  □ Bias testing across conditions, demographics, cultures                   │
-│  □ Stigma testing across mental health conditions                           │
-│  □ Deceptive empathy eliminated                                             │
-│  □ False belief reinforcement prevented                                     │
-│                                                                              │
-│  OPERATIONAL                                                                 │
-│  □ Human-in-the-loop for clinical decisions                                 │
-│  □ Clear AI disclosure to users                                             │
-│  □ Dependency/addiction monitoring                                          │
-│  □ Kill switch (prepared to shut down if safety fails)                      │
-│                                                                              │
-└─────────────────────────────────────────────────────────────────────────────┘
+```mermaid
+flowchart TB
+    subgraph framework[<b>HEALTHCARE AI SAFETY FRAMEWORK</b>]
+        subgraph before[🚀 BEFORE DEPLOYMENT]
+            B1[□ Independent clinical validation]
+            B2[□ Geographic/demographic validation]
+            B3[□ Regulatory pathway completed]
+            B4[□ Economic model validated]
+            B5[□ Real-world environment testing]
+        end
+
+        subgraph safety[🛡️ SAFETY SYSTEMS]
+            S1[□ Crisis detection - explicit & implicit]
+            S2[□ Human escalation path - 24/7]
+            S3[□ Scope boundaries enforced]
+            S4[□ No harmful responses - red team validated]
+            S5[□ Longitudinal pattern tracking]
+        end
+
+        subgraph ethics[⚖️ ETHICAL VALIDATION]
+            E1[□ Bias testing across demographics]
+            E2[□ Stigma testing across conditions]
+            E3[□ Deceptive empathy eliminated]
+            E4[□ False belief reinforcement prevented]
+        end
+
+        subgraph ops[⚙️ OPERATIONAL]
+            O1[□ Human-in-the-loop for clinical decisions]
+            O2[□ Clear AI disclosure to users]
+            O3[□ Dependency/addiction monitoring]
+            O4[□ Kill switch ready]
+        end
+    end
+
+    style before fill:#dbeafe,stroke:#3b82f6
+    style safety fill:#fecaca,stroke:#dc2626
+    style ethics fill:#fae8ff,stroke:#a855f7
+    style ops fill:#dcfce7,stroke:#22c55e
 ```
 
 ---
@@ -375,23 +381,29 @@ This case is especially important because:
 Based on these case studies, any therapeutic AI platform (like SereneAI/Lilo) should:
 
 ### Define Clear Scope
-```
-SAFE SCOPE (AI can help):
-✅ Everyday stress management
-✅ Sleep improvement
-✅ Processing difficult conversations
-✅ Mood tracking and journaling
-✅ Psychoeducation
-✅ Relaxation and mindfulness guidance
+```mermaid
+flowchart LR
+    subgraph safe[✅ SAFE SCOPE - AI can help]
+        S1[Everyday stress management]
+        S2[Sleep improvement]
+        S3[Processing difficult conversations]
+        S4[Mood tracking and journaling]
+        S5[Psychoeducation]
+        S6[Relaxation and mindfulness]
+    end
 
-UNSAFE SCOPE (Requires human handoff):
-❌ Active suicidal ideation
-❌ Self-harm urges
-❌ Deep trauma processing
-❌ Psychotic symptoms
-❌ Severe depression
-❌ Eating disorder behaviors
-❌ Substance abuse crisis
+    subgraph unsafe[❌ UNSAFE SCOPE - Human handoff required]
+        U1[Active suicidal ideation]
+        U2[Self-harm urges]
+        U3[Deep trauma processing]
+        U4[Psychotic symptoms]
+        U5[Severe depression]
+        U6[Eating disorder behaviors]
+        U7[Substance abuse crisis]
+    end
+
+    style safe fill:#dcfce7,stroke:#22c55e
+    style unsafe fill:#fecaca,stroke:#dc2626
 ```
 
 ### Implement Multi-Layer Safety

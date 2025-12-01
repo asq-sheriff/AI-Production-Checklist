@@ -39,30 +39,26 @@ Every item in this guide exists because systems like this have failed catastroph
 
 ## The Assurance Hierarchy
 
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                        ASSURED INTELLIGENCE STACK                            │
-├─────────────────────────────────────────────────────────────────────────────┤
-│                                                                              │
-│  LAYER 6: FORMAL VERIFICATION                                               │
-│  └── Mathematical proofs of system properties                               │
-│                                                                              │
-│  LAYER 5: ZERO-FALSE-NEGATIVE ENGINEERING                                   │
-│  └── Layered architectures for asymmetric error costs                       │
-│                                                                              │
-│  LAYER 4: SELECTIVE PREDICTION & ABSTENTION                                 │
-│  └── Knowing when NOT to predict                                            │
-│                                                                              │
-│  LAYER 3: CAUSAL INTELLIGENCE                                               │
-│  └── Distinguishing correlation from causation (Do-Calculus)               │
-│                                                                              │
-│  LAYER 2: PROBABILITY CALIBRATION                                           │
-│  └── Ensuring probability outputs are trustworthy                           │
-│                                                                              │
-│  LAYER 1: UNCERTAINTY QUANTIFICATION                                        │
-│  └── Conformal Prediction for distribution-free coverage guarantees        │
-│                                                                              │
-└─────────────────────────────────────────────────────────────────────────────┘
+```mermaid
+flowchart TB
+    subgraph stack[<b>ASSURED INTELLIGENCE STACK</b>]
+        direction TB
+        L6[✓ LAYER 6: FORMAL VERIFICATION<br/><i>Mathematical proofs of system properties</i>]
+        L5[🎯 LAYER 5: ZERO-FALSE-NEGATIVE ENGINEERING<br/><i>Layered architectures for asymmetric error costs</i>]
+        L4[🚫 LAYER 4: SELECTIVE PREDICTION & ABSTENTION<br/><i>Knowing when NOT to predict</i>]
+        L3[🔗 LAYER 3: CAUSAL INTELLIGENCE<br/><i>Distinguishing correlation from causation</i>]
+        L2[📈 LAYER 2: PROBABILITY CALIBRATION<br/><i>Ensuring probability outputs are trustworthy</i>]
+        L1[📊 LAYER 1: UNCERTAINTY QUANTIFICATION<br/><i>Conformal Prediction for coverage guarantees</i>]
+
+        L6 --> L5 --> L4 --> L3 --> L2 --> L1
+    end
+
+    style L6 fill:#dbeafe,stroke:#3b82f6
+    style L5 fill:#fecaca,stroke:#dc2626
+    style L4 fill:#fef3c7,stroke:#f59e0b
+    style L3 fill:#fae8ff,stroke:#a855f7
+    style L2 fill:#dcfce7,stroke:#22c55e
+    style L1 fill:#e0e7ff,stroke:#6366f1
 ```
 
 ---
@@ -417,20 +413,23 @@ Removing "gender" doesn't fix this. The model reconstructs gender from proxies.
 
 **Causal Graph (DAG):** Directed Acyclic Graph representing causal relationships.
 
-```
-                    ┌─────────────┐
-                    │  Confounder │
-                    │     (C)     │
-                    └──────┬──────┘
-                           │
-              ┌────────────┼────────────┐
-              ▼            │            ▼
-        ┌──────────┐       │      ┌──────────┐
-        │ Treatment│       │      │ Outcome  │
-        │    (T)   │───────┼─────→│   (Y)    │
-        └──────────┘       │      └──────────┘
-                           │
-                    Unobserved path?
+```mermaid
+flowchart TB
+    C[🔍 Confounder<br/>C]
+    T[💊 Treatment<br/>T]
+    Y[📊 Outcome<br/>Y]
+    U[❓ Unobserved path?]
+
+    C --> T
+    C --> Y
+    T --> Y
+    U -.-> T
+    U -.-> Y
+
+    style C fill:#fef3c7,stroke:#f59e0b
+    style T fill:#dbeafe,stroke:#3b82f6
+    style Y fill:#dcfce7,stroke:#22c55e
+    style U fill:#fecaca,stroke:#dc2626,stroke-dasharray: 5 5
 ```
 
 **Do-Calculus (Pearl):** Rules for computing causal effects from observational data.
@@ -658,27 +657,15 @@ A model is presented with an input it has never seen before—completely out-of-
 
 **Coverage-Accuracy Trade-off:**
 
+```mermaid
+xychart-beta
+    title "Coverage-Accuracy Trade-off"
+    x-axis "Coverage %" [100, 90, 70, 50]
+    y-axis "Accuracy %" 80 --> 100
+    line [85, 90, 95, 99]
 ```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                                                                              │
-│  Accuracy                                                                    │
-│     ▲                                                                       │
-│     │                           ╭────────╮                                  │
-│ 99% ├───────────────────────────╯        │                                  │
-│     │                                    │                                  │
-│ 95% ├──────────────────╮                 │                                  │
-│     │                  │                 │                                  │
-│ 90% ├─────────╮        │                 │                                  │
-│     │         │        │                 │                                  │
-│ 85% ├────╮    │        │                 │                                  │
-│     │    │    │        │                 │                                  │
-│     └────┴────┴────────┴─────────────────┴──────────────────▶               │
-│         100%   90%        70%               50%              Coverage        │
-│                                                                              │
-│  By abstaining on uncertain cases (reducing coverage), accuracy improves.   │
-│                                                                              │
-└─────────────────────────────────────────────────────────────────────────────┘
-```
+
+> **Insight:** By abstaining on uncertain cases (reducing coverage), accuracy improves. This is the fundamental trade-off in selective prediction.
 
 **Selective Risk:** Risk computed only on non-abstained predictions.
 
@@ -910,29 +897,26 @@ In many domains, false negatives are catastrophically worse than false positives
 
 **Principle:** Achieving ~0 false negatives requires a *system architecture*, not just model tuning.
 
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                    ZERO-FALSE-NEGATIVE ARCHITECTURE                          │
-├─────────────────────────────────────────────────────────────────────────────┤
-│                                                                              │
-│  Input → [Layer 1: Sensitive Detector] → Positive? → Layer 2                │
-│                      │                                                       │
-│                      │ Negative prediction                                   │
-│                      ▼                                                       │
-│          [Layer 2: Specific Classifier] → Positive? → Layer 3               │
-│                      │                                                       │
-│                      │ Negative prediction                                   │
-│                      ▼                                                       │
-│          [Layer 3: Anomaly Detector] → Anomalous? → Human Review            │
-│                      │                                                       │
-│                      │ Normal                                                │
-│                      ▼                                                       │
-│                  [SAFE: Negative Output]                                     │
-│                                                                              │
-│  Key: A negative output requires ALL layers to agree on negative.           │
-│       Any positive triggers escalation.                                      │
-│                                                                              │
-└─────────────────────────────────────────────────────────────────────────────┘
+```mermaid
+flowchart TB
+    subgraph arch[<b>ZERO-FALSE-NEGATIVE ARCHITECTURE</b>]
+        Input[📥 Input] --> L1{🎯 Layer 1:<br/>Sensitive Detector}
+        L1 -->|Positive| Escalate1[🚨 Escalate]
+        L1 -->|Negative| L2{🔬 Layer 2:<br/>Specific Classifier}
+
+        L2 -->|Positive| Escalate2[🚨 Escalate]
+        L2 -->|Negative| L3{🔍 Layer 3:<br/>Anomaly Detector}
+
+        L3 -->|Anomalous| Human[👨‍⚕️ Human Review]
+        L3 -->|Normal| Safe[✅ SAFE:<br/>Negative Output]
+    end
+
+    Note["🔑 Key: Negative output requires ALL layers to agree.<br/>Any positive triggers escalation."]
+
+    style Safe fill:#dcfce7,stroke:#22c55e
+    style Escalate1 fill:#fecaca,stroke:#dc2626
+    style Escalate2 fill:#fecaca,stroke:#dc2626
+    style Human fill:#fef3c7,stroke:#f59e0b
 ```
 
 ### Implementation Checklist

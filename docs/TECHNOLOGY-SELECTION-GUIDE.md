@@ -18,38 +18,37 @@ This guide provides decision frameworks to make informed choices at each layer o
 
 ### Decision Tree
 
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                        RAG PATTERN DECISION TREE                             │
-└─────────────────────────────────────────────────────────────────────────────┘
+```mermaid
+flowchart TD
+    subgraph header[" "]
+        title[<b>RAG PATTERN DECISION TREE</b>]
+    end
 
-                        START: What is your use case?
-                                    │
-                    ┌───────────────┼───────────────┐
-                    ▼               ▼               ▼
-               Simple Q&A    Multi-step       Complex
-              Single Source   Reasoning      Relationships
-                    │               │               │
-                    ▼               ▼               ▼
-              ┌─────────┐    ┌─────────┐    ┌─────────┐
-              │ Is this │    │ Dynamic │    │ Entity  │
-              │ a POC?  │    │retrieval│    │ graphs? │
-              └────┬────┘    │ needed? │    └────┬────┘
-                   │         └────┬────┘         │
-           ┌──────┴──────┐       │         ┌────┴────┐
-           ▼             ▼       │         ▼         ▼
-         Yes            No       │       Yes        No
-           │             │       │         │         │
-           ▼             ▼       │         ▼         ▼
-      Naive RAG   Advanced RAG   │    Graph RAG   Modular RAG
-                                 │
-                    ┌────────────┴────────────┐
-                    ▼                         ▼
-                  Yes                        No
-                    │                         │
-                    ▼                         ▼
-             Agentic RAG               Self-RAG or
-             or Reasoning RAG          Advanced RAG
+    START[🎯 START: What is your use case?]
+
+    START --> SimpleQA[Simple Q&A<br/>Single Source]
+    START --> MultiStep[Multi-step<br/>Reasoning]
+    START --> Complex[Complex<br/>Relationships]
+
+    SimpleQA --> POC{Is this<br/>a POC?}
+    MultiStep --> Dynamic{Dynamic<br/>retrieval<br/>needed?}
+    Complex --> Entity{Entity<br/>graphs?}
+
+    POC -->|Yes| NaiveRAG[📦 Naive RAG]
+    POC -->|No| AdvancedRAG[📦 Advanced RAG]
+
+    Dynamic -->|Yes| AgenticRAG[🤖 Agentic RAG<br/>or Reasoning RAG]
+    Dynamic -->|No| SelfRAG[📦 Self-RAG or<br/>Advanced RAG]
+
+    Entity -->|Yes| GraphRAG[🔗 Graph RAG]
+    Entity -->|No| ModularRAG[📦 Modular RAG]
+
+    style NaiveRAG fill:#dbeafe,stroke:#3b82f6
+    style AdvancedRAG fill:#dbeafe,stroke:#3b82f6
+    style SelfRAG fill:#dbeafe,stroke:#3b82f6
+    style ModularRAG fill:#dbeafe,stroke:#3b82f6
+    style GraphRAG fill:#dcfce7,stroke:#22c55e
+    style AgenticRAG fill:#fae8ff,stroke:#a855f7
 ```
 
 ### Pattern Details
@@ -70,8 +69,16 @@ This guide provides decision frameworks to make informed choices at each layer o
 - High accuracy requirements
 
 **Architecture:**
-```
-Query → Embed → Vector Search → Top-K Results → LLM → Response
+```mermaid
+flowchart LR
+    Query[📝 Query] --> Embed[🔢 Embed]
+    Embed --> VectorSearch[🔍 Vector Search]
+    VectorSearch --> TopK[📊 Top-K Results]
+    TopK --> LLM[🧠 LLM]
+    LLM --> Response[💬 Response]
+
+    style Query fill:#dbeafe,stroke:#3b82f6
+    style Response fill:#dcfce7,stroke:#22c55e
 ```
 
 **Cost Profile:** $
@@ -99,10 +106,20 @@ Query → Embed → Vector Search → Top-K Results → LLM → Response
 - Budget doesn't allow for reranker costs
 
 **Architecture:**
-```
-Query → Query Expansion → Hybrid Search → Rerank → LLM → Response
-         │                    │
-         └─ HyDE/Multi-Query  └─ BM25 + Vector + Metadata
+```mermaid
+flowchart LR
+    Query[📝 Query] --> QE[🔄 Query Expansion]
+    QE --> HS[🔍 Hybrid Search]
+    HS --> Rerank[📊 Rerank]
+    Rerank --> LLM[🧠 LLM]
+    LLM --> Response[💬 Response]
+
+    QE -.-> |HyDE/Multi-Query| QE
+    HS -.-> |BM25 + Vector + Metadata| HS
+
+    style Query fill:#dbeafe,stroke:#3b82f6
+    style Response fill:#dcfce7,stroke:#22c55e
+    style Rerank fill:#fae8ff,stroke:#a855f7
 ```
 
 **Key Components:**
@@ -131,10 +148,18 @@ Query → Query Expansion → Hybrid Search → Rerank → LLM → Response
 - Latency-sensitive applications
 
 **Architecture:**
-```
-Query → LLM decides → Retrieve? → If yes: Retrieve + Critique → Generate
-                         │
-                         └─ If no: Generate directly
+```mermaid
+flowchart LR
+    Query[📝 Query] --> LLMDecide{🧠 LLM decides:<br/>Retrieve?}
+    LLMDecide -->|Yes| Retrieve[🔍 Retrieve]
+    Retrieve --> Critique[🔎 Critique]
+    Critique --> Generate[✍️ Generate]
+    LLMDecide -->|No| DirectGen[✍️ Generate directly]
+
+    style Query fill:#dbeafe,stroke:#3b82f6
+    style Generate fill:#dcfce7,stroke:#22c55e
+    style DirectGen fill:#dcfce7,stroke:#22c55e
+    style LLMDecide fill:#fef3c7,stroke:#f59e0b
 ```
 
 **Key Innovation:** Model learns to:
@@ -164,20 +189,25 @@ Query → LLM decides → Retrieve? → If yes: Retrieve + Critique → Generate
 - Small teams
 
 **Architecture:**
-```
-┌─────────────────────────────────────────────────────────────────┐
-│                         MODULAR RAG                              │
-├─────────────────────────────────────────────────────────────────┤
-│                                                                  │
-│   ┌─────────┐    ┌─────────┐    ┌─────────┐    ┌─────────┐     │
-│   │ Indexer │ → │Retriever│ → │ Reranker│ → │Generator│      │
-│   └─────────┘    └─────────┘    └─────────┘    └─────────┘     │
-│        │              │              │              │            │
-│        ▼              ▼              ▼              ▼            │
-│   Swappable      Swappable      Swappable      Swappable       │
-│   Components     Components     Components     Components       │
-│                                                                  │
-└─────────────────────────────────────────────────────────────────┘
+```mermaid
+flowchart TB
+    subgraph ModularRAG[🔧 MODULAR RAG]
+        direction LR
+        Indexer[📥 Indexer] --> Retriever[🔍 Retriever]
+        Retriever --> Reranker[📊 Reranker]
+        Reranker --> Generator[✍️ Generator]
+
+        Indexer -.-> |Swappable| I2[🔄]
+        Retriever -.-> |Swappable| R2[🔄]
+        Reranker -.-> |Swappable| RR2[🔄]
+        Generator -.-> |Swappable| G2[🔄]
+    end
+
+    style ModularRAG fill:#f8fafc,stroke:#64748b,stroke-width:2px
+    style Indexer fill:#dbeafe,stroke:#3b82f6
+    style Retriever fill:#dbeafe,stroke:#3b82f6
+    style Reranker fill:#fae8ff,stroke:#a855f7
+    style Generator fill:#dcfce7,stroke:#22c55e
 ```
 
 **Benefits:**
@@ -207,13 +237,18 @@ Query → LLM decides → Retrieve? → If yes: Retrieve + Critique → Generate
 - No graph expertise on team
 
 **Architecture:**
-```
-Query → Entity Extraction → Graph Traversal → Context Assembly → LLM
-                                  │
-                      ┌───────────┴───────────┐
-                      │    Knowledge Graph     │
-                      │   (Neo4j, Neptune)     │
-                      └───────────────────────┘
+```mermaid
+flowchart LR
+    Query[📝 Query] --> EntityExt[🏷️ Entity Extraction]
+    EntityExt --> GraphTrav[🔗 Graph Traversal]
+    GraphTrav --> ContextAsm[📦 Context Assembly]
+    ContextAsm --> LLM[🧠 LLM]
+
+    GraphTrav <--> KG[(🗃️ Knowledge Graph<br/>Neo4j / Neptune)]
+
+    style Query fill:#dbeafe,stroke:#3b82f6
+    style KG fill:#dcfce7,stroke:#22c55e
+    style GraphTrav fill:#fae8ff,stroke:#a855f7
 ```
 
 **Use Cases:**
@@ -246,12 +281,21 @@ Query → Entity Extraction → Graph Traversal → Context Assembly → LLM
 - Latency-critical (<500ms)
 
 **Architecture:**
-```
-Query → Agent → Plan → [Retrieve/Tool/Reason] → Iterate → Response
-                  │
-                  └─ Dynamic tool selection
-                     Multiple retrieval calls
-                     Self-correction loops
+```mermaid
+flowchart LR
+    Query[📝 Query] --> Agent[🤖 Agent]
+    Agent --> Plan[📋 Plan]
+    Plan --> Actions[🔧 Retrieve/Tool/Reason]
+    Actions --> Iterate[🔄 Iterate]
+    Iterate --> Response[💬 Response]
+
+    Plan -.-> |Dynamic tool selection| Plan
+    Actions -.-> |Multiple retrieval calls| Actions
+    Iterate -.-> |Self-correction loops| Agent
+
+    style Query fill:#dbeafe,stroke:#3b82f6
+    style Agent fill:#fae8ff,stroke:#a855f7
+    style Response fill:#dcfce7,stroke:#22c55e
 ```
 
 **Key Patterns (from Google Whitepaper):**
@@ -280,10 +324,19 @@ Query → Agent → Plan → [Retrieve/Tool/Reason] → Iterate → Response
 - Budget constraints
 
 **Architecture:**
-```
-Query → Decompose → Multi-hop Retrieval → Reason → Synthesize
-            │                │
-            └─ Sub-questions └─ Evidence chains
+```mermaid
+flowchart LR
+    Query[📝 Query] --> Decompose[🧩 Decompose]
+    Decompose --> MultiHop[🔍 Multi-hop Retrieval]
+    MultiHop --> Reason[🧠 Reason]
+    Reason --> Synthesize[✍️ Synthesize]
+
+    Decompose -.-> |Sub-questions| Decompose
+    MultiHop -.-> |Evidence chains| MultiHop
+
+    style Query fill:#dbeafe,stroke:#3b82f6
+    style Reason fill:#fae8ff,stroke:#a855f7
+    style Synthesize fill:#dcfce7,stroke:#22c55e
 ```
 
 **Research:** Based on [2025 Reasoning RAG Survey](https://arxiv.org/html/2506.10408v1)
@@ -339,32 +392,39 @@ From Google's 76-page AI Agents whitepaper, these patterns represent production-
 
 ### Decision Tree
 
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                     AGENT ARCHITECTURE DECISION TREE                         │
-└─────────────────────────────────────────────────────────────────────────────┘
+```mermaid
+flowchart TD
+    subgraph header[" "]
+        title[<b>AGENT ARCHITECTURE DECISION TREE</b>]
+    end
 
-                    START: What is your task complexity?
-                                    │
-                ┌───────────────────┼───────────────────┐
-                ▼                   ▼                   ▼
-           Single-step         Multi-step          Multi-agent
-              Task                Task              Required
-                │                   │                   │
-                ▼                   ▼                   ▼
-        ┌──────────────┐    ┌──────────────┐    ┌──────────────┐
-        │ External     │    │ Iterative    │    │ How should   │
-        │ tools        │    │ refinement   │    │ agents       │
-        │ needed?      │    │ needed?      │    │ coordinate?  │
-        └──────┬───────┘    └──────┬───────┘    └──────┬───────┘
-               │                   │                   │
-       ┌───────┴───────┐   ┌───────┴───────┐   ┌──────┴──────────────┐
-       ▼               ▼   ▼               ▼   ▼          ▼          ▼
-      No             Yes  No             Yes Central    P2P     Collab
-       │               │   │               │    │         │          │
-       ▼               ▼   ▼               ▼    ▼         ▼          ▼
-   Single         Tool-   Diamond     Adaptive Hier-   Peer     Collab
-   Agent          Using   Pattern     Looping  archical Handoff  Synthesis
+    START[🎯 START: What is your task complexity?]
+
+    START --> SingleStep[Single-step Task]
+    START --> MultiStep[Multi-step Task]
+    START --> MultiAgent[Multi-agent Required]
+
+    SingleStep --> Tools{External<br/>tools needed?}
+    MultiStep --> Iterative{Iterative<br/>refinement<br/>needed?}
+    MultiAgent --> Coord{How should<br/>agents coordinate?}
+
+    Tools -->|No| SingleAgent[👤 Single Agent]
+    Tools -->|Yes| ToolUsing[🔧 Tool-Using Agent]
+
+    Iterative -->|No| Diamond[💎 Diamond Pattern]
+    Iterative -->|Yes| Adaptive[🔄 Adaptive Looping]
+
+    Coord -->|Central| Hierarchical[🏛️ Hierarchical]
+    Coord -->|P2P| PeerHandoff[🤝 Peer Handoff]
+    Coord -->|Collab| CollabSynth[🎭 Collab Synthesis]
+
+    style SingleAgent fill:#dbeafe,stroke:#3b82f6
+    style ToolUsing fill:#dbeafe,stroke:#3b82f6
+    style Diamond fill:#fef3c7,stroke:#f59e0b
+    style Adaptive fill:#fae8ff,stroke:#a855f7
+    style Hierarchical fill:#dcfce7,stroke:#22c55e
+    style PeerHandoff fill:#dcfce7,stroke:#22c55e
+    style CollabSynth fill:#dcfce7,stroke:#22c55e
 ```
 
 ### Pattern Details
@@ -380,10 +440,14 @@ From Google's 76-page AI Agents whitepaper, these patterns represent production-
 - Conversational assistants
 
 **Architecture:**
-```
-User Query → Single LLM → Response
-                │
-                └─ System prompt defines behavior
+```mermaid
+flowchart LR
+    UserQuery[👤 User Query] --> LLM[🧠 Single LLM]
+    LLM --> Response[💬 Response]
+    SystemPrompt[📝 System Prompt] -.-> |defines behavior| LLM
+
+    style UserQuery fill:#dbeafe,stroke:#3b82f6
+    style Response fill:#dcfce7,stroke:#22c55e
 ```
 
 **Cost:** $
@@ -402,12 +466,22 @@ User Query → Single LLM → Response
 - Database queries
 
 **Architecture:**
-```
-User Query → Agent → Tool Selection → Tool Execution → Agent → Response
-                          │
-              ┌───────────┼───────────┐
-              │           │           │
-          Calculator   Search     Database
+```mermaid
+flowchart LR
+    UserQuery[👤 User Query] --> Agent[🤖 Agent]
+    Agent --> ToolSelect[🎯 Tool Selection]
+    ToolSelect --> ToolExec[⚡ Tool Execution]
+    ToolExec --> Agent2[🤖 Agent]
+    Agent2 --> Response[💬 Response]
+
+    ToolSelect --> Calc[🔢 Calculator]
+    ToolSelect --> Search[🔍 Search]
+    ToolSelect --> DB[(🗄️ Database)]
+
+    style UserQuery fill:#dbeafe,stroke:#3b82f6
+    style Response fill:#dcfce7,stroke:#22c55e
+    style Agent fill:#fae8ff,stroke:#a855f7
+    style Agent2 fill:#fae8ff,stroke:#a855f7
 ```
 
 **Google Use Case:** Navigation, search, structured data retrieval
@@ -428,18 +502,18 @@ User Query → Agent → Tool Selection → Tool Execution → Agent → Respons
 - Enterprise systems
 
 **Architecture:**
-```
-                    ┌─────────────────┐
-                    │   Orchestrator  │
-                    │   (Central)     │
-                    └────────┬────────┘
-                             │
-            ┌────────────────┼────────────────┐
-            ▼                ▼                ▼
-    ┌───────────┐    ┌───────────┐    ┌───────────┐
-    │  Expert 1 │    │  Expert 2 │    │  Expert 3 │
-    │  (Legal)  │    │(Technical)│    │(Financial)│
-    └───────────┘    └───────────┘    └───────────┘
+```mermaid
+flowchart TB
+    Orch[🎯 Orchestrator<br/>Central]
+
+    Orch --> Expert1[⚖️ Expert 1<br/>Legal]
+    Orch --> Expert2[💻 Expert 2<br/>Technical]
+    Orch --> Expert3[💰 Expert 3<br/>Financial]
+
+    style Orch fill:#fae8ff,stroke:#a855f7
+    style Expert1 fill:#dbeafe,stroke:#3b82f6
+    style Expert2 fill:#dbeafe,stroke:#3b82f6
+    style Expert3 fill:#dbeafe,stroke:#3b82f6
 ```
 
 **Google Use Case:** Connected vehicle system with separate agents for navigation, entertainment, climate control.
@@ -460,21 +534,20 @@ User Query → Agent → Tool Selection → Tool Execution → Agent → Respons
 - High-risk outputs
 
 **Architecture:**
-```
-User Query → Generator Agent → Output
-                                  │
-                                  ▼
-                          ┌─────────────┐
-                          │  Moderator  │
-                          │   Agent     │
-                          └──────┬──────┘
-                                 │
-                    ┌────────────┴────────────┐
-                    ▼                         ▼
-                  Pass                      Block/Modify
-                    │                         │
-                    ▼                         ▼
-                Response                 Safe Response
+```mermaid
+flowchart TB
+    UserQuery[👤 User Query] --> Generator[✍️ Generator Agent]
+    Generator --> Output[📤 Output]
+    Output --> Moderator{🛡️ Moderator<br/>Agent}
+
+    Moderator -->|Pass| Response[✅ Response]
+    Moderator -->|Block/Modify| SafeResponse[🔒 Safe Response]
+
+    style UserQuery fill:#dbeafe,stroke:#3b82f6
+    style Generator fill:#fae8ff,stroke:#a855f7
+    style Moderator fill:#fef3c7,stroke:#f59e0b
+    style Response fill:#dcfce7,stroke:#22c55e
+    style SafeResponse fill:#dcfce7,stroke:#22c55e
 ```
 
 **Google Use Case:** Content safety, preventing harmful outputs
@@ -495,14 +568,16 @@ User Query → Generator Agent → Output
 - No central controller
 
 **Architecture:**
-```
-┌─────────┐     handoff     ┌─────────┐     handoff     ┌─────────┐
-│ Agent A │ ───────────────→│ Agent B │ ───────────────→│ Agent C │
-│(Billing)│                 │(Technical)               │(Escalation)
-└─────────┘                 └─────────┘                 └─────────┘
-     ↑                           ↑                           │
-     └───────────────────────────┴───────────────────────────┘
-                          (can route back)
+```mermaid
+flowchart LR
+    AgentA[💳 Agent A<br/>Billing] -->|handoff| AgentB[💻 Agent B<br/>Technical]
+    AgentB -->|handoff| AgentC[🚨 Agent C<br/>Escalation]
+    AgentC -.->|can route back| AgentA
+    AgentC -.->|can route back| AgentB
+
+    style AgentA fill:#dbeafe,stroke:#3b82f6
+    style AgentB fill:#fae8ff,stroke:#a855f7
+    style AgentC fill:#fecaca,stroke:#dc2626
 ```
 
 **Google Use Case:** User support flows with seamless topic transitions
@@ -523,24 +598,26 @@ User Query → Generator Agent → Output
 - Research synthesis
 
 **Architecture:**
-```
-User Query
-     │
-     ├──────────────────┬──────────────────┐
-     ▼                  ▼                  ▼
-┌─────────┐       ┌─────────┐       ┌─────────┐
-│ Agent A │       │ Agent B │       │ Agent C │
-│(Research)       │(Analysis)       │(Synthesis)
-└────┬────┘       └────┬────┘       └────┬────┘
-     │                 │                 │
-     └─────────────────┼─────────────────┘
-                       ▼
-               ┌─────────────┐
-               │   Mixer     │
-               │   Agent     │
-               └──────┬──────┘
-                      ▼
-                  Response
+```mermaid
+flowchart TB
+    UserQuery[👤 User Query]
+
+    UserQuery --> AgentA[🔬 Agent A<br/>Research]
+    UserQuery --> AgentB[📊 Agent B<br/>Analysis]
+    UserQuery --> AgentC[🧩 Agent C<br/>Synthesis]
+
+    AgentA --> Mixer[🎛️ Mixer Agent]
+    AgentB --> Mixer
+    AgentC --> Mixer
+
+    Mixer --> Response[💬 Response]
+
+    style UserQuery fill:#dbeafe,stroke:#3b82f6
+    style AgentA fill:#fae8ff,stroke:#a855f7
+    style AgentB fill:#fae8ff,stroke:#a855f7
+    style AgentC fill:#fae8ff,stroke:#a855f7
+    style Mixer fill:#fef3c7,stroke:#f59e0b
+    style Response fill:#dcfce7,stroke:#22c55e
 ```
 
 **Google Use Case:** Response mixer pattern for comprehensive answers
@@ -561,15 +638,20 @@ User Query
 - Self-improvement required
 
 **Architecture:**
-```
-Query → Agent → Generate → Critique → Meet threshold?
-                              ↑            │
-                              │     ┌──────┴──────┐
-                              │     ▼             ▼
-                              │   No             Yes
-                              │     │             │
-                              └─────┘             ▼
-                                              Response
+```mermaid
+flowchart LR
+    Query[📝 Query] --> Agent[🤖 Agent]
+    Agent --> Generate[✍️ Generate]
+    Generate --> Critique[🔎 Critique]
+    Critique --> Threshold{Meet<br/>threshold?}
+
+    Threshold -->|No| Agent
+    Threshold -->|Yes| Response[✅ Response]
+
+    style Query fill:#dbeafe,stroke:#3b82f6
+    style Agent fill:#fae8ff,stroke:#a855f7
+    style Threshold fill:#fef3c7,stroke:#f59e0b
+    style Response fill:#dcfce7,stroke:#22c55e
 ```
 
 **Google Use Case:** Complex reasoning tasks requiring iteration
@@ -652,28 +734,35 @@ Based on real-world production deployments and engineer feedback.
 
 ### Decision Matrix
 
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                      FRAMEWORK SELECTION DECISION                            │
-└─────────────────────────────────────────────────────────────────────────────┘
+```mermaid
+flowchart LR
+    subgraph header[<b>FRAMEWORK SELECTION DECISION</b>]
+        direction LR
+    end
 
-What is your primary use case?
+    UseCase[🎯 What is your<br/>primary use case?]
 
-┌────────────────────────────────────────────────────────────────────────────┐
-│                                                                             │
-│  RAG/Retrieval ──────────────→ LlamaIndex or Haystack                      │
-│                                                                             │
-│  Complex Stateful Workflows ─→ LangGraph                                   │
-│                                                                             │
-│  Role-Based Agent Teams ────→ CrewAI                                       │
-│                                                                             │
-│  Dynamic Conversations ─────→ AutoGen                                      │
-│                                                                             │
-│  Simple OpenAI Agents ──────→ OpenAI Agents SDK                            │
-│                                                                             │
-│  High-Throughput Serving ───→ vLLM or TGI                                  │
-│                                                                             │
-└────────────────────────────────────────────────────────────────────────────┘
+    UseCase --> RAG[📚 RAG/Retrieval]
+    UseCase --> Workflows[🔄 Complex Stateful Workflows]
+    UseCase --> Teams[👥 Role-Based Agent Teams]
+    UseCase --> Convos[💬 Dynamic Conversations]
+    UseCase --> Simple[🎯 Simple OpenAI Agents]
+    UseCase --> HT[⚡ High-Throughput Serving]
+
+    RAG --> LlamaIndex[📦 LlamaIndex or Haystack]
+    Workflows --> LangGraph[📦 LangGraph]
+    Teams --> CrewAI[📦 CrewAI]
+    Convos --> AutoGen[📦 AutoGen]
+    Simple --> OpenAI[📦 OpenAI Agents SDK]
+    HT --> vLLM[📦 vLLM or TGI]
+
+    style UseCase fill:#dbeafe,stroke:#3b82f6
+    style LlamaIndex fill:#dcfce7,stroke:#22c55e
+    style LangGraph fill:#dcfce7,stroke:#22c55e
+    style CrewAI fill:#dcfce7,stroke:#22c55e
+    style AutoGen fill:#dcfce7,stroke:#22c55e
+    style OpenAI fill:#dcfce7,stroke:#22c55e
+    style vLLM fill:#dcfce7,stroke:#22c55e
 ```
 
 ### Framework Details
@@ -859,32 +948,41 @@ The model landscape has shifted dramatically:
 
 ### Selection Decision Tree
 
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                         MODEL SELECTION DECISION                             │
-└─────────────────────────────────────────────────────────────────────────────┘
+```mermaid
+flowchart LR
+    subgraph header[<b>MODEL SELECTION DECISION</b>]
+        direction LR
+    end
 
-START: What are your constraints?
+    Constraints[🎯 START: What are<br/>your constraints?]
 
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                                                                              │
-│  Data Privacy Required ──→ On-premise: Llama 3.3, Mistral, DeepSeek        │
-│                                                                              │
-│  EU Data Residency ─────→ Mistral (Paris HQ), Azure OpenAI (EU regions)    │
-│                                                                              │
-│  Lowest Cost ───────────→ Open source: DeepSeek-V3, Qwen3                  │
-│                                                                              │
-│  Highest Accuracy ──────→ GPT-4o, Claude 3.5 Sonnet, Gemini 2.0            │
-│                                                                              │
-│  Long Context (1M+) ────→ Gemini 2.0 (2M context)                          │
-│                                                                              │
-│  Code Generation ───────→ Claude 3.5 Sonnet, DeepSeek Coder                │
-│                                                                              │
-│  High Volume/Low Cost ──→ GPT-4o-mini, Claude Haiku, Gemini Flash          │
-│                                                                              │
-│  Agent/Tool Use ────────→ Gemini 2.0, Claude 3.5                           │
-│                                                                              │
-└─────────────────────────────────────────────────────────────────────────────┘
+    Constraints --> Privacy[🔒 Data Privacy Required]
+    Constraints --> EU[🇪🇺 EU Data Residency]
+    Constraints --> Cost[💰 Lowest Cost]
+    Constraints --> Accuracy[🎯 Highest Accuracy]
+    Constraints --> Context[📚 Long Context 1M+]
+    Constraints --> Code[💻 Code Generation]
+    Constraints --> Volume[📈 High Volume/Low Cost]
+    Constraints --> Agent[🤖 Agent/Tool Use]
+
+    Privacy --> OnPrem[🏠 Llama 3.3, Mistral, DeepSeek]
+    EU --> EUModels[🇪🇺 Mistral, Azure OpenAI EU]
+    Cost --> OpenSource[🆓 DeepSeek-V3, Qwen3]
+    Accuracy --> TopModels[⭐ GPT-4o, Claude 3.5, Gemini 2.0]
+    Context --> LongCtx[📖 Gemini 2.0 - 2M context]
+    Code --> CodeModels[👨‍💻 Claude 3.5, DeepSeek Coder]
+    Volume --> CheapFast[⚡ GPT-4o-mini, Haiku, Flash]
+    Agent --> AgentModels[🔧 Gemini 2.0, Claude 3.5]
+
+    style Constraints fill:#dbeafe,stroke:#3b82f6
+    style OnPrem fill:#dcfce7,stroke:#22c55e
+    style EUModels fill:#dcfce7,stroke:#22c55e
+    style OpenSource fill:#dcfce7,stroke:#22c55e
+    style TopModels fill:#dcfce7,stroke:#22c55e
+    style LongCtx fill:#dcfce7,stroke:#22c55e
+    style CodeModels fill:#dcfce7,stroke:#22c55e
+    style CheapFast fill:#dcfce7,stroke:#22c55e
+    style AgentModels fill:#dcfce7,stroke:#22c55e
 ```
 
 ### Model Comparison by Use Case

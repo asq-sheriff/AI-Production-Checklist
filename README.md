@@ -127,34 +127,88 @@ This checklist helps you systematically evaluate your AI system's readiness for 
 
 ### The 8-Stage Model
 
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                        AI PRODUCTION LIFECYCLE                               │
-├─────────────────────────────────────────────────────────────────────────────┤
-│                                                                              │
-│  Stage 1: IDEATION    Stage 2: DISCOVERY   Stage 3: POC      Stage 4: MVP  │
-│  ─────────────────    ──────────────────   ─────────────     ─────────────  │
-│  • Business case      • Data assessment    • Technical       • Working      │
-│  • Use case ID        • Feasibility        • feasibility     • prototype    │
-│  • Success metrics    • Risk assessment    • Core algorithm  • Basic UI     │
-│  • Stakeholder buy-in • Resource plan      • Initial results • Integration  │
-│                                                                              │
-│  GATE: Business       GATE: Technical      GATE: Viable?     GATE: Usable?  │
-│        Approval?             Feasible?                                       │
-│                                                                              │
-├─────────────────────────────────────────────────────────────────────────────┤
-│                                                                              │
-│  Stage 5: PILOT       Stage 6: PRODUCTION  Stage 7: SCALE    Stage 8: OPTIMIZE │
-│  ──────────────       ──────────────────   ─────────────     ─────────────── │
-│  • Limited users      • Full deployment    • Multi-region    • Continuous   │
-│  • Real-world test    • MLOps pipeline     • Performance     • improvement  │
-│  • Feedback loops     • Monitoring         • Cost optimize   • Retraining   │
-│  • Safety validation  • Governance         • Team scaling    • Innovation   │
-│                                                                              │
-│  GATE: Safe &         GATE: Production     GATE: Scalable?   GATE: ROI      │
-│        Effective?            Ready?                                 Met?    │
-│                                                                              │
-└─────────────────────────────────────────────────────────────────────────────┘
+```mermaid
+flowchart LR
+    subgraph Phase1[" "]
+        direction TB
+        S1[💡 Stage 1: IDEATION]
+        S1D["• Business case<br/>• Use case ID<br/>• Success metrics<br/>• Stakeholder buy-in"]
+        S1G{{"🚪 GATE:<br/>Business Approval?"}}
+        S1 --> S1D --> S1G
+    end
+
+    subgraph Phase2[" "]
+        direction TB
+        S2[🔍 Stage 2: DISCOVERY]
+        S2D["• Data assessment<br/>• Feasibility<br/>• Risk assessment<br/>• Resource plan"]
+        S2G{{"🚪 GATE:<br/>Technical Feasible?"}}
+        S2 --> S2D --> S2G
+    end
+
+    subgraph Phase3[" "]
+        direction TB
+        S3[🧪 Stage 3: POC]
+        S3D["• Technical feasibility<br/>• Core algorithm<br/>• Initial results"]
+        S3G{{"🚪 GATE:<br/>Viable?"}}
+        S3 --> S3D --> S3G
+    end
+
+    subgraph Phase4[" "]
+        direction TB
+        S4[🔧 Stage 4: MVP]
+        S4D["• Working prototype<br/>• Basic UI<br/>• Integration"]
+        S4G{{"🚪 GATE:<br/>Usable?"}}
+        S4 --> S4D --> S4G
+    end
+
+    subgraph Phase5[" "]
+        direction TB
+        S5[👥 Stage 5: PILOT]
+        S5D["• Limited users<br/>• Real-world test<br/>• Feedback loops<br/>• Safety validation"]
+        S5G{{"🚪 GATE:<br/>Safe & Effective?"}}
+        S5 --> S5D --> S5G
+    end
+
+    subgraph Phase6[" "]
+        direction TB
+        S6[🚀 Stage 6: PRODUCTION]
+        S6D["• Full deployment<br/>• MLOps pipeline<br/>• Monitoring<br/>• Governance"]
+        S6G{{"🚪 GATE:<br/>Production Ready?"}}
+        S6 --> S6D --> S6G
+    end
+
+    subgraph Phase7[" "]
+        direction TB
+        S7[📈 Stage 7: SCALE]
+        S7D["• Multi-region<br/>• Performance<br/>• Cost optimize<br/>• Team scaling"]
+        S7G{{"🚪 GATE:<br/>Scalable?"}}
+        S7 --> S7D --> S7G
+    end
+
+    subgraph Phase8[" "]
+        direction TB
+        S8[⚡ Stage 8: OPTIMIZE]
+        S8D["• Continuous improvement<br/>• Retraining<br/>• Innovation"]
+        S8G{{"🚪 GATE:<br/>ROI Met?"}}
+        S8 --> S8D --> S8G
+    end
+
+    S1G --> S2
+    S2G --> S3
+    S3G --> S4
+    S4G --> S5
+    S5G --> S6
+    S6G --> S7
+    S7G --> S8
+
+    style S1 fill:#dbeafe,stroke:#3b82f6
+    style S2 fill:#dbeafe,stroke:#3b82f6
+    style S3 fill:#fae8ff,stroke:#a855f7
+    style S4 fill:#fae8ff,stroke:#a855f7
+    style S5 fill:#fef3c7,stroke:#f59e0b
+    style S6 fill:#dcfce7,stroke:#22c55e
+    style S7 fill:#dcfce7,stroke:#22c55e
+    style S8 fill:#dcfce7,stroke:#22c55e
 ```
 
 ### Stage Definitions
@@ -210,20 +264,23 @@ Gates are classified into three categories based on risk:
 
 ### Gate Decision Framework
 
-```
-Is there a legal/regulatory requirement?
-    │
-    ├── YES → 🔴 MANDATORY
-    │
-    └── NO → Could failure cause user harm?
-                │
-                ├── YES → 🔴 MANDATORY
-                │
-                └── NO → Does it significantly impact ROI?
-                            │
-                            ├── YES → 🟡 ADVISORY
-                            │
-                            └── NO → 🟢 CONFIGURABLE
+```mermaid
+flowchart TD
+    Q1{Is there a legal/<br/>regulatory requirement?}
+
+    Q1 -->|YES| M1[🔴 MANDATORY]
+    Q1 -->|NO| Q2{Could failure cause<br/>user harm?}
+
+    Q2 -->|YES| M2[🔴 MANDATORY]
+    Q2 -->|NO| Q3{Does it significantly<br/>impact ROI?}
+
+    Q3 -->|YES| A1[🟡 ADVISORY]
+    Q3 -->|NO| C1[🟢 CONFIGURABLE]
+
+    style M1 fill:#fecaca,stroke:#dc2626
+    style M2 fill:#fecaca,stroke:#dc2626
+    style A1 fill:#fef3c7,stroke:#f59e0b
+    style C1 fill:#dcfce7,stroke:#22c55e
 ```
 
 ### Healthcare AI: FDA Regulatory Overlay (Optional)

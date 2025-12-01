@@ -20,15 +20,26 @@ The MLOps Maturity Model helps organizations understand their current capabiliti
 - Model updates require manual intervention
 
 **Typical Workflow**:
-```
-┌─────────────────────────────────────────────────────────────┐
-│  Data Scientist                     Engineer                 │
-│  ─────────────                      ────────                 │
-│  • Jupyter notebooks          →     • Rewrites in production │
-│  • Local experimentation            • Manual deployment      │
-│  • Ad-hoc model training            • No monitoring          │
-│  • "Works on my machine"            • "Hope it works"        │
-└─────────────────────────────────────────────────────────────┘
+```mermaid
+flowchart LR
+    subgraph ds[👩‍🔬 Data Scientist]
+        DS1[📓 Jupyter notebooks]
+        DS2[🔬 Local experimentation]
+        DS3[🎲 Ad-hoc model training]
+        DS4["🤷 Works on my machine"]
+    end
+
+    subgraph eng[👨‍💻 Engineer]
+        E1[🔄 Rewrites in production]
+        E2[📦 Manual deployment]
+        E3[🚫 No monitoring]
+        E4["🤞 Hope it works"]
+    end
+
+    ds -->|Handoff| eng
+
+    style ds fill:#fef3c7,stroke:#f59e0b
+    style eng fill:#fecaca,stroke:#dc2626
 ```
 
 **Key Risks**:
@@ -59,17 +70,18 @@ The MLOps Maturity Model helps organizations understand their current capabiliti
 - Still manual deployment decisions
 
 **Typical Workflow**:
-```
-┌─────────────────────────────────────────────────────────────┐
-│                                                              │
-│  Data → Feature Engineering → Training → Validation         │
-│    │            │                  │          │              │
-│    └────────────┴──────────────────┴──────────┘              │
-│                   AUTOMATED PIPELINE                         │
-│                                                              │
-│  But: Manual trigger, manual deployment, manual monitoring   │
-│                                                              │
-└─────────────────────────────────────────────────────────────┘
+```mermaid
+flowchart LR
+    subgraph pipeline[<b>AUTOMATED PIPELINE</b>]
+        Data[📊 Data] --> FE[🔧 Feature Engineering]
+        FE --> Train[🎯 Training]
+        Train --> Val[✅ Validation]
+    end
+
+    Note[⚠️ But: Manual trigger,<br/>manual deployment,<br/>manual monitoring]
+
+    style pipeline fill:#dcfce7,stroke:#22c55e
+    style Note fill:#fef3c7,stroke:#f59e0b
 ```
 
 **Key Improvements Over Level 0**:
@@ -105,18 +117,19 @@ The MLOps Maturity Model helps organizations understand their current capabiliti
 - Basic monitoring in place
 
 **Typical Workflow**:
-```
-┌─────────────────────────────────────────────────────────────┐
-│                                                              │
-│  Code Change → CI Tests → Training → Validation → Deploy    │
-│       │            │          │          │           │       │
-│       │            │          │          │           │       │
-│       └────────────┴──────────┴──────────┴───────────┘       │
-│                   AUTOMATED CI/CD PIPELINE                   │
-│                                                              │
-│  But: Manual retraining triggers, basic monitoring only      │
-│                                                              │
-└─────────────────────────────────────────────────────────────┘
+```mermaid
+flowchart LR
+    subgraph cicd[<b>AUTOMATED CI/CD PIPELINE</b>]
+        Code[📝 Code Change] --> CI[🧪 CI Tests]
+        CI --> Train[🎯 Training]
+        Train --> Val[✅ Validation]
+        Val --> Deploy[🚀 Deploy]
+    end
+
+    Note[⚠️ But: Manual retraining triggers,<br/>basic monitoring only]
+
+    style cicd fill:#dbeafe,stroke:#3b82f6
+    style Note fill:#fef3c7,stroke:#f59e0b
 ```
 
 **Key Improvements Over Level 1**:
@@ -153,25 +166,20 @@ The MLOps Maturity Model helps organizations understand their current capabiliti
 - A/B testing infrastructure
 
 **Typical Workflow**:
-```
-┌─────────────────────────────────────────────────────────────┐
-│                                                              │
-│  ┌──────────────────────────────────────────────────────┐   │
-│  │                 CONTINUOUS TRAINING                   │   │
-│  │                                                       │   │
-│  │  New Data → Drift Detection → Automatic Retraining   │   │
-│  │                 │                    │                │   │
-│  │                 ↓                    ↓                │   │
-│  │           Alert Team          Auto Validate          │   │
-│  │                                      │                │   │
-│  │                                      ↓                │   │
-│  │                              Auto Deploy/Rollback     │   │
-│  │                                                       │   │
-│  └──────────────────────────────────────────────────────┘   │
-│                                                              │
-│  CI/CD + Continuous Training + Continuous Monitoring        │
-│                                                              │
-└─────────────────────────────────────────────────────────────┘
+```mermaid
+flowchart TB
+    subgraph ct[<b>CONTINUOUS TRAINING</b>]
+        NewData[📊 New Data] --> Drift{🔍 Drift Detection}
+        Drift -->|Drift detected| Retrain[🔄 Automatic Retraining]
+        Drift -->|Alert| Team[👥 Alert Team]
+        Retrain --> Validate[✅ Auto Validate]
+        Validate --> Deploy{🚀 Auto Deploy/Rollback}
+    end
+
+    Label[<b>CI/CD + Continuous Training + Continuous Monitoring</b>]
+
+    style ct fill:#dcfce7,stroke:#22c55e
+    style Deploy fill:#fae8ff,stroke:#a855f7
 ```
 
 **Key Capabilities**:

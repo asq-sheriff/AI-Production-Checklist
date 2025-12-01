@@ -6,18 +6,30 @@ A comprehensive reference guide to the three primary failure domains identified 
 
 Based on forensic analysis of AI project failures (2024-2025), we identify three interconnected failure domains:
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│                    PRODUCTION FAILURE                        │
-├─────────────────┬─────────────────┬─────────────────────────┤
-│  DATA SCHISM    │   METRIC GAP    │   TECHNICAL DEBT        │
-├─────────────────┼─────────────────┼─────────────────────────┤
-│ • Train-Serve   │ • Proxy Problem │ • CACE Principle        │
-│   Skew          │ • Goodhart's    │ • Pipeline Jungles      │
-│ • Data Leakage  │   Law           │ • Feedback Loops        │
-│ • Distribution  │ • Counterfactual│ • Undeclared            │
-│   Drift         │   Blindness     │   Consumers             │
-└─────────────────┴─────────────────┴─────────────────────────┘
+```mermaid
+flowchart TB
+    subgraph failure[<b>PRODUCTION FAILURE</b>]
+        subgraph data[📊 DATA SCHISM]
+            D1[Train-Serve Skew]
+            D2[Data Leakage]
+            D3[Distribution Drift]
+        end
+        subgraph metric[📈 METRIC GAP]
+            M1[Proxy Problem]
+            M2[Goodhart's Law]
+            M3[Counterfactual Blindness]
+        end
+        subgraph debt[🔧 TECHNICAL DEBT]
+            T1[CACE Principle]
+            T2[Pipeline Jungles]
+            T3[Feedback Loops]
+            T4[Undeclared Consumers]
+        end
+    end
+
+    style data fill:#fecaca,stroke:#dc2626
+    style metric fill:#fef3c7,stroke:#f59e0b
+    style debt fill:#dbeafe,stroke:#3b82f6
 ```
 
 ---
@@ -84,25 +96,31 @@ A pneumonia prediction model achieved 99% accuracy in development. In production
 
 **Detection Methods**:
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│                    DRIFT DETECTION                           │
-├─────────────────────────────────────────────────────────────┤
-│  Statistical Tests:                                          │
-│  • Kolmogorov-Smirnov (KS) test for distributions           │
-│  • Population Stability Index (PSI) for scoring             │
-│  • Chi-square test for categorical features                  │
-│                                                              │
-│  Performance Monitoring:                                     │
-│  • Rolling accuracy windows (daily, weekly)                 │
-│  • Confidence calibration tracking                          │
-│  • Ground truth feedback loops                              │
-│                                                              │
-│  Automated Responses:                                        │
-│  • Alert thresholds → Investigation                         │
-│  • Drift thresholds → Automatic retraining                  │
-│  • Critical drift → Model rollback                          │
-└─────────────────────────────────────────────────────────────┘
+```mermaid
+flowchart TB
+    subgraph drift[<b>DRIFT DETECTION</b>]
+        subgraph stats[📊 Statistical Tests]
+            S1[KS test for distributions]
+            S2[PSI for scoring]
+            S3[Chi-square for categorical]
+        end
+
+        subgraph perf[📈 Performance Monitoring]
+            P1[Rolling accuracy windows]
+            P2[Confidence calibration tracking]
+            P3[Ground truth feedback loops]
+        end
+
+        subgraph auto[⚡ Automated Responses]
+            A1[Alert thresholds → Investigation]
+            A2[Drift thresholds → Auto retraining]
+            A3[Critical drift → Model rollback]
+        end
+    end
+
+    style stats fill:#dbeafe,stroke:#3b82f6
+    style perf fill:#dcfce7,stroke:#22c55e
+    style auto fill:#fef3c7,stroke:#f59e0b
 ```
 
 ---
@@ -149,16 +167,19 @@ The Metric Gap represents the disconnect between optimization objectives and bus
 
 **The Feedback Loop Problem**:
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│   Model Prediction → Action Taken → Outcome Observed        │
-│         ↑                                      │             │
-│         └──────────── Training Data ───────────┘             │
-│                                                              │
-│   Problem: We ONLY see outcomes for actions the model       │
-│   recommended. We don't know what would have happened       │
-│   with alternative actions.                                  │
-└─────────────────────────────────────────────────────────────┘
+```mermaid
+flowchart LR
+    MP[🧠 Model Prediction] --> AT[⚡ Action Taken]
+    AT --> OO[📊 Outcome Observed]
+    OO -->|Training Data| MP
+
+    subgraph problem[⚠️ Problem]
+        P1["We ONLY see outcomes for actions<br/>the model recommended"]
+        P2["We don't know what would have<br/>happened with alternative actions"]
+    end
+
+    style problem fill:#fecaca,stroke:#dc2626
+    style MP fill:#fae8ff,stroke:#a855f7
 ```
 
 **Real-World Examples**:

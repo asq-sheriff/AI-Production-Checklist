@@ -26,18 +26,22 @@ Detailed forensic analysis of high-profile AI failures with actionable lessons.
 
 Zillow's iBuying algorithm provided instant cash offers on homes:
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│                    ZILLOW OFFERS SYSTEM                      │
-├─────────────────────────────────────────────────────────────┤
-│  Input: Home characteristics, market data, comps            │
-│                    ↓                                         │
-│  Model: Predict fair market value                           │
-│                    ↓                                         │
-│  Output: Instant cash offer to homeowner                    │
-│                    ↓                                         │
-│  Action: Purchase home → Renovate → Resell                  │
-└─────────────────────────────────────────────────────────────┘
+```mermaid
+flowchart TB
+    subgraph system[<b>ZILLOW OFFERS SYSTEM</b>]
+        direction TB
+        Input[📥 Input: Home characteristics,<br/>market data, comps]
+        Model[🧠 Model: Predict fair market value]
+        Output[💰 Output: Instant cash offer to homeowner]
+        Action[🏠 Action: Purchase → Renovate → Resell]
+
+        Input --> Model --> Output --> Action
+    end
+
+    style Input fill:#dbeafe,stroke:#3b82f6
+    style Model fill:#fae8ff,stroke:#a855f7
+    style Output fill:#fef3c7,stroke:#f59e0b
+    style Action fill:#dcfce7,stroke:#22c55e
 ```
 
 ### Root Cause Analysis
@@ -118,18 +122,22 @@ The model was optimized for a world that no longer existed.
 
 ### What Was the System?
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│                 AMAZON RECRUITING AI                         │
-├─────────────────────────────────────────────────────────────┤
-│  Input: Resume text                                          │
-│                    ↓                                         │
-│  Model: Trained on 10 years of hiring decisions             │
-│                    ↓                                         │
-│  Output: 1-5 star rating of candidate                       │
-│                    ↓                                         │
-│  Goal: Automate initial screening                           │
-└─────────────────────────────────────────────────────────────┘
+```mermaid
+flowchart TB
+    subgraph system[<b>AMAZON RECRUITING AI</b>]
+        direction TB
+        Input[📄 Input: Resume text]
+        Model[🧠 Model: Trained on 10 years<br/>of hiring decisions]
+        Output[⭐ Output: 1-5 star rating<br/>of candidate]
+        Goal[🎯 Goal: Automate initial screening]
+
+        Input --> Model --> Output --> Goal
+    end
+
+    style Input fill:#dbeafe,stroke:#3b82f6
+    style Model fill:#fae8ff,stroke:#a855f7
+    style Output fill:#fef3c7,stroke:#f59e0b
+    style Goal fill:#dcfce7,stroke:#22c55e
 ```
 
 ### Root Cause Analysis
@@ -143,11 +151,16 @@ The model was optimized for a world that no longer existed.
 - Previous successful hires: Predominantly male
 
 **The Feedback Loop**:
-```
-Historical Bias → Training Data → Model → Predictions → Hiring Decisions
-        ↑                                                      │
-        └──────────────────────────────────────────────────────┘
-        (If deployed, would reinforce the bias)
+```mermaid
+flowchart LR
+    HB[📊 Historical Bias] --> TD[📁 Training Data]
+    TD --> M[🧠 Model]
+    M --> P[📈 Predictions]
+    P --> HD[👔 Hiring Decisions]
+    HD -.->|If deployed,<br/>reinforces bias| HB
+
+    style HB fill:#fecaca,stroke:#dc2626
+    style HD fill:#fecaca,stroke:#dc2626
 ```
 
 #### 2. Proxy Discrimination
@@ -199,18 +212,22 @@ Historical Bias → Training Data → Model → Predictions → Hiring Decisions
 
 ### What Was the System?
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│                 EPIC SEPSIS MODEL                            │
-├─────────────────────────────────────────────────────────────┤
-│  Input: Electronic Health Record data                       │
-│                    ↓                                         │
-│  Model: Predict sepsis risk                                 │
-│                    ↓                                         │
-│  Output: Alert to clinical staff                            │
-│                    ↓                                         │
-│  Goal: Early intervention to prevent deaths                 │
-└─────────────────────────────────────────────────────────────┘
+```mermaid
+flowchart TB
+    subgraph system[<b>EPIC SEPSIS MODEL</b>]
+        direction TB
+        Input[🏥 Input: Electronic Health<br/>Record data]
+        Model[🧠 Model: Predict sepsis risk]
+        Output[🚨 Output: Alert to clinical staff]
+        Goal[💊 Goal: Early intervention<br/>to prevent deaths]
+
+        Input --> Model --> Output --> Goal
+    end
+
+    style Input fill:#dbeafe,stroke:#3b82f6
+    style Model fill:#fae8ff,stroke:#a855f7
+    style Output fill:#fef3c7,stroke:#f59e0b
+    style Goal fill:#dcfce7,stroke:#22c55e
 ```
 
 ### Root Cause Analysis
@@ -223,16 +240,16 @@ Historical Bias → Training Data → Model → Predictions → Hiring Decisions
 - Result: Clinicians learned to ignore the alerts
 
 **The Psychology**:
-```
-Alert Fired (100 times)
-    ↓
-Clinician Investigates (first 10 times)
-    ↓
-False Alarm (most times)
-    ↓
-Clinician Stops Trusting (alert ignored)
-    ↓
-True Positive Missed (patient harmed)
+```mermaid
+flowchart TB
+    A1[🚨 Alert Fired<br/>100 times] --> A2[🔍 Clinician Investigates<br/>first 10 times]
+    A2 --> A3[❌ False Alarm<br/>most times]
+    A3 --> A4[😤 Clinician Stops Trusting<br/>alert ignored]
+    A4 --> A5[💔 True Positive Missed<br/>patient harmed]
+
+    style A1 fill:#fef3c7,stroke:#f59e0b
+    style A3 fill:#fecaca,stroke:#dc2626
+    style A5 fill:#fecaca,stroke:#dc2626
 ```
 
 #### 2. Overfitting to Source
@@ -301,32 +318,38 @@ True Positive Missed (patient harmed)
 
 ### Universal Prevention Framework
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│              PRODUCTION AI RISK FRAMEWORK                    │
-├─────────────────────────────────────────────────────────────┤
-│                                                              │
-│  DATA RISKS                                                  │
-│  □ Historical bias in training data?                        │
-│  □ Proxy discrimination possible?                           │
-│  □ Regime change since training?                            │
-│                                                              │
-│  MODEL RISKS                                                 │
-│  □ External validation performed?                           │
-│  □ Confidence intervals provided?                           │
-│  □ Performance across subgroups tested?                     │
-│                                                              │
-│  DEPLOYMENT RISKS                                            │
-│  □ Adversarial exploitation possible?                       │
-│  □ Alert/recommendation fatigue?                            │
-│  □ Local calibration required?                              │
-│                                                              │
-│  MONITORING RISKS                                            │
-│  □ Drift detection in place?                                │
-│  □ User trust being tracked?                                │
-│  □ Human override enabled?                                  │
-│                                                              │
-└─────────────────────────────────────────────────────────────┘
+```mermaid
+flowchart TB
+    subgraph framework[<b>PRODUCTION AI RISK FRAMEWORK</b>]
+        subgraph data[📊 DATA RISKS]
+            D1[□ Historical bias in training data?]
+            D2[□ Proxy discrimination possible?]
+            D3[□ Regime change since training?]
+        end
+
+        subgraph model[🧠 MODEL RISKS]
+            M1[□ External validation performed?]
+            M2[□ Confidence intervals provided?]
+            M3[□ Performance across subgroups tested?]
+        end
+
+        subgraph deploy[🚀 DEPLOYMENT RISKS]
+            P1[□ Adversarial exploitation possible?]
+            P2[□ Alert/recommendation fatigue?]
+            P3[□ Local calibration required?]
+        end
+
+        subgraph monitor[📈 MONITORING RISKS]
+            O1[□ Drift detection in place?]
+            O2[□ User trust being tracked?]
+            O3[□ Human override enabled?]
+        end
+    end
+
+    style data fill:#fecaca,stroke:#dc2626
+    style model fill:#fae8ff,stroke:#a855f7
+    style deploy fill:#fef3c7,stroke:#f59e0b
+    style monitor fill:#dbeafe,stroke:#3b82f6
 ```
 
 ---

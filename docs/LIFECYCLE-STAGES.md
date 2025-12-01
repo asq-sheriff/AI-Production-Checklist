@@ -17,19 +17,31 @@ A structured stage-gate approach dramatically improves these odds.
 
 ## The 8-Stage Model
 
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                        AI PRODUCTION LIFECYCLE                               │
-├─────────────────────────────────────────────────────────────────────────────┤
-│                                                                              │
-│  1. IDEATION    →    2. DISCOVERY    →    3. POC    →    4. MVP             │
-│                                                                              │
-│  5. PILOT       →    6. PRODUCTION   →    7. SCALE  →    8. OPTIMIZE        │
-│                                                                              │
-│                         ↑                                                    │
-│                    FEEDBACK LOOPS                                            │
-│                                                                              │
-└─────────────────────────────────────────────────────────────────────────────┘
+```mermaid
+flowchart LR
+    subgraph early[Early Stages]
+        S1[💡 1. IDEATION] --> S2[🔍 2. DISCOVERY]
+        S2 --> S3[🧪 3. POC]
+        S3 --> S4[🔧 4. MVP]
+    end
+
+    subgraph late[Later Stages]
+        S5[👥 5. PILOT] --> S6[🚀 6. PRODUCTION]
+        S6 --> S7[📈 7. SCALE]
+        S7 --> S8[⚡ 8. OPTIMIZE]
+    end
+
+    S4 --> S5
+    S8 -.->|FEEDBACK LOOPS| S1
+
+    style S1 fill:#dbeafe,stroke:#3b82f6
+    style S2 fill:#dbeafe,stroke:#3b82f6
+    style S3 fill:#fae8ff,stroke:#a855f7
+    style S4 fill:#fae8ff,stroke:#a855f7
+    style S5 fill:#fef3c7,stroke:#f59e0b
+    style S6 fill:#dcfce7,stroke:#22c55e
+    style S7 fill:#dcfce7,stroke:#22c55e
+    style S8 fill:#dcfce7,stroke:#22c55e
 ```
 
 ---
