@@ -179,6 +179,49 @@ flowchart LR
 
 </details>
 
+<details>
+<summary>📊 <b>Industry Standard Comparison: CRISP-DM Mapping</b> — Click to expand</summary>
+
+> **Note:** [CRISP-DM](https://en.wikipedia.org/wiki/Cross-industry_standard_process_for_data_mining) (Cross-Industry Standard Process for Data Mining) is the **de-facto industry standard** for data science and ML projects, consistently ranking #1 in [KDnuggets polls over 12+ years](https://www.datascience-pm.com/crisp-dm-still-most-popular/). Our 8-stage model extends CRISP-DM to address modern AI/MLOps requirements.
+
+#### How Our 8 Stages Map to CRISP-DM
+
+| CRISP-DM Phase | Our Stage(s) | What We Add |
+|----------------|--------------|-------------|
+| **1. Business Understanding** | 1. Ideation | Explicit stakeholder buy-in, success metrics |
+| **2. Data Understanding** | 2. Discovery | Risk assessment, resource planning |
+| **3. Data Preparation** | 2. Discovery + 3. POC | Integrated into discovery and POC phases |
+| **4. Modeling** | 3. POC + 4. MVP | Split into feasibility (POC) and prototype (MVP) |
+| **5. Evaluation** | 4. MVP + 5. Pilot | Extended with real-world pilot validation |
+| **6. Deployment** | 6. Production | Same focus on deployment |
+| *(not covered)* | 7. Scale | **NEW:** Multi-region, performance optimization |
+| *(not covered)* | 8. Optimize | **NEW:** Continuous improvement, retraining |
+
+#### Why We Extended CRISP-DM
+
+CRISP-DM was published in 1999 and, while still valuable, has [known limitations](https://www.datascience-pm.com/crisp-dm-2/) for modern AI systems:
+
+| CRISP-DM Limitation | How Our Model Addresses It |
+|---------------------|---------------------------|
+| No MLOps/continuous training coverage | Stages 7-8 cover scaling and optimization |
+| Designed for small teams | Gate system supports enterprise coordination |
+| No pilot/validation phase | Stage 5 (Pilot) for real-world testing |
+| Deployment is "done" | Stage 8 treats deployment as ongoing |
+| Not AI-specific ([Cognilytica](https://www.techtarget.com/searchitchannel/blog/Channel-Marker/Cognilytica-expands-on-CRISP-DM-model-for-AI-project-management)) | Includes agentic AI, LLM, and safety considerations |
+
+#### Other Industry Frameworks
+
+| Framework | Stages | Best For | Reference |
+|-----------|--------|----------|-----------|
+| **CRISP-DM** | 6 phases | Traditional ML/analytics | [Wikipedia](https://en.wikipedia.org/wiki/Cross-industry_standard_process_for_data_mining) |
+| **Microsoft TDSP** | 5 stages | Azure-based projects | [Microsoft Docs](https://learn.microsoft.com/en-us/azure/architecture/data-science-process/overview) |
+| **Google MLOps** | 3 maturity levels | Automation-focused | [Google Cloud](https://cloud.google.com/architecture/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning) |
+| **CPMAI** | CRISP-DM + Agile | AI-specific projects | [Cognilytica](https://www.techtarget.com/searchitchannel/blog/Channel-Marker/Cognilytica-expands-on-CRISP-DM-model-for-AI-project-management) |
+
+> **Best Practice:** "Data science teams that combine a loose implementation of CRISP-DM with overarching team-based agile project management approaches will likely see the best results." — [Data Science PM](https://www.datascience-pm.com/crisp-dm-2/)
+
+</details>
+
 ### Gate Classification
 
 Gates are classified into three categories based on risk:
