@@ -361,6 +361,7 @@ When building Healthcare AI, enable this overlay to add FDA-specific requirement
 
 ## 🏗️ Architecture & Design
 
+> [!IMPORTANT]
 > **Why it matters:** Poor architecture decisions made early become expensive technical debt. A well-designed AI system separates concerns, enables scaling, and makes debugging possible. This section covers the foundational infrastructure that everything else builds upon.
 
 ### AI-Native Architecture Blueprint (10 Steps)
@@ -479,6 +480,7 @@ When building Healthcare AI, enable this overlay to add FDA-specific requirement
 
 ## 🔬 Data Quality & Statistical Validity
 
+> [!IMPORTANT]
 > **Why it matters:** Research reveals that 80%+ of AI failures trace to data issues, not model complexity. Training-Serving Skew is a "silent failure"—models output garbage predictions with high confidence without crashing. Data leakage creates an "optimism trap" where prototype metrics are artificially inflated. This section addresses the primary technical determinant of production success.
 
 ### Training-Serving Skew Prevention
@@ -548,6 +550,7 @@ A pneumonia prediction model learned `took_antibiotic=True` predicts pneumonia p
 
 ## 🤖 Agentic AI & Multi-Agent Systems
 
+> [!IMPORTANT]
 > **Why it matters:** 79% of organizations are already using AI agents in production. Agentic systems can handle complex workflows autonomously, but without proper design patterns they become unpredictable and unreliable. This section covers proven enterprise patterns for building agents that work together effectively.
 
 ### Agentic AI Design Patterns
@@ -637,6 +640,7 @@ A pneumonia prediction model learned `took_antibiotic=True` predicts pneumonia p
 
 ## 🔐 Security & Compliance
 
+> [!IMPORTANT]
 > **Why it matters:** AI systems handle sensitive data and make decisions that affect users. A security breach can expose PII, leak proprietary models, or allow prompt injection attacks. Compliance failures result in fines (GDPR: up to 4% of global revenue) and reputational damage. This is non-negotiable for production.
 
 ### Authentication & Authorization
@@ -674,6 +678,7 @@ A pneumonia prediction model learned `took_antibiotic=True` predicts pneumonia p
 
 ## 🛡️ Red Teaming & LLM Security
 
+> [!IMPORTANT]
 > **Why it matters:** LLMs have unique vulnerabilities that traditional security doesn't cover. Prompt injection can bypass all your safety measures. NVIDIA's red team found that insecure RAG permissions and unsanitized outputs are the top attack vectors. Proactive adversarial testing catches these before attackers do.
 
 ### OWASP LLM Top 10 (2025)
@@ -740,6 +745,7 @@ A pneumonia prediction model learned `took_antibiotic=True` predicts pneumonia p
 
 ## ⚡ Performance & Scale
 
+> [!IMPORTANT]
 > **Why it matters:** Users abandon AI applications that feel slow—every 100ms of latency reduces engagement. LLM inference is expensive; poor optimization wastes GPU resources. At scale, the difference between 100ms and 500ms response time is the difference between delighted users and churned customers.
 
 ### Latency Optimization
@@ -808,6 +814,7 @@ A pneumonia prediction model learned `took_antibiotic=True` predicts pneumonia p
 
 ## 💰 Cost Management & FinOps
 
+> [!IMPORTANT]
 > **Why it matters:** AI costs can spiral out of control overnight. A single misconfigured prompt can 10x your token usage. 63% of organizations are now actively managing AI spending (doubled from 2024). Without proper FinOps, that "free tier" experiment becomes a $50K monthly bill.
 
 ### AI-Specific Cost Drivers
@@ -864,6 +871,7 @@ A pneumonia prediction model learned `took_antibiotic=True` predicts pneumonia p
 
 ## 🛡️ Safety & Ethics
 
+> [!IMPORTANT]
 > **Why it matters:** LLMs can generate harmful, biased, or factually wrong content. One toxic output can go viral and destroy your brand. Organizations with ethical AI design report higher success rates. This section ensures your AI helps users without causing harm.
 
 ### Content Safety
@@ -891,6 +899,7 @@ A pneumonia prediction model learned `took_antibiotic=True` predicts pneumonia p
 
 ## 📊 Monitoring & Observability
 
+> [!IMPORTANT]
 > **Why it matters:** You can't fix what you can't see. AI systems degrade silently—model drift, data quality issues, and hallucination rates creep up over time. Without proper monitoring, you'll learn about problems from angry users, not dashboards. This is how you maintain quality post-launch.
 
 ### System Monitoring
@@ -929,6 +938,7 @@ A pneumonia prediction model learned `took_antibiotic=True` predicts pneumonia p
 
 ## 🔄 Operations & Maintenance
 
+> [!IMPORTANT]
 > **Why it matters:** Production AI requires continuous care. Models need updates, prompts need tuning, and systems fail. Without proper deployment strategies (blue-green, canary), one bad release takes down production. Without disaster recovery, one outage becomes permanent data loss.
 
 ### Deployment Strategy
@@ -959,6 +969,7 @@ A pneumonia prediction model learned `took_antibiotic=True` predicts pneumonia p
 
 ## 🔧 Technical Debt & System Integrity
 
+> [!IMPORTANT]
 > **Why it matters:** ML systems have a unique capacity to incur massive, invisible maintenance costs. The CACE principle (Changing Anything Changes Everything) means small upstream changes can catastrophically break downstream models. This debt compounds silently during prototyping and surfaces explosively in production.
 
 ### The CACE Principle (Changing Anything Changes Everything)
@@ -1007,6 +1018,7 @@ A pneumonia prediction model learned `took_antibiotic=True` predicts pneumonia p
 
 ## 📜 AI Governance
 
+> [!IMPORTANT]
 > **Why it matters:** The EU AI Act is now law. NIST and ISO 42001 are becoming enterprise requirements. Organizations that ignore governance face fines, failed audits, and banned products. Only 33% of organizations have embedded AI governance—being compliant is a competitive advantage.
 
 ### Major Governance Frameworks
@@ -1079,6 +1091,7 @@ A pneumonia prediction model learned `took_antibiotic=True` predicts pneumonia p
 
 ## 🧪 LLM Evaluation & Testing
 
+> [!IMPORTANT]
 > **Why it matters:** "It works on my laptop" isn't good enough for AI. LLMs hallucinate, drift, and behave differently with different inputs. Without systematic evaluation using golden datasets and automated testing, you're guessing about quality. This section ensures you can measure and maintain AI performance.
 
 ### Evaluation Approaches
@@ -1140,6 +1153,7 @@ A pneumonia prediction model learned `took_antibiotic=True` predicts pneumonia p
 
 ## 📐 Metric Alignment & Evaluation Integrity
 
+> [!IMPORTANT]
 > **Why it matters:** A model can be mathematically "optimal" according to its loss function while being "destructive" to the business. Goodhart's Law explains why metrics degrade when they become targets. This section ensures your evaluation actually predicts real-world success, not just offline performance.
 
 ### The Proxy Problem
@@ -1204,6 +1218,7 @@ Model predicts crime in Area A → Police deployed → Crime observed → Model 
 
 ## 🔬 Assured Intelligence & Quantitative Safety
 
+> [!IMPORTANT]
 > **Why it matters:** Traditional checklists ensure "probably works"—this section ensures "provably works within bounds." A model can achieve 95% accuracy while producing overconfident wrong predictions that cause patient deaths. Conformal Prediction, causal validation, and selective prediction provide mathematical guarantees that transform AI from "good enough" to "assured."
 
 ### Uncertainty Quantification (Conformal Prediction)
@@ -1364,6 +1379,7 @@ Key: A negative output requires ALL layers to agree.
 
 ## ✍️ Prompt Engineering
 
+> [!IMPORTANT]
 > **Why it matters:** Prompts are the code of AI applications—they determine output quality, consistency, and cost. Research shows adding "be concise" reduces token usage by 15-25%. Treating prompts as versioned artifacts with CI/CD enables rapid iteration and prevents regression. This is how you make AI reliable.
 
 ### Production-Grade Prompt Engineering
@@ -1402,6 +1418,7 @@ Key: A negative output requires ALL layers to agree.
 
 ## 📈 AI Strategy & Transformation
 
+> [!IMPORTANT]
 > **Why it matters:** 87% of ML projects fail to reach production—most due to organizational issues, not technology. Leadership buy-in is the single most predictive factor for AI success. Without a clear strategy, roadmap, and change management, you'll build great AI that nobody uses. This section bridges technology and business.
 
 ### AI Strategy Roadmap (7 Workstreams - Gartner)
@@ -1480,6 +1497,7 @@ Key: A negative output requires ALL layers to agree.
 
 ## 👥 Team & Process
 
+> [!IMPORTANT]
 > **Why it matters:** Technology doesn't deploy itself—people do. Knowledge silos, missing documentation, and untrained teams cause operational failures. When the on-call engineer can't find the runbook at 3 AM, your users suffer. This section ensures your team can build, run, and maintain AI systems effectively.
 
 ### Documentation
@@ -1525,6 +1543,7 @@ Key: A negative output requires ALL layers to agree.
 
 ## 🏥 Healthcare & Mental Health AI Safety
 
+> [!IMPORTANT]
 > **Why it matters:** Healthcare AI failures don't just cost money—they cost lives. IBM Watson for Oncology ($4B+ failure), Babylon Health ($4.2B → $0), Forward CarePods ($650M → shutdown), and Character.AI (teen suicide) demonstrate that healthcare and mental health AI requires fundamentally different safety standards. The checklist items below address failure patterns unique to these high-stakes domains.
 
 ### Crisis Detection & Intervention (Mental Health AI)
@@ -1657,6 +1676,7 @@ A seasoned tech entrepreneur with clinical psychologist co-founder built Yara AI
 
 ## ⚠️ Anti-Patterns: Lessons from Catastrophic Failures
 
+> [!IMPORTANT]
 > **Why it matters:** These case studies represent billions in losses and destroyed careers. Each failure provides concrete patterns to detect and avoid in your own systems.
 
 ### Case Study 1: Zillow Offers ($500M+ Loss)
