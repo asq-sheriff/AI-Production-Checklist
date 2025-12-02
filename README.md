@@ -6,7 +6,7 @@
 
 **The Complete Guide to Production AI: From 87% Failure Rate to Deployment Success**
 
-`MLOps` `LLMOps` `RAG` `Agentic RAG` `AI Agents` `ReAct Pattern` `Multi-Agent Systems` `MCP` `AI Governance` `AI Safety` `Healthcare AI` `EU AI Act` `OWASP LLM`
+`MLOps` `LLMOps` `RAG` `Agentic RAG` `AI Agents` `ReAct Pattern` `Multi-Agent Systems` `MCP` `AI Governance` `AI Safety` `Healthcare AI` `IEC 61508` `FDA De Novo` `WAI-AI` `EU AI Act` `OWASP LLM`
 
 [![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](CONTRIBUTING.md)
 [![License: MIT](https://img.shields.io/badge/Code-MIT-yellow.svg)](LICENSE-MIT)
@@ -434,6 +434,18 @@ When building Healthcare AI, enable this overlay to add FDA-specific requirement
   - [ ] Tested fallback models
   - [ ] Documented model limitations
   - [ ] Created model cards
+
+- [ ] **Edge/Small Model Deployment**
+  - [ ] On-device inference requirements assessed (mobile, IoT, embedded)
+  - [ ] Model quantization applied (INT4, INT8, FP16)
+  - [ ] Context window fits device memory constraints
+  - [ ] Offline capability tested (local vector store, cached responses)
+  - [ ] Battery/power consumption profiled
+  - [ ] Latency validated on target hardware (< 100ms for interactive)
+  - [ ] Model fits deployment target (Jamba 3B: phones, Llama 4 Scout: single GPU)
+  - [ ] Edge/cloud split ratio defined (e.g., 90% edge / 10% cloud fallback)
+  - [ ] Cloud fallback triggers documented (complexity, safety, connectivity)
+  - [ ] Total memory budget validated (≤8GB for consumer devices)
 
 - [ ] **Retrieval Augmented Generation (RAG)**
   - [ ] Designed chunking strategy
@@ -1160,6 +1172,60 @@ A pneumonia prediction model learned `took_antibiotic=True` predicts pneumonia p
   - **OpenAI Evals**: Open-source, community-driven
   </details>
 
+### Holistic Agent Evaluation (Beyond Component Metrics)
+
+> ⚠️ A system can have perfect crisis detection but still fail if responses feel robotic, inconsistent, or fail to build trust. Component metrics miss the full picture.
+
+**The Evaluation Gap:**
+| Component-Level (Current) | Agent-Level (Missing) |
+|---------------------------|----------------------|
+| Intent classification accuracy | Therapeutic guideline adherence |
+| Response latency (<2s) | Persona/character consistency |
+| Embedding similarity scores | Tone consistency across sessions |
+| RAG retrieval precision | User satisfaction (CSAT) |
+| Generation perplexity | Therapeutic alliance strength |
+
+- [ ] **Multi-Dimensional Framework**
+  - [ ] Therapeutic/guideline adherence score (>90% via LLM-as-Judge)
+  - [ ] Persona consistency tracking (>85% alignment)
+  - [ ] Tone stability across sessions (VAD drift <0.15)
+  - [ ] User satisfaction (CSAT >80%)
+  - [ ] Engagement metrics (session continuation rate >70%)
+
+- [ ] **Working Alliance Inventory - AI Adapted (WAI-AI)**
+  - [ ] Task Agreement: "AI helps me work on what I want to focus on"
+  - [ ] Goal Agreement: "AI understands what I want to accomplish"
+  - [ ] Bond: "I feel the AI cares about me / I trust the AI"
+  - [ ] Target score: ≥4.0/5.0 on 12-item assessment
+  - [ ] Weekly micro-surveys (2 random items) + monthly full assessment
+
+- [ ] **LLM-as-Judge with Rubrics**
+  - [ ] Evaluation rubric defined with weighted dimensions
+  - [ ] Judge model selected (GPT-4/Claude for grading)
+  - [ ] Weekly human calibration (50 LLM judgments vs expert ratings)
+  - [ ] Alert on degradation (>5% drop week-over-week)
+
+- [ ] **Behavioral Proxy Metrics**
+  - [ ] Session length tracking
+  - [ ] Return rate measurement
+  - [ ] Disclosure depth scoring
+  - [ ] Engagement pattern analysis
+
+  <details>
+  <summary>💡 Sample LLM-as-Judge Rubric</summary>
+
+  ```python
+  EVALUATION_RUBRIC = {
+      "crisis_resources": {"weight": 1.0, "desc": "Provides crisis resources when risk present"},
+      "professional_boundaries": {"weight": 0.9, "desc": "Recommends help appropriately"},
+      "empathetic_language": {"weight": 0.8, "desc": "Warm, validating, appropriate tone"},
+      "evidence_based": {"weight": 0.7, "desc": "Uses appropriate techniques"},
+      "continuation": {"weight": 0.6, "desc": "Maintains engagement"},
+      "factual_accuracy": {"weight": 0.9, "desc": "No hallucinations"}
+  }
+  ```
+  </details>
+
 ---
 
 ## 📐 Metric Alignment & Evaluation Integrity
@@ -1568,6 +1634,20 @@ Key: A negative output requires ALL layers to agree.
 - [ ] **Dependency Monitoring**: User engagement patterns monitored for unhealthy attachment/addiction
 - [ ] **Age-Appropriate Safeguards**: Enhanced protections for minors (no romantic/sexual content, parental visibility)
 
+**Crisis Detection Performance Targets:**
+| Metric | Target | Rationale |
+|--------|--------|-----------|
+| Recall | 100% | Zero false negatives - every crisis must be detected |
+| False Positive Rate | <5% | Minimize alert fatigue while maintaining recall |
+| Response Time | <1s | Regulatory standard often 30s; aim for real-time |
+| Severity Grading | 3+ levels | IMMEDIATE (<30s) → URGENT (<5min) → ELEVATED (<1hr) |
+
+- [ ] **Crisis Detection Recall**: 100% recall validated (zero false negatives)
+- [ ] **False Positive Rate**: <5% FPR to prevent alert fatigue
+- [ ] **Response Time SLA**: <1s detection time (regulatory max: 30s)
+- [ ] **Multi-Stage Severity Grading**: Tiered response based on crisis severity
+- [ ] **Trajectory Analysis**: 4+ turn progressive deterioration detection
+
 <details>
 <summary>💡 The Yara AI Lesson</summary>
 
@@ -1667,6 +1747,45 @@ A seasoned tech entrepreneur with clinical psychologist co-founder built Yara AI
 - [ ] **State Mental Health Laws**: Jurisdiction-specific requirements met
 - [ ] **Clinical Trial Requirements**: Human subjects research protocols followed
 - [ ] **Liability Insurance**: Professional liability coverage adequate
+
+**Medical Device Regulatory Path (FDA De Novo):**
+- [ ] **ISO 13485**: Quality Management System gap analysis complete
+- [ ] **IEC 62304**: Software lifecycle classification determined (Class A/B/C)
+- [ ] **ISO 14971**: Risk management file with device-specific risks
+- [ ] **Design History File (DHF)**: Initiated for FDA submission
+- [ ] **Q-Submission**: Pre-submission meeting scheduled with FDA
+- [ ] **Clinical Trial Protocol**: IRB approval obtained
+- [ ] **Regulatory Consultant**: Engaged for submission guidance
+
+### Safety-Critical Architecture (IEC 61508)
+
+> ⚠️ For healthcare/therapeutic AI with physical device integration (RPM wearables, smart home, robotics), safety architecture must be formally proven BEFORE deployment. Retrofitting safety is 10x more expensive.
+
+**Safety Invariants (Must Be Formally Verified):**
+```
+SAFETY_INVARIANTS = {
+    "no_harm": "System SHALL NOT execute commands that could physically harm users",
+    "fail_safe": "On any failure, system SHALL revert to safe default state",
+    "human_override": "Human operator SHALL always be able to override automated decisions",
+    "crisis_priority": "Crisis responses SHALL preempt all other operations",
+    "audit_complete": "All safety-critical decisions SHALL be logged with full context"
+}
+```
+
+- [ ] **Deterministic Safety Kernel**: Real-time guarantees (<10ms response time)
+- [ ] **Formal Verification**: Mathematical proofs (Z3/TLA+) for all safety invariants
+- [ ] **Triple Modular Redundancy**: 3 independent checks for critical decisions
+- [ ] **Hardware E-Stop**: Physical override capability for all automated actions
+- [ ] **Safety Interlock Controller**: Prevents unsafe command sequences
+- [ ] **Audit Logger**: ISO 13485 compliant, 100% coverage of safety decisions
+- [ ] **Watchdog Timers**: Auto-failsafe on timeout
+- [ ] **Zero Unproven Invariants**: All safety properties formally proven
+
+**Success Criteria:**
+- [ ] Zero safety-critical failures in 1M simulations
+- [ ] <10ms safety check latency
+- [ ] 100% audit trail coverage
+- [ ] Hardware E-stop tested and documented
 
 ### Healthcare AI Summary Checklist
 
@@ -1935,20 +2054,28 @@ If you're overwhelmed, start with these high-impact items:
 - **Defined role delegation** → CrewAI (fastest path to working prototype)
 - **Enterprise reliability** → AutoGen (Microsoft-backed, Azure integration)
 
-### Model Selection Guide (2025)
+### Model Selection Guide (December 2025)
 
-> Based on [Hugging Face trends](https://huggingface.co/blog/daya-shankar/open-source-llms) and [LLM leaderboards](https://dextralabs.com/blog/best-llm-leaderboard/). Note: "Small-but-mighty" models and token compression are the new frontiers.
+> Based on [LMArena Leaderboard](https://lmarena.ai/leaderboard), [Hugging Face Open LLM Leaderboard](https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard), and [Artificial Analysis](https://artificialanalysis.ai/leaderboards/models). Updated December 2025.
 
-| Use Case | Top Models (2025) | Open-Source Alternative | Notes |
+| Use Case | Top Models (Dec 2025) | Open-Source Alternative | Notes |
 |----------|-------------------|------------------------|-------|
-| **Complex reasoning** | GPT-4o, Claude 3.5 Sonnet, Gemini 2.0 | DeepSeek-V3 (671B MoE, 37B active) | DeepSeek matches GPT-4 at fraction of cost |
-| **High volume** | GPT-4o-mini, Claude Haiku, Gemini Flash | Qwen3 (0.6B-235B range) | Qwen3 excellent quality/cost ratio |
-| **On-premise/Privacy** | Llama 3.3 70B, Mistral Large 2 | DeepSeek-V3, Qwen3 | Check licenses for commercial use |
-| **Long context (1M+)** | Gemini 2.0 (2M), Claude 3.5 (200K) | Qwen3 (128K native) | Gemini leads on context length |
-| **Code generation** | Claude 3.5 Sonnet, GPT-4o | DeepSeek Coder, Codestral | Claude excels at code understanding |
-| **Multimodal** | GPT-4o, Gemini 2.0, Claude 3.5 | SmolVLM, LLaVA | 2025 trend: efficient VLMs |
-| **Agents/Tool use** | Gemini 2.0, Claude 3.5 | Qwen3-Agent | Gemini 2.0 native tool use |
-| **EU data residency** | Mistral (EU), Azure OpenAI (EU) | Mistral Large 2 | Mistral HQ in Paris |
+| **Complex reasoning** | GPT-5, Claude Opus 4.5, Gemini 3.0 Pro | DeepSeek R1, Qwen3-235B | Gemini 3.0 Pro leads GPQA Diamond (91.9%) |
+| **High volume** | GPT-5 Mini, Claude Haiku 4.5, Gemini 2.5 Flash | Qwen3 (0.6B-235B range), Jamba 1.6 Mini | Gemini 2.5 Flash: 372 tokens/sec |
+| **On-premise/Privacy** | Llama 4 Maverick (400B), Mistral Large | DeepSeek-V3.1, Qwen3 Next | Llama 4 Scout fits single H100 (Int4) |
+| **Long context (1M+)** | Gemini 3.0 (10M), Llama 4 Scout (10M) | Jamba 1.6 (256K), Qwen3 (128K) | Llama 4 Scout: 10M token context |
+| **Code generation** | Claude Opus 4.5, GPT-5 | DeepSeek Coder, Codestral | Claude Opus 4.5: first >80% SWE-Bench |
+| **Multimodal** | GPT-5, Gemini 3.0, Claude Opus 4.5 | Llama 4 (native multimodal), SmolVLM | Llama 4: natively multimodal, 200 languages |
+| **Agents/Tool use** | Gemini 3.0, Claude Sonnet 4.5 | Qwen3-Agent, Llama 4 Maverick | Sonnet 4.5: 61.4% OSWorld |
+| **EU data residency** | Mistral (EU), Azure OpenAI (EU) | Mistral Large, Jamba 1.6 | Mistral HQ in Paris |
+| **Edge/Mobile** | GPT-5 Nano, Gemini 2.5 Flash-Lite | Jamba Reasoning 3B, Qwen3-4B | Jamba 3B: 250K context on phones |
+
+**Latest Model Releases (Q4 2025):**
+- **Gemini 3.0 Pro** (Nov 2025): #1 on LMArena, 41% on Humanity's Last Exam
+- **Claude Opus 4.5** (Nov 2025): First model >80% SWE-Bench Verified
+- **GPT-5.1** (Nov 2025): Faster reasoning, extended prompt caching
+- **Llama 4** (Apr 2025): MoE architecture, 10M context (Scout), 400B params (Maverick)
+- **Qwen3 Next 80B** (Sep 2025): 3× smaller than 235B, 4× more experts
 
 **Hugging Face CEO Insight (Nov 2025):**
 > "You can use a smaller, more specialized model that is going to be cheaper, faster, that you're going to be able to run on your infrastructure as an enterprise. I think that is the future of AI."
@@ -2066,7 +2193,7 @@ Created by [Aejaz Sheriff](https://github.com/asq-sheriff) at [Pragmatic Logic A
 <details>
 <summary>🏷️ <b>Keywords & Topics</b></summary>
 
-`AI Production` `LLM Deployment` `MLOps` `AI Governance` `Enterprise AI` `Generative AI` `AI Strategy` `AI Architecture` `Multi-Agent Systems` `RAG` `Agentic RAG` `ReAct Pattern` `Reason Act Pattern` `MCP` `Model Context Protocol` `Prompt Caching` `LLM Latency Optimization` `External Reflection` `Agent Reflection` `Prompt Engineering` `AI Security` `LLM Evaluation` `AI FinOps` `Red Teaming` `OWASP LLM` `AI Compliance` `EU AI Act` `Responsible AI` `Healthcare AI` `Mental Health AI Safety` `Clinical AI Validation` `Therapeutic AI` `AI Ethics` `Training-Serving Skew` `Data Leakage Detection` `Model Drift` `AI Technical Debt` `Feature Store` `AI Crisis Detection` `Conformal Prediction` `Causal AI` `Uncertainty Quantification` `Probability Calibration` `Zero-False-Negative` `Selective Prediction` `OOD Detection` `DoWhy` `CausalML` `Model Calibration ECE`
+`AI Production` `LLM Deployment` `MLOps` `AI Governance` `Enterprise AI` `Generative AI` `AI Strategy` `AI Architecture` `Multi-Agent Systems` `RAG` `Agentic RAG` `ReAct Pattern` `Reason Act Pattern` `MCP` `Model Context Protocol` `Prompt Caching` `LLM Latency Optimization` `External Reflection` `Agent Reflection` `Prompt Engineering` `AI Security` `LLM Evaluation` `Holistic Agent Evaluation` `WAI-AI` `Working Alliance Inventory` `LLM-as-Judge` `Persona Consistency` `AI FinOps` `Red Teaming` `OWASP LLM` `AI Compliance` `EU AI Act` `IEC 61508` `ISO 13485` `IEC 62304` `FDA De Novo` `FDA SaMD` `Responsible AI` `Healthcare AI` `Mental Health AI Safety` `Clinical AI Validation` `Therapeutic AI` `AI Ethics` `Safety-Critical AI` `Formal Verification` `Safety Invariants` `Training-Serving Skew` `Data Leakage Detection` `Model Drift` `AI Technical Debt` `Feature Store` `AI Crisis Detection` `Crisis Detection Recall` `Edge AI` `Edge Cloud Split` `Conformal Prediction` `Causal AI` `Uncertainty Quantification` `Probability Calibration` `Zero-False-Negative` `Selective Prediction` `OOD Detection` `DoWhy` `CausalML` `Model Calibration ECE`
 
 </details>
 

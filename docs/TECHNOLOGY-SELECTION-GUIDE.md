@@ -965,14 +965,14 @@ flowchart LR
     Constraints --> Volume[📈 High Volume/Low Cost]
     Constraints --> Agent[🤖 Agent/Tool Use]
 
-    Privacy --> OnPrem[🏠 Llama 3.3, Mistral, DeepSeek]
+    Privacy --> OnPrem[🏠 Llama 4, Mistral, DeepSeek]
     EU --> EUModels[🇪🇺 Mistral, Azure OpenAI EU]
-    Cost --> OpenSource[🆓 DeepSeek-V3, Qwen3]
-    Accuracy --> TopModels[⭐ GPT-4o, Claude 3.5, Gemini 2.0]
-    Context --> LongCtx[📖 Gemini 2.0 - 2M context]
-    Code --> CodeModels[👨‍💻 Claude 3.5, DeepSeek Coder]
-    Volume --> CheapFast[⚡ GPT-4o-mini, Haiku, Flash]
-    Agent --> AgentModels[🔧 Gemini 2.0, Claude 3.5]
+    Cost --> OpenSource[🆓 DeepSeek R1, Qwen3]
+    Accuracy --> TopModels[⭐ GPT-5, Claude Opus 4.5, Gemini 3.0]
+    Context --> LongCtx[📖 Gemini 3.0/Llama 4 Scout - 10M]
+    Code --> CodeModels[👨‍💻 Claude Opus 4.5, DeepSeek Coder]
+    Volume --> CheapFast[⚡ GPT-5 Mini, Haiku 4.5, Flash]
+    Agent --> AgentModels[🔧 Gemini 3.0, Claude Sonnet 4.5]
 
     style Constraints fill:#dbeafe,stroke:#3b82f6,color:#1e3a5f
     style OnPrem fill:#dcfce7,stroke:#22c55e,color:#14532d
@@ -985,18 +985,19 @@ flowchart LR
     style AgentModels fill:#dcfce7,stroke:#22c55e,color:#14532d
 ```
 
-### Model Comparison by Use Case
+### Model Comparison by Use Case (December 2025)
 
-| Use Case | Top Models (2025) | Open-Source Alternative | Notes |
+| Use Case | Top Models (Dec 2025) | Open-Source Alternative | Notes |
 |----------|-------------------|------------------------|-------|
-| **Complex reasoning** | GPT-4o, Claude 3.5 Sonnet, Gemini 2.0 | DeepSeek-V3 (671B MoE, 37B active) | DeepSeek matches GPT-4 at fraction of cost |
-| **High volume** | GPT-4o-mini, Claude Haiku, Gemini Flash | Qwen3 (0.6B-235B range) | Qwen3 excellent quality/cost ratio |
-| **On-premise/Privacy** | Llama 3.3 70B, Mistral Large 2 | DeepSeek-V3, Qwen3 | Check licenses for commercial use |
-| **Long context (1M+)** | Gemini 2.0 (2M), Claude 3.5 (200K) | Qwen3 (128K native) | Gemini leads on context length |
-| **Code generation** | Claude 3.5 Sonnet, GPT-4o | DeepSeek Coder, Codestral | Claude excels at code understanding |
-| **Multimodal** | GPT-4o, Gemini 2.0, Claude 3.5 | SmolVLM, LLaVA | 2025 trend: efficient VLMs |
-| **Agents/Tool use** | Gemini 2.0, Claude 3.5 | Qwen3-Agent | Gemini 2.0 native tool use |
-| **EU data residency** | Mistral (EU), Azure OpenAI (EU) | Mistral Large 2 | Mistral HQ in Paris |
+| **Complex reasoning** | GPT-5, Claude Opus 4.5, Gemini 3.0 Pro | DeepSeek R1, Qwen3-235B | Gemini 3.0 Pro leads GPQA Diamond (91.9%) |
+| **High volume** | GPT-5 Mini, Claude Haiku 4.5, Gemini 2.5 Flash | Qwen3 (0.6B-235B range), Jamba 1.6 Mini | Gemini 2.5 Flash: 372 tokens/sec |
+| **On-premise/Privacy** | Llama 4 Maverick (400B), Mistral Large | DeepSeek-V3.1, Qwen3 Next | Llama 4 Scout fits single H100 (Int4) |
+| **Long context (1M+)** | Gemini 3.0 (10M), Llama 4 Scout (10M) | Jamba 1.6 (256K), Qwen3 (128K) | Llama 4 Scout: 10M token context |
+| **Code generation** | Claude Opus 4.5, GPT-5 | DeepSeek Coder, Codestral | Claude Opus 4.5: first >80% SWE-Bench |
+| **Multimodal** | GPT-5, Gemini 3.0, Claude Opus 4.5 | Llama 4 (native multimodal), SmolVLM | Llama 4: natively multimodal, 200 languages |
+| **Agents/Tool use** | Gemini 3.0, Claude Sonnet 4.5 | Qwen3-Agent, Llama 4 Maverick | Sonnet 4.5: 61.4% OSWorld |
+| **EU data residency** | Mistral (EU), Azure OpenAI (EU) | Mistral Large, Jamba 1.6 | Mistral HQ in Paris |
+| **Edge/Mobile** | GPT-5 Nano, Gemini 2.5 Flash-Lite | Jamba Reasoning 3B, Qwen3-4B | Jamba 3B: 250K context on phones |
 
 ### Model Economics Calculator
 
@@ -1008,15 +1009,18 @@ Monthly Cost = (Input Tokens × Input Price) + (Output Tokens × Output Price)
 
 **Example Comparison (1M requests/month, avg 1K input, 500 output tokens):**
 
-| Model | Input $/1K | Output $/1K | Monthly Cost |
+| Model | Input $/1M | Output $/1M | Monthly Cost |
 |-------|-----------|-------------|--------------|
-| GPT-4o | $0.005 | $0.015 | $12,500 |
-| GPT-4o-mini | $0.00015 | $0.0006 | $450 |
-| Claude 3.5 Sonnet | $0.003 | $0.015 | $10,500 |
-| Claude Haiku | $0.00025 | $0.00125 | $875 |
-| DeepSeek-V3 | $0.0014 | $0.0028 | $2,800 |
+| GPT-5 | $5.00 | $15.00 | $12,500 |
+| GPT-5 Mini | $0.15 | $0.60 | $450 |
+| Claude Opus 4.5 | $15.00 | $75.00 | $52,500 |
+| Claude Sonnet 4.5 | $3.00 | $15.00 | $10,500 |
+| Claude Haiku 4.5 | $0.25 | $1.25 | $875 |
+| Llama 4 Scout | $0.15 | $0.50 | $400 |
+| Llama 4 Maverick | $0.22 | $0.85 | $645 |
+| DeepSeek-V3.1 | $0.14 | $0.28 | $280 |
 
-*Prices as of late 2024/early 2025, subject to change*
+*Prices as of December 2025, subject to change*
 
 ### Model Decision Checklist
 
@@ -1042,9 +1046,9 @@ Monthly Cost = (Input Tokens × Input Price) + (Output Tokens × Output Price)
 1. RAG Pattern: Advanced RAG → Hybrid search needed for product attributes
 2. Agent: Tool-Using Agent → Need to query inventory, pricing APIs
 3. Framework: LlamaIndex → RAG-first, good data connectors
-4. Model: GPT-4o-mini → High volume, cost-sensitive
+4. Model: GPT-5 Mini → High volume, cost-sensitive
 
-**Outcome:** 45% improvement in search relevance, 70% cost reduction vs. GPT-4
+**Outcome:** 45% improvement in search relevance, 70% cost reduction vs. GPT-5
 
 ---
 
@@ -1056,7 +1060,7 @@ Monthly Cost = (Input Tokens × Input Price) + (Output Tokens × Output Price)
 1. RAG Pattern: Graph RAG → Entity relationships critical (parties, obligations, dates)
 2. Agent: Diamond Pattern → Compliance verification as moderation
 3. Framework: LangGraph → Complex workflows with branching
-4. Model: Claude 3.5 Sonnet → Best at complex document understanding
+4. Model: Claude Sonnet 4.5 → Best at complex document understanding
 
 **Outcome:** 80% reduction in manual review time, 99.2% accuracy on key terms extraction
 
@@ -1070,9 +1074,23 @@ Monthly Cost = (Input Tokens × Input Price) + (Output Tokens × Output Price)
 1. RAG Pattern: Agentic RAG → Need to fetch customer data, create tickets
 2. Agent: Peer-to-Peer Handoff → Seamless topic transitions
 3. Framework: AutoGen → Conversation-first design
-4. Model: GPT-4o-mini with fallback to GPT-4o for complex cases
+4. Model: GPT-5 Mini with fallback to GPT-5 for complex cases
 
 **Outcome:** 60% of tickets resolved without human intervention, CSAT improved 15%
+
+---
+
+### Case Study 4: Edge AI Mobile Assistant
+
+**Challenge:** On-device AI assistant for field technicians with limited connectivity
+
+**Decision Process:**
+1. RAG Pattern: Local vector store with offline sync
+2. Agent: Single Agent → Limited compute, focused task set
+3. Framework: ONNX Runtime + SQLite for local inference
+4. Model: Jamba Reasoning 3B → 250K context, fits on mobile devices
+
+**Outcome:** 95% offline functionality, 3x battery life vs. cloud-only solution
 
 ---
 

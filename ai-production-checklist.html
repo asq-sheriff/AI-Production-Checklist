@@ -1475,6 +1475,14 @@
                         { text: "Documented model limitations", stage: "mvp", gate: "advisory" },
                         { text: "Created model cards", stage: "pilot", gate: "advisory" }
                     ],
+                    "Edge/Small Model Deployment": [
+                        { text: "On-device inference requirements assessed", stage: "poc", gate: "configurable" },
+                        { text: "Model quantization applied (INT4, INT8, FP16)", stage: "mvp", gate: "configurable" },
+                        { text: "Context window fits device memory", stage: "mvp", gate: "configurable" },
+                        { text: "Offline capability tested", stage: "pilot", gate: "configurable" },
+                        { text: "Battery/power consumption profiled", stage: "pilot", gate: "configurable" },
+                        { text: "Latency validated on target hardware", stage: "pilot", gate: "configurable" }
+                    ],
                     "RAG Implementation": [
                         { text: "Designed chunking strategy", stage: "poc", gate: "mandatory" },
                         { text: "Optimized embedding dimensions", stage: "mvp", gate: "advisory" },
@@ -1870,6 +1878,14 @@
                         { text: "Regression testing after changes", stage: "pilot", gate: "mandatory" },
                         { text: "Adversarial testing for security", stage: "pilot", gate: "mandatory" },
                         { text: "A/B testing in production", stage: "production", gate: "advisory" }
+                    ],
+                    "Holistic Agent Evaluation": [
+                        { text: "Multi-dimensional evaluation framework defined", stage: "pilot", gate: "advisory" },
+                        { text: "Persona consistency tracking (>85%)", stage: "pilot", gate: "advisory" },
+                        { text: "Tone stability across sessions (VAD drift <0.15)", stage: "pilot", gate: "advisory" },
+                        { text: "WAI-AI assessment implemented", stage: "pilot", gate: "configurable" },
+                        { text: "LLM-as-Judge with weighted rubrics", stage: "pilot", gate: "advisory" },
+                        { text: "Behavioral proxy metrics tracked", stage: "production", gate: "advisory" }
                     ]
                 }
             },
@@ -1986,7 +2002,12 @@
                         { text: "24/7 human escalation path available", stage: "pilot", gate: "mandatory" },
                         { text: "Responses validated to never encourage self-harm", stage: "pilot", gate: "mandatory" },
                         { text: "Dependency/addiction patterns monitored", stage: "pilot", gate: "advisory" },
-                        { text: "Age-appropriate safeguards for minors", stage: "pilot", gate: "mandatory" }
+                        { text: "Age-appropriate safeguards for minors", stage: "pilot", gate: "mandatory" },
+                        { text: "Crisis detection recall: 100% (zero false negatives)", stage: "pilot", gate: "mandatory" },
+                        { text: "False positive rate: <5%", stage: "pilot", gate: "mandatory" },
+                        { text: "Response time SLA: <1s detection", stage: "pilot", gate: "mandatory" },
+                        { text: "Multi-stage severity grading implemented", stage: "pilot", gate: "advisory" },
+                        { text: "Trajectory analysis (4+ turn deterioration)", stage: "production", gate: "advisory" }
                     ],
                     "Therapeutic AI Ethics": [
                         { text: "Contextual adaptation (not one-size-fits-all)", stage: "mvp", gate: "advisory" },
@@ -2029,7 +2050,23 @@
                         { text: "HIPAA/HITECH compliance verified", stage: "pilot", gate: "mandatory" },
                         { text: "FDA SaMD classification determined", stage: "discovery", gate: "mandatory" },
                         { text: "State mental health laws compliance", stage: "pilot", gate: "mandatory" },
-                        { text: "Professional liability insurance adequate", stage: "production", gate: "mandatory" }
+                        { text: "Professional liability insurance adequate", stage: "production", gate: "mandatory" },
+                        { text: "ISO 13485 QMS gap analysis complete", stage: "pilot", gate: "mandatory" },
+                        { text: "IEC 62304 software classification determined", stage: "pilot", gate: "mandatory" },
+                        { text: "ISO 14971 risk management file created", stage: "pilot", gate: "mandatory" },
+                        { text: "Design History File (DHF) initiated", stage: "pilot", gate: "advisory" },
+                        { text: "FDA Q-Submission scheduled", stage: "production", gate: "configurable" },
+                        { text: "Clinical trial protocol with IRB approval", stage: "production", gate: "configurable" }
+                    ],
+                    "Safety-Critical Architecture (IEC 61508)": [
+                        { text: "Deterministic Safety Kernel (<10ms response)", stage: "pilot", gate: "mandatory" },
+                        { text: "Formal verification (Z3/TLA+) for safety invariants", stage: "production", gate: "mandatory" },
+                        { text: "Triple modular redundancy for critical decisions", stage: "production", gate: "mandatory" },
+                        { text: "Hardware E-stop capability documented", stage: "production", gate: "mandatory" },
+                        { text: "Safety interlock controller prevents unsafe sequences", stage: "production", gate: "mandatory" },
+                        { text: "Audit logger with 100% coverage", stage: "pilot", gate: "mandatory" },
+                        { text: "Watchdog timers with auto-failsafe", stage: "pilot", gate: "advisory" },
+                        { text: "Zero unproven safety invariants", stage: "production", gate: "mandatory" }
                     ]
                 }
             },

@@ -149,8 +149,8 @@
         <mxCell id="layer6-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e0e7ff;strokeColor=#6366f1;strokeWidth=2;" vertex="1" parent="1">
           <mxGeometry x="40" y="820" width="1000" height="100" as="geometry" />
         </mxCell>
-        <mxCell id="layer6-label" value="INFRASTRUCTURE &amp; COMPUTE LAYER" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;fontColor=#4338ca;" vertex="1" parent="1">
-          <mxGeometry x="60" y="825" width="300" height="25" as="geometry" />
+        <mxCell id="layer6-label" value="INFRASTRUCTURE &amp; COMPUTE LAYER (incl. Edge)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;fontColor=#4338ca;" vertex="1" parent="1">
+          <mxGeometry x="60" y="825" width="350" height="25" as="geometry" />
         </mxCell>
 
         <mxCell id="kubernetes" value="☸️ Kubernetes&#xa;GPU Operators&#xa;Autoscaling" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6366f1;fontSize=11;fontStyle=1;" vertex="1" parent="1">
@@ -167,6 +167,12 @@
         </mxCell>
         <mxCell id="secrets" value="🔑 Secrets&#xa;KMS/Rotation&#xa;Encryption" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6366f1;fontSize=11;" vertex="1" parent="1">
           <mxGeometry x="600" y="860" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-deploy" value="📱 Edge Deploy&#xa;On-Device/INT4&#xa;Offline Mode" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6366f1;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="730" y="860" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-cloud" value="☁️ Edge/Cloud&#xa;90/10 Split&#xa;Fallback" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6366f1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="860" y="860" width="110" height="50" as="geometry" />
         </mxCell>
 
         <!-- Right Side: Operations & Governance -->
@@ -329,6 +335,29 @@
           <mxGeometry x="1440" y="795" width="85" height="30" as="geometry" />
         </mxCell>
 
+        <!-- Healthcare Safety Section (New) -->
+        <mxCell id="healthcare-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fef2f2;strokeColor=#dc2626;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="1060" y="850" width="500" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="healthcare-label" value="🏥 HEALTHCARE &amp; SAFETY-CRITICAL AI" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=1;fontColor=#dc2626;" vertex="1" parent="1">
+          <mxGeometry x="1060" y="855" width="500" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="crisis-detect" value="🚨 Crisis Detection&#xa;100% Recall&#xa;&lt;1s Response" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fecaca;strokeColor=#dc2626;fontSize=9;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1075" y="880" width="95" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="safety-invariants" value="🛡️ IEC 61508&#xa;Safety Invariants&#xa;Formal Verify" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fecaca;strokeColor=#dc2626;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="1180" y="880" width="95" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="fda-regulatory" value="📋 FDA De Novo&#xa;IEC 62304&#xa;ISO 13485" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#dc2626;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="1285" y="880" width="95" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="therapeutic-eval" value="💚 WAI-AI&#xa;Persona/Tone&#xa;Holistic Eval" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#dc2626;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="1390" y="880" width="95" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="human-escalation" value="👤 Human&#xa;Escalation&#xa;24/7 Path" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fef3c7;strokeColor=#f59e0b;fontSize=9;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1495" y="880" width="55" height="35" as="geometry" />
+        </mxCell>
+
         <!-- Legend -->
         <mxCell id="legend-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cbd5e1;strokeWidth=1;" vertex="1" parent="1">
           <mxGeometry x="40" y="940" width="1000" height="80" as="geometry" />
@@ -384,9 +413,21 @@
         <mxCell id="legend8-text" value="Human Required" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=9;" vertex="1" parent="1">
           <mxGeometry x="565" y="972" width="80" height="18" as="geometry" />
         </mxCell>
+        <mxCell id="legend9" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fecaca;strokeColor=#dc2626;" vertex="1" parent="1">
+          <mxGeometry x="650" y="975" width="15" height="12" as="geometry" />
+        </mxCell>
+        <mxCell id="legend9-text" value="🏥 Healthcare" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=9;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="670" y="972" width="70" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="legend10" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e0e7ff;strokeColor=#6366f1;" vertex="1" parent="1">
+          <mxGeometry x="745" y="975" width="15" height="12" as="geometry" />
+        </mxCell>
+        <mxCell id="legend10-text" value="📱 Edge" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=9;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="765" y="972" width="45" height="18" as="geometry" />
+        </mxCell>
 
-        <mxCell id="legend-row2" value="Flow: Request → Auth → Validation → Orchestrator → Agents → LLM → ⭐Assured Intelligence⭐ → Data → Response" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#64748b;" vertex="1" parent="1">
-          <mxGeometry x="55" y="995" width="900" height="15" as="geometry" />
+        <mxCell id="legend-row2" value="Flow: Request → Auth → Validation → Orchestrator → Agents → LLM → ⭐Assured Intelligence⭐ → Data → Edge/Cloud → Response" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#64748b;" vertex="1" parent="1">
+          <mxGeometry x="55" y="995" width="950" height="15" as="geometry" />
         </mxCell>
 
         <!-- Credit -->
