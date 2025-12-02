@@ -6,7 +6,7 @@
 
 **The Complete Guide to Production AI: From 87% Failure Rate to Deployment Success**
 
-`MLOps` `LLMOps` `RAG` `Agentic RAG` `AI Agents` `ReAct Pattern` `Multi-Agent Systems` `MCP` `AI Governance` `AI Safety` `Healthcare AI` `IEC 61508` `FDA De Novo` `WAI-AI` `EU AI Act` `OWASP LLM`
+`MLOps` `LLMOps` `RAG` `Agentic RAG` `AI Agents` `ReAct Pattern` `Multi-Agent Systems` `MCP` `AI Governance` `AI Safety` `Healthcare AI` `IEC 61508` `FDA De Novo` `WAI-AI` `EU AI Act` `OWASP LLM` `CTO AI Strategy` `VP of AI` `AI Team Leadership` `ML Engineering` `AI Production Checklist` `Enterprise AI` `Startup AI` `FinOps AI`
 
 [![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](CONTRIBUTING.md)
 [![License: MIT](https://img.shields.io/badge/Code-MIT-yellow.svg)](LICENSE-MIT)
@@ -48,6 +48,8 @@ Jump to: [Architecture](#-architecture--design) | [Security](#-security--complia
 </tr>
 </table>
 
+<p align="right"><a href="#-ai-production-readiness-checklist">⬆️ Top</a> · <a href="#why-this-checklist-exists">Next: Why This Checklist ➡️</a></p>
+
 ---
 
 ## Why This Checklist Exists
@@ -81,9 +83,17 @@ After 27 years of building enterprise systems and analyzing why AI projects fail
 
 </details>
 
+<p align="right"><a href="#-quick-start">⬆️ Quick Start</a> · <a href="#-ai-production-architecture">Next: Architecture ➡️</a></p>
+
+---
+
 ## 🏗️ AI Production Architecture
 
 ![AI Production Architecture - Component Diagram](AI%20Production%20Checklist.png)
+
+<p align="right"><a href="#why-this-checklist-exists">⬅️ Why This Checklist</a> · <a href="#-how-to-use-this-checklist">Next: How to Use ➡️</a></p>
+
+---
 
 ## 📖 How to Use This Checklist
 
@@ -143,6 +153,1129 @@ This checklist helps you systematically evaluate your AI system's readiness for 
 | **Team & Process** | Documentation, training, organizational readiness | Knowledge silos, operational failures |
 | **🏥 Healthcare & Mental Health AI** | Crisis detection, clinical validation, ethics | **Patient harm, deaths, lawsuits** |
 | **⚠️ Anti-Patterns & Case Studies** | Zillow, Amazon, Epic failure analysis | **Repeating billion-dollar mistakes** |
+
+<p align="right"><a href="#-ai-production-architecture">⬅️ Architecture</a> · <a href="#-tldr-the-essential-20">Next: Essential 20 ➡️</a></p>
+
+---
+
+## ⚡ TL;DR: The Essential 20
+
+> **Don't have time for 400+ items?** Start here. These 20 items are non-negotiable for ANY AI project going to production. Complete these first, then expand based on your [persona path](#-choose-your-path-persona-based-guides).
+
+### The Absolute Minimum (Do These or Don't Ship)
+
+| # | Item | Why It's Critical | Section |
+|---|------|-------------------|---------|
+| 1 | **Authentication (JWT/OAuth)** | No auth = anyone can abuse your API | Security |
+| 2 | **Rate limiting per user** | Prevents cost explosions and abuse | Security |
+| 3 | **Prompt injection detection** | #1 LLM vulnerability (OWASP LLM01) | Red Teaming |
+| 4 | **Output toxicity filtering** | Prevents harmful/offensive outputs | Safety |
+| 5 | **PII detection and masking** | Legal requirement (GDPR, HIPAA) | Privacy |
+| 6 | **Error handling with fallbacks** | Graceful degradation, not crashes | Architecture |
+| 7 | **Basic monitoring (latency, errors)** | You can't fix what you can't see | Monitoring |
+| 8 | **Cost alerts and hard limits** | Prevents $100K surprise bills | FinOps |
+| 9 | **Rollback procedure documented** | Quick recovery from bad deployments | Operations |
+| 10 | **Human escalation path defined** | When AI fails, humans must intervene | Safety |
+| 11 | **Golden test dataset (~50 prompts)** | Catch regressions before users do | Evaluation |
+| 12 | **Model/prompt version control** | Know what's deployed, enable rollback | MLOps |
+| 13 | **TLS encryption (data in transit)** | Basic security requirement | Security |
+| 14 | **Backup strategy (3-2-1 rule)** | Recover from disasters | DR |
+| 15 | **API documentation** | Others can use and maintain it | Team |
+| 16 | **Hallucination rate tracking** | Know how often your AI lies | Evaluation |
+| 17 | **Clear scope boundaries** | Users know what AI can/can't do | Safety |
+| 18 | **Audit logging** | Forensics when things go wrong | Compliance |
+| 19 | **Bias testing completed** | Avoid discrimination lawsuits | Ethics |
+| 20 | **Kill switch / disable capability** | Emergency shutdown when needed | Operations |
+
+**Completed all 20?** You're at ~40% readiness (Alpha stage). Now pick your [persona path](#-choose-your-path-persona-based-guides) to reach production.
+
+<p align="right"><a href="#-quick-start">⬆️ Back to Top</a> · <a href="#-choose-your-path-persona-based-guides">Next: Persona Paths ➡️</a></p>
+
+---
+
+## 🎯 Choose Your Path: Persona-Based Guides
+
+> **Different roles need different priorities.** Find your persona below and follow the customized path to production readiness.
+
+### Quick Persona Finder
+
+| I am a... | My main concern is... | Jump to |
+|-----------|----------------------|---------|
+| **CTO / Technical Executive** | Technical strategy, team scaling, risk | [CTO Path](#-cto--technical-executive) |
+| **VP of AI / Head of ML** | AI roadmap, team leadership, delivery | [VP AI Path](#-vp-of-ai--head-of-ml) |
+| **Startup Founder** | Ship fast without disasters | [Startup Path](#-startup-founder--early-stage) |
+| **Enterprise Architect** | Scale, compliance, integration | [Enterprise Path](#-enterprise-architect) |
+| **Solo Developer** | Side project / learning | [Solo Path](#-solo-developer--side-project) |
+| **Healthcare/Medical** | Patient safety, FDA, HIPAA | [Healthcare Path](#-healthcare--medical-ai) |
+| **Financial Services** | Fraud, compliance, audit | [FinServ Path](#-financial-services) |
+| **Data Scientist** | Transitioning to ML Engineering | [DS→MLE Path](#-data-scientist--ml-engineer) |
+| **Platform Team** | Infrastructure, MLOps | [Platform Path](#-platform--infrastructure-team) |
+| **Compliance/Legal** | Risk, regulations, audit | [Compliance Path](#-compliance--legal--risk) |
+| **Agency/Consultancy** | Building for clients | [Agency Path](#-agency--consultancy) |
+| **Government/Public Sector** | Transparency, FedRAMP, citizens | [Government Path](#-government--public-sector) |
+
+---
+
+### 👔 CTO / Technical Executive
+
+**Your Reality:** Board accountability, budget ownership, team scaling, technical risk across the organization, vendor relationships, security posture.
+
+**Your Risk Profile:** Career-defining decisions. AI failures become your failures. Must balance innovation speed with enterprise risk.
+
+#### Your Strategic Priorities
+
+```mermaid
+flowchart TB
+    subgraph CTO["👔 CTO STRATEGIC FRAMEWORK"]
+        direction TB
+
+        subgraph Governance["🏛️ GOVERNANCE & RISK"]
+            G1["AI Risk Committee"]
+            G2["Board Reporting"]
+            G3["Insurance Coverage"]
+        end
+
+        subgraph Technical["⚙️ TECHNICAL STRATEGY"]
+            T1["Build vs Buy"]
+            T2["Vendor Selection"]
+            T3["Architecture Standards"]
+        end
+
+        subgraph Team["👥 ORGANIZATION"]
+            O1["Team Structure"]
+            O2["Hiring Strategy"]
+            O3["Skills Development"]
+        end
+
+        subgraph Delivery["🚀 DELIVERY"]
+            D1["Portfolio Prioritization"]
+            D2["Success Metrics"]
+            D3["Incident Response"]
+        end
+    end
+
+    style CTO fill:transparent,stroke:#1e40af,stroke-width:2px
+    style Governance fill:#fef2f2,stroke:#dc2626
+    style Technical fill:#dbeafe,stroke:#3b82f6
+    style Team fill:#dcfce7,stroke:#22c55e
+    style Delivery fill:#fef3c7,stroke:#f59e0b
+```
+
+#### Phase 1: Strategic Foundation (Month 1)
+| Priority | Decision | Key Questions |
+|----------|----------|---------------|
+| 🔴 **Week 1** | AI Risk Assessment | What's our risk appetite? What could kill the company? |
+| 🔴 **Week 2** | Build vs Buy Strategy | Core competency or commodity? Vendor lock-in risks? |
+| 🟠 **Week 3** | Team & Budget | Do we have the talent? What's realistic budget? |
+| 🟠 **Week 4** | Governance Model | Who approves AI projects? What are the gates? |
+
+#### Phase 2: Organizational Setup (Month 2-3)
+- [ ] AI steering committee formed (you + CEO + Legal + Product)
+- [ ] AI ethics guidelines published internally
+- [ ] Vendor evaluation criteria established
+- [ ] Security review process for AI tools defined
+- [ ] Budget allocation and tracking system
+- [ ] Success metrics defined (business outcomes, not just technical)
+
+#### Phase 3: Operational Excellence (Month 4-6)
+- [ ] Incident response plan for AI failures
+- [ ] Board reporting dashboard created
+- [ ] Insurance coverage reviewed for AI-specific risks
+- [ ] Regulatory compliance roadmap (EU AI Act, etc.)
+- [ ] Technical debt management process
+- [ ] Knowledge sharing across AI teams
+
+#### Key Decisions Only You Can Make
+
+| Decision | Options | Consider |
+|----------|---------|----------|
+| **Build vs Buy** | Internal team vs Vendors vs Hybrid | Core IP, time-to-market, talent availability |
+| **Model Strategy** | Proprietary vs Open Source vs API | Cost, control, compliance, capabilities |
+| **Risk Tolerance** | Conservative vs Aggressive | Industry, stage, competition, regulation |
+| **Team Structure** | Centralized vs Federated vs Hybrid | Company size, culture, use case diversity |
+| **Vendor Selection** | OpenAI vs Anthropic vs Google vs OSS | Cost, features, data residency, reliability |
+
+#### Your Dashboard Metrics
+
+| Metric | Why It Matters | Target |
+|--------|----------------|--------|
+| **AI Project ROI** | Justify investment to board | >3x within 18 months |
+| **Time to Production** | Measure team velocity | <90 days for typical project |
+| **Incident Rate** | Operational excellence | <1 P1 per quarter |
+| **Cost per Inference** | Unit economics | Decreasing trend |
+| **Compliance Score** | Risk management | 100% mandatory items |
+| **Team Retention** | Talent strategy | >85% annual retention |
+
+#### Board Reporting Template
+Present these quarterly:
+1. **Portfolio Status** - Projects, stages, blockers
+2. **Risk Register** - Top 5 AI risks and mitigations
+3. **Financial** - Spend vs budget, ROI by project
+4. **Compliance** - Regulatory status, audit findings
+5. **Competitive** - How we compare to industry
+
+#### Sections to Own (Delegate Details)
+1. [AI Governance](#-ai-governance) — Own the framework, delegate implementation
+2. [AI Strategy & Transformation](#-ai-strategy--transformation) — Your primary section
+3. [Security & Compliance](#-security--compliance) — Ensure coverage, don't implement
+4. [Cost Management & FinOps](#-cost-management--finops) — Budget accountability
+
+#### What to Delegate
+- Technical implementation → VP of AI / Engineering leads
+- Day-to-day operations → Platform team
+- Compliance details → Legal / Compliance team
+- Vendor negotiations → Procurement (with your input)
+
+<p align="right"><a href="#-choose-your-path-persona-based-guides">⬆️ Back to Personas</a> · <a href="#-vp-of-ai--head-of-ml">Next: VP of AI ➡️</a></p>
+
+---
+
+### 🎯 VP of AI / Head of ML
+
+**Your Reality:** Translating strategy into execution, managing ML teams, delivering AI products, balancing research vs production, hiring and retaining talent.
+
+**Your Risk Profile:** Accountable for AI delivery. Must ship while maintaining quality. Team success = your success.
+
+#### Your Operational Focus
+
+```mermaid
+flowchart LR
+    subgraph VPAI["🎯 VP OF AI OPERATIONAL FRAMEWORK"]
+        direction LR
+
+        subgraph Strategy["📋 STRATEGY"]
+            S1["Roadmap"]
+            S2["Prioritization"]
+            S3["Resource<br/>Allocation"]
+        end
+
+        subgraph Delivery["🚀 DELIVERY"]
+            D1["Project<br/>Management"]
+            D2["Quality<br/>Gates"]
+            D3["Release<br/>Process"]
+        end
+
+        subgraph Team["👥 TEAM"]
+            T1["Hiring"]
+            T2["Development"]
+            T3["Culture"]
+        end
+
+        subgraph Excellence["⭐ EXCELLENCE"]
+            E1["Best<br/>Practices"]
+            E2["Tooling"]
+            E3["Metrics"]
+        end
+
+        Strategy --> Delivery --> Team --> Excellence
+    end
+
+    style VPAI fill:transparent,stroke:#7c3aed,stroke-width:2px
+    style Strategy fill:#dbeafe,stroke:#3b82f6
+    style Delivery fill:#dcfce7,stroke:#22c55e
+    style Team fill:#fef3c7,stroke:#f59e0b
+    style Excellence fill:#fae8ff,stroke:#a855f7
+```
+
+#### Phase 1: Team & Process Foundation (Month 1-2)
+| Priority | Action | Outcome |
+|----------|--------|---------|
+| 🔴 **Week 1-2** | Assess current team capabilities | Skills matrix, gap analysis |
+| 🔴 **Week 2-3** | Establish project intake process | Clear prioritization criteria |
+| 🟠 **Week 3-4** | Define quality gates | Stage-gate process adopted |
+| 🟠 **Month 2** | Set up MLOps foundations | CI/CD, monitoring, versioning |
+
+#### Phase 2: Delivery Excellence (Month 2-4)
+- [ ] Project portfolio dashboard created
+- [ ] Sprint/iteration cadence established
+- [ ] Code review and ML review process defined
+- [ ] Experiment tracking system implemented
+- [ ] Model registry and versioning in place
+- [ ] Evaluation framework standardized
+
+#### Phase 3: Scale & Optimize (Month 4-6)
+- [ ] Self-service ML platform capabilities
+- [ ] Reusable components library
+- [ ] Cross-team knowledge sharing (ML guild)
+- [ ] Continuous improvement retrospectives
+- [ ] Career ladders and growth paths defined
+- [ ] On-call rotation and incident management
+
+#### Team Structure Options
+
+```mermaid
+flowchart TB
+    subgraph Structures["TEAM STRUCTURE OPTIONS"]
+        subgraph Central["🏢 CENTRALIZED"]
+            C1["All ML in one team"]
+            C2["Pros: Standards, efficiency"]
+            C3["Cons: Bottleneck, distant from product"]
+        end
+
+        subgraph Embedded["🔀 EMBEDDED"]
+            E1["ML in each product team"]
+            E2["Pros: Close to product"]
+            E3["Cons: Inconsistent, silos"]
+        end
+
+        subgraph Hybrid["⚖️ HYBRID (Recommended)"]
+            H1["Platform + Embedded"]
+            H2["Pros: Best of both"]
+            H3["Cons: Coordination overhead"]
+        end
+    end
+
+    style Central fill:#fecaca,stroke:#dc2626
+    style Embedded fill:#fef3c7,stroke:#f59e0b
+    style Hybrid fill:#dcfce7,stroke:#22c55e
+```
+
+#### Your Weekly Rhythm
+
+| Day | Focus | Activities |
+|-----|-------|------------|
+| **Monday** | Planning | Project status, blocker resolution, priority alignment |
+| **Tuesday** | Technical | Architecture reviews, technical debt discussions |
+| **Wednesday** | People | 1:1s, hiring interviews, career conversations |
+| **Thursday** | Delivery | Demo reviews, quality gate checks, release planning |
+| **Friday** | Strategy | Roadmap refinement, stakeholder alignment, learning |
+
+#### Key Metrics to Track
+
+| Category | Metric | Target |
+|----------|--------|--------|
+| **Delivery** | Projects on schedule | >80% |
+| **Quality** | Models meeting accuracy targets | >90% |
+| **Velocity** | Time from idea to production | <60 days |
+| **Reliability** | Model uptime | >99.5% |
+| **Efficiency** | Model retraining frequency | As needed, <monthly |
+| **Team** | Engineer satisfaction (eNPS) | >40 |
+| **Cost** | Cost per prediction | Decreasing |
+
+#### Common Failure Patterns to Avoid
+
+| Anti-Pattern | Symptoms | Solution |
+|--------------|----------|----------|
+| **Research Trap** | Always experimenting, never shipping | Time-box research, define "good enough" |
+| **Hero Culture** | 1-2 people know everything | Documentation, pair programming, rotation |
+| **Technical Debt Spiral** | Shipping fast, breaking often | Dedicated debt sprints, quality gates |
+| **Evaluation Theater** | Good offline metrics, bad production | Real-world validation, shadow deployments |
+| **Scope Creep** | Projects never finish | Clear success criteria, MVP mindset |
+
+#### Hiring Guide
+
+| Role | When to Hire | Key Skills |
+|------|--------------|------------|
+| **ML Engineer** | First hire after you | Production systems, software engineering |
+| **Data Scientist** | When you have data | Statistics, experimentation, modeling |
+| **MLOps Engineer** | At scale | Infrastructure, automation, monitoring |
+| **Research Scientist** | Competitive advantage needed | Novel methods, publications not required |
+| **ML Manager** | Team > 6 people | Leadership, project management, technical |
+
+#### Sections to Own
+1. [LLM Evaluation & Testing](#-llm-evaluation--testing) — Quality is your responsibility
+2. [Operations & Maintenance](#%EF%B8%8F-operations--maintenance) — Delivery excellence
+3. [Monitoring & Observability](#-monitoring--observability) — See problems early
+4. [Agentic AI & Multi-Agent Systems](#-agentic-ai--multi-agent-systems-mas) — Architecture patterns
+5. [Technical Debt & System Integrity](#-technical-debt--system-integrity) — Keep systems healthy
+
+#### Stakeholder Management
+
+| Stakeholder | They Care About | Give Them |
+|-------------|-----------------|-----------|
+| **CTO** | Risk, budget, strategy | Monthly exec summary, risk register |
+| **Product** | Features, timelines | Roadmap alignment, trade-off discussions |
+| **Engineering** | Integration, reliability | API contracts, SLAs, documentation |
+| **Data** | Quality, access | Data requirements, feedback loops |
+| **Business** | ROI, capabilities | Business impact metrics, demos |
+
+<p align="right"><a href="#-choose-your-path-persona-based-guides">⬆️ Back to Personas</a> · <a href="#-cto--technical-executive">⬅️ CTO</a> · <a href="#-startup-founder--early-stage">Next: Startup ➡️</a></p>
+
+---
+
+### 🚀 Startup Founder / Early-Stage
+
+**Your Reality:** Limited resources, need to ship fast, can't afford disasters, investors watching.
+
+**Your Risk Profile:** High speed, medium-high risk tolerance, but one bad incident could kill the company.
+
+#### Phase 1: Pre-Launch Essentials (Week 1-2)
+Focus on items that prevent company-killing incidents:
+
+| Priority | Items | Why |
+|----------|-------|-----|
+| 🔴 **Day 1** | Authentication, Rate Limiting, Cost Limits | Prevent abuse and bankruptcy |
+| 🔴 **Day 2-3** | Prompt Injection Protection, Output Filtering | Prevent PR disasters |
+| 🟠 **Day 4-5** | Basic Monitoring, Error Handling, Logging | Know when things break |
+| 🟠 **Week 2** | Golden Test Set, Rollback Procedure, Kill Switch | Catch issues, recover fast |
+
+#### Phase 2: Growth Mode (Month 1-3)
+As you get users, add:
+- [ ] User feedback collection
+- [ ] A/B testing framework
+- [ ] Hallucination tracking
+- [ ] Basic bias testing
+- [ ] Privacy policy & ToS
+
+#### Phase 3: Scale Preparation (Month 3-6)
+Before Series A or major growth:
+- [ ] SOC 2 Type I preparation
+- [ ] GDPR compliance (if EU users)
+- [ ] Comprehensive monitoring
+- [ ] Incident response runbook
+- [ ] On-call rotation
+
+#### Sections to Prioritize
+1. [Security & Compliance](#-security--compliance) (auth, rate limiting)
+2. [Safety & Ethics](#%EF%B8%8F-safety--ethics) (output filtering)
+3. [Cost Management](#-cost-management--finops) (prevent bill shock)
+4. [Monitoring](#-monitoring--observability) (basic observability)
+
+#### Sections to Defer
+- Assured Intelligence (add after product-market fit)
+- Full Governance (add when preparing for enterprise sales)
+- Scale & Parallelism (premature optimization)
+
+<p align="right"><a href="#-choose-your-path-persona-based-guides">⬆️ Back to Personas</a> · <a href="#-enterprise-architect">Next: Enterprise ➡️</a></p>
+
+---
+
+### 🏢 Enterprise Architect
+
+**Your Reality:** Complex stakeholder landscape, existing systems to integrate, compliance requirements, long procurement cycles.
+
+**Your Risk Profile:** Low risk tolerance, high scrutiny, failures are career-limiting.
+
+#### Phase 1: Foundation & Approval (Month 1-2)
+Get organizational buy-in with proper governance:
+
+| Priority | Items | Why |
+|----------|-------|-----|
+| 🔴 **Week 1-2** | AI Vision, Use Case Prioritization, Cross-functional Team | Align stakeholders |
+| 🔴 **Week 2-3** | EU AI Act Mapping, Risk Classification, Legal Review | Regulatory compliance |
+| 🟠 **Week 3-4** | Security Architecture, Zero-Trust Design, RBAC | Enterprise security |
+| 🟠 **Month 2** | Data Governance, Lineage, Contracts | Data foundation |
+
+#### Phase 2: Controlled Pilot (Month 2-4)
+- [ ] Shadow mode deployment
+- [ ] A/B testing with internal users
+- [ ] Full audit trail implementation
+- [ ] Integration with existing SIEM/monitoring
+- [ ] Vendor risk assessment (if using third-party LLMs)
+
+#### Phase 3: Production Rollout (Month 4-6)
+- [ ] Blue-green deployment capability
+- [ ] Multi-region failover
+- [ ] SOC 2 Type II audit
+- [ ] Full incident response procedures
+- [ ] Executive dashboards
+
+#### Phase 4: Scale & Optimize (Month 6+)
+- [ ] FinOps optimization
+- [ ] Model registry and versioning
+- [ ] Automated retraining pipelines
+- [ ] Advanced monitoring (drift, bias)
+
+#### Sections to Prioritize (In Order)
+1. [AI Governance](#-ai-governance) — Start here
+2. [Security & Compliance](#-security--compliance)
+3. [Architecture & Design](#-architecture--design)
+4. [Monitoring & Observability](#-monitoring--observability)
+5. [Technical Debt & System Integrity](#-technical-debt--system-integrity)
+
+#### Enterprise-Specific Considerations
+- **Procurement:** Add LLM vendor to approved vendor list
+- **Legal:** AI-specific terms in vendor contracts
+- **HR:** AI usage policies for employees
+- **Finance:** FinOps integration with existing cost centers
+
+<p align="right"><a href="#-choose-your-path-persona-based-guides">⬆️ Back to Personas</a> · <a href="#-startup-founder--early-stage">⬅️ Startup</a> · <a href="#-solo-developer--side-project">Next: Solo Dev ➡️</a></p>
+
+---
+
+### 👤 Solo Developer / Side Project
+
+**Your Reality:** Learning, limited time, no budget, acceptable if it breaks.
+
+**Your Risk Profile:** High risk tolerance for yourself, but still need basics.
+
+#### The Solo Developer Minimum (Do This Weekend)
+
+| # | Item | Time | Why |
+|---|------|------|-----|
+| 1 | API key in environment variables (not code) | 5 min | Basic security |
+| 2 | Rate limiting (even basic) | 30 min | Prevent abuse |
+| 3 | Cost alerts on your LLM provider | 10 min | Avoid surprise bills |
+| 4 | Basic input validation | 1 hour | Prevent injection |
+| 5 | Error handling with user-friendly messages | 1 hour | Better UX |
+| 6 | Simple logging (console or file) | 30 min | Debug issues |
+| 7 | README with setup instructions | 30 min | Future you will thank you |
+| 8 | Git repository with .gitignore (no secrets!) | 15 min | Version control basics |
+
+**Total time: ~4 hours for a solid foundation**
+
+#### When to Level Up
+Upgrade to [Startup Path](#-startup-founder--early-stage) when:
+- You have real users (not just friends)
+- Processing any PII or sensitive data
+- Charging money for the service
+- Storing conversation history
+
+#### Tools for Solo Developers
+- **Free monitoring:** Sentry free tier, simple uptime checks
+- **Free LLM:** Ollama locally, or free tiers of commercial APIs
+- **Free hosting:** Vercel, Railway, Fly.io free tiers
+- **Cost control:** Set hard spending limits on all API providers
+
+<p align="right"><a href="#-choose-your-path-persona-based-guides">⬆️ Back to Personas</a> · <a href="#-enterprise-architect">⬅️ Enterprise</a> · <a href="#-healthcare--medical-ai">Next: Healthcare ➡️</a></p>
+
+---
+
+### 🏥 Healthcare / Medical AI
+
+**Your Reality:** Lives at stake, heavy regulation, long validation cycles, clinical workflows.
+
+**Your Risk Profile:** ZERO tolerance for safety failures. One death can end the company.
+
+> ⚠️ **Critical:** Healthcare AI has unique requirements. The [Healthcare & Mental Health AI](#-healthcare--mental-health-ai-safety) section is MANDATORY, not optional.
+
+#### Regulatory Pathway First
+
+```mermaid
+flowchart TD
+    subgraph Regulatory["⚠️ BEFORE WRITING ANY CODE"]
+        Q1{"1. Is this a<br/>Medical Device?"}
+        Q1 -->|YES| FDA["📋 FDA Pathway<br/>510(k) / De Novo / PMA"]
+        Q1 -->|NO| Q5
+
+        FDA --> Q2{"2. Targeting<br/>EU Market?"}
+        Q2 -->|YES| CE["🇪🇺 CE Marking<br/>MDR/IVDR Compliance"]
+        Q2 -->|NO| Q3
+
+        CE --> Q3{"3. Mental Health<br/>Application?"}
+        Q3 -->|YES| CRISIS["🚨 Crisis Detection<br/>100% Recall Required"]
+        Q3 -->|NO| Q4
+
+        CRISIS --> Q4{"4. Processing<br/>Patient Data?"}
+        Q4 -->|YES| HIPAA["🔒 HIPAA/HITECH<br/>Compliance Required"]
+        Q4 -->|NO| Q5
+
+        HIPAA --> Q5["✅ Proceed with<br/>Development"]
+    end
+
+    style Regulatory fill:#fef2f2,stroke:#dc2626,stroke-width:2px
+    style Q1 fill:#fef3c7,stroke:#f59e0b,color:#78350f
+    style Q2 fill:#fef3c7,stroke:#f59e0b,color:#78350f
+    style Q3 fill:#fef3c7,stroke:#f59e0b,color:#78350f
+    style Q4 fill:#fef3c7,stroke:#f59e0b,color:#78350f
+    style FDA fill:#dbeafe,stroke:#3b82f6,color:#1e3a5f
+    style CE fill:#dbeafe,stroke:#3b82f6,color:#1e3a5f
+    style CRISIS fill:#fecaca,stroke:#dc2626,color:#7f1d1d
+    style HIPAA fill:#fecaca,stroke:#dc2626,color:#7f1d1d
+    style Q5 fill:#dcfce7,stroke:#22c55e,color:#14532d
+```
+
+#### Phase 1: Regulatory & Safety Foundation (Month 1-3)
+| Priority | Items | Why |
+|----------|-------|-----|
+| 🔴 **Week 1** | FDA SaMD Classification, Regulatory Strategy | Determines everything else |
+| 🔴 **Week 2-4** | IEC 62304 Software Lifecycle, ISO 13485 QMS | Required for FDA |
+| 🔴 **Month 2** | Safety-Critical Architecture (IEC 61508) | Formal safety invariants |
+| 🔴 **Month 2-3** | Crisis Detection System (if mental health) | 100% recall, <1s response |
+
+#### Phase 2: Clinical Validation (Month 3-6)
+- [ ] IRB approval for clinical studies
+- [ ] Independent third-party validation
+- [ ] Geographic validation (all target regions)
+- [ ] Demographic validation (all patient groups)
+- [ ] Clinician workflow integration testing
+
+#### Phase 3: Pre-Submission (Month 6-9)
+- [ ] Clinical evidence package
+- [ ] Risk management file (ISO 14971)
+- [ ] Software documentation package
+- [ ] Cybersecurity documentation
+- [ ] Human factors validation
+
+#### Phase 4: Post-Market (Ongoing)
+- [ ] Adverse event reporting system
+- [ ] Post-market surveillance
+- [ ] Continuous clinical monitoring
+- [ ] Model performance tracking
+- [ ] Regulatory update monitoring
+
+#### Sections to Prioritize (Mandatory Order)
+1. [Healthcare & Mental Health AI Safety](#-healthcare--mental-health-ai-safety) — **START HERE**
+2. [Assured Intelligence](#-assured-intelligence--quantitative-safety) — Uncertainty quantification
+3. [AI Governance](#-ai-governance) — Regulatory compliance
+4. [Safety & Ethics](#%EF%B8%8F-safety--ethics) — Output safety
+5. [Security & Compliance](#-security--compliance) — HIPAA compliance
+
+#### Healthcare-Specific Metrics
+| Metric | Target | Why |
+|--------|--------|-----|
+| Crisis detection recall | **100%** | Zero false negatives for safety |
+| Crisis response latency | **<1 second** | Immediate intervention |
+| False positive rate | **<5%** | Minimize alert fatigue |
+| Clinician override availability | **Always** | Humans must be able to intervene |
+
+<p align="right"><a href="#-choose-your-path-persona-based-guides">⬆️ Back to Personas</a> · <a href="#-solo-developer--side-project">⬅️ Solo Dev</a> · <a href="#-financial-services">Next: FinServ ➡️</a></p>
+
+---
+
+### 💰 Financial Services
+
+**Your Reality:** Regulated industry, fraud concerns, audit requirements, model explainability mandates.
+
+**Your Risk Profile:** Low tolerance, regulators watching, fiduciary duty.
+
+#### Regulatory Framework First
+- **US:** OCC, Fed, CFPB guidance on AI/ML in banking
+- **EU:** EBA guidelines on ICT risk, DORA, AI Act
+- **Global:** Basel Committee principles for AI
+- **Fair Lending:** ECOA, Fair Housing Act (explainability required)
+
+#### Phase 1: Compliance Foundation (Month 1-2)
+| Priority | Items | Why |
+|----------|-------|-----|
+| 🔴 **Week 1-2** | Model Risk Management (SR 11-7) | Federal Reserve requirement |
+| 🔴 **Week 2-3** | Fair Lending Analysis, Disparate Impact Testing | Avoid discrimination claims |
+| 🔴 **Week 3-4** | Explainability Requirements, Adverse Action Notices | Regulatory mandate |
+| 🟠 **Month 2** | Audit Trail, Model Lineage, Version Control | Examination readiness |
+
+#### Phase 2: Model Governance (Month 2-4)
+- [ ] Model inventory and tiering
+- [ ] Independent model validation (second line)
+- [ ] Model performance monitoring
+- [ ] Champion/challenger framework
+- [ ] Model documentation standards
+
+#### Phase 3: Production Controls (Month 4-6)
+- [ ] Real-time fraud detection integration
+- [ ] Transaction monitoring
+- [ ] Suspicious activity reporting
+- [ ] Customer complaint tracking
+- [ ] Regulatory reporting automation
+
+#### Sections to Prioritize
+1. [AI Governance](#-ai-governance) — Model risk management
+2. [Metric Alignment & Evaluation](#-metric-alignment--evaluation-integrity) — Avoid Goodhart's Law
+3. [Assured Intelligence](#-assured-intelligence--quantitative-safety) — Calibration, uncertainty
+4. [Anti-Patterns: Case Studies](#%EF%B8%8F-anti-patterns-case-studies) — Learn from Zillow
+5. [Technical Debt & System Integrity](#-technical-debt--system-integrity) — CACE principle
+
+#### FinServ-Specific Requirements
+- **Explainability:** Every decision must be explainable to regulators and customers
+- **Audit:** Complete audit trail for all model decisions
+- **Fairness:** Regular disparate impact analysis across protected classes
+- **Stress Testing:** Model performance under adverse economic conditions
+
+<p align="right"><a href="#-choose-your-path-persona-based-guides">⬆️ Back to Personas</a> · <a href="#-healthcare--medical-ai">⬅️ Healthcare</a> · <a href="#-data-scientist--ml-engineer">Next: DS→MLE ➡️</a></p>
+
+---
+
+### 🔬 Data Scientist → ML Engineer
+
+**Your Reality:** Strong in modeling, learning production skills, bridging the gap.
+
+**Your Risk Profile:** Learning curve, need to understand ops and infrastructure.
+
+#### Your Learning Path
+
+```mermaid
+flowchart LR
+    subgraph DS["🔬 DATA SCIENTIST<br/>Skills"]
+        DS1["📓 Jupyter<br/>Notebooks"]
+        DS2["🧪 Local<br/>Experiments"]
+        DS3["🎯 Model<br/>Accuracy"]
+        DS4["📦 Batch<br/>Processing"]
+        DS5["🐍 Python<br/>Scripts"]
+    end
+
+    subgraph GAP["🌉 BRIDGE THE GAP"]
+        G1["Version<br/>Control"]
+        G2["Reproducibility"]
+        G3["System<br/>Reliability"]
+        G4["Real-time<br/>Serving"]
+        G5["Production<br/>Code"]
+    end
+
+    subgraph MLE["⚙️ ML ENGINEER<br/>Skills"]
+        MLE1["📊 Git<br/>MLflow"]
+        MLE2["🐳 Docker<br/>CI/CD"]
+        MLE3["📈 Monitoring<br/>Alerting"]
+        MLE4["🚀 APIs<br/>Streaming"]
+        MLE5["✅ Testing<br/>Error Handling"]
+    end
+
+    DS1 --> G1 --> MLE1
+    DS2 --> G2 --> MLE2
+    DS3 --> G3 --> MLE3
+    DS4 --> G4 --> MLE4
+    DS5 --> G5 --> MLE5
+
+    style DS fill:#fae8ff,stroke:#a855f7,stroke-width:2px
+    style GAP fill:#fef3c7,stroke:#f59e0b,stroke-width:2px
+    style MLE fill:#dcfce7,stroke:#22c55e,stroke-width:2px
+    style DS1 fill:#ffffff,stroke:#a855f7
+    style DS2 fill:#ffffff,stroke:#a855f7
+    style DS3 fill:#ffffff,stroke:#a855f7
+    style DS4 fill:#ffffff,stroke:#a855f7
+    style DS5 fill:#ffffff,stroke:#a855f7
+    style G1 fill:#ffffff,stroke:#f59e0b
+    style G2 fill:#ffffff,stroke:#f59e0b
+    style G3 fill:#ffffff,stroke:#f59e0b
+    style G4 fill:#ffffff,stroke:#f59e0b
+    style G5 fill:#ffffff,stroke:#f59e0b
+    style MLE1 fill:#ffffff,stroke:#22c55e
+    style MLE2 fill:#ffffff,stroke:#22c55e
+    style MLE3 fill:#ffffff,stroke:#22c55e
+    style MLE4 fill:#ffffff,stroke:#22c55e
+    style MLE5 fill:#ffffff,stroke:#22c55e
+```
+
+#### Phase 1: Production Fundamentals (Week 1-4)
+| Priority | Items | Why |
+|----------|-------|-----|
+| 🔴 **Week 1** | Version Control (prompts, models, data) | Reproducibility |
+| 🔴 **Week 2** | CI/CD Basics, Automated Testing | Quality gates |
+| 🟠 **Week 3** | Containerization (Docker), Environment Management | Consistency |
+| 🟠 **Week 4** | API Design, Error Handling | Production serving |
+
+#### Phase 2: Observability & Operations (Week 5-8)
+- [ ] Monitoring dashboards (Grafana, DataDog)
+- [ ] Alerting and on-call basics
+- [ ] Log aggregation and analysis
+- [ ] Performance profiling
+- [ ] Cost tracking per experiment
+
+#### Phase 3: MLOps Maturity (Month 2-3)
+- [ ] Feature stores
+- [ ] Model registry
+- [ ] A/B testing framework
+- [ ] Drift detection
+- [ ] Automated retraining triggers
+
+#### Sections to Study (Learning Order)
+1. [Operations & Maintenance](#%EF%B8%8F-operations--maintenance) — Deployment basics
+2. [Monitoring & Observability](#-monitoring--observability) — See what's happening
+3. [Data Quality & Statistical Validity](#-data-quality--statistical-validity) — Training-serving skew
+4. [LLM Evaluation & Testing](#-llm-evaluation--testing) — Production evaluation
+5. [Technical Debt & System Integrity](#-technical-debt--system-integrity) — Avoid ML-specific debt
+
+#### Resources for the Transition
+- **Book:** "Designing Machine Learning Systems" by Chip Huyen
+- **Course:** "Made With ML" (free, production-focused)
+- **Practice:** Take a notebook project and deploy it end-to-end
+
+<p align="right"><a href="#-choose-your-path-persona-based-guides">⬆️ Back to Personas</a> · <a href="#-financial-services">⬅️ FinServ</a> · <a href="#️-platform--infrastructure-team">Next: Platform ➡️</a></p>
+
+---
+
+### 🛠️ Platform / Infrastructure Team
+
+**Your Reality:** Supporting multiple ML teams, standardization, self-service, scale.
+
+**Your Risk Profile:** Reliability is your product. Downtime affects everyone.
+
+#### Your Mission
+Build the internal platform that makes ML teams successful.
+
+#### Phase 1: Foundation Layer (Month 1-2)
+| Priority | Items | Why |
+|----------|-------|-----|
+| 🔴 **Week 1-2** | Kubernetes + GPU Operators | Compute foundation |
+| 🔴 **Week 2-3** | Model Serving Infrastructure (vLLM, Triton) | Inference platform |
+| 🟠 **Week 3-4** | Secrets Management, KMS | Security foundation |
+| 🟠 **Month 2** | Observability Stack (metrics, logs, traces) | Platform monitoring |
+
+#### Phase 2: MLOps Platform (Month 2-4)
+- [ ] Model registry (MLflow, Weights & Biases)
+- [ ] Feature store (Feast, Tecton)
+- [ ] Experiment tracking
+- [ ] CI/CD pipelines for ML
+- [ ] A/B testing infrastructure
+
+#### Phase 3: Self-Service & Governance (Month 4-6)
+- [ ] Developer portal / documentation
+- [ ] Cost allocation and showback
+- [ ] Quota management
+- [ ] Audit logging
+- [ ] Policy-as-code guardrails
+
+#### Sections to Own
+1. [Architecture & Design](#-architecture--design) — Infrastructure patterns
+2. [Performance & Scale](#%EF%B8%8F-performance--scale) — Latency, throughput
+3. [Cost Management & FinOps](#-cost-management--finops) — Platform economics
+4. [Operations & Maintenance](#%EF%B8%8F-operations--maintenance) — Reliability
+5. [Monitoring & Observability](#-monitoring--observability) — Platform health
+
+#### Platform Team Metrics
+| Metric | Target | Why |
+|--------|--------|-----|
+| Model deployment time | **<1 hour** | Self-service goal |
+| Platform availability | **99.9%** | Reliability target |
+| Cost per inference | **Track & optimize** | FinOps |
+| Time to first experiment | **<1 day** | Developer experience |
+
+<p align="right"><a href="#-choose-your-path-persona-based-guides">⬆️ Back to Personas</a> · <a href="#-data-scientist--ml-engineer">⬅️ DS→MLE</a> · <a href="#️-compliance--legal--risk">Next: Compliance ➡️</a></p>
+
+---
+
+### ⚖️ Compliance / Legal / Risk
+
+**Your Reality:** Protect the organization, manage liability, ensure regulatory compliance.
+
+**Your Risk Profile:** Your job is to identify and mitigate risks others miss.
+
+#### Your Checklist for AI Projects
+
+##### Pre-Deployment Review
+- [ ] Data provenance and licensing verified
+- [ ] Training data consent/rights confirmed
+- [ ] Output ownership/IP determined
+- [ ] Liability allocation documented
+- [ ] Insurance coverage reviewed
+
+##### Regulatory Compliance
+- [ ] EU AI Act risk classification completed
+- [ ] Prohibited use cases verified (social scoring, etc.)
+- [ ] High-risk requirements mapped (if applicable)
+- [ ] GDPR/privacy impact assessment done
+- [ ] Industry-specific regulations addressed
+
+##### Contractual Considerations
+- [ ] AI-specific terms in vendor contracts
+- [ ] Indemnification clauses reviewed
+- [ ] SLA requirements defined
+- [ ] Audit rights preserved
+- [ ] Data processing agreements updated
+
+##### Governance Framework
+- [ ] AI ethics policy published
+- [ ] Incident response procedure documented
+- [ ] Escalation paths defined
+- [ ] Board/executive reporting established
+- [ ] External audit schedule set
+
+#### Sections to Review (Priority Order)
+1. [AI Governance](#-ai-governance) — Regulatory frameworks
+2. [Security & Compliance](#-security--compliance) — Data protection
+3. [Safety & Ethics](#%EF%B8%8F-safety--ethics) — Responsible AI
+4. [Anti-Patterns: Case Studies](#%EF%B8%8F-anti-patterns-case-studies) — Learn from failures
+5. [Healthcare & Mental Health AI](#-healthcare--mental-health-ai-safety) — If applicable
+
+#### Key Questions to Ask Engineering
+1. How do we know the model isn't discriminating?
+2. What happens when the model is wrong?
+3. Can we explain decisions to regulators/customers?
+4. How quickly can we disable the AI if needed?
+5. What's our audit trail look like?
+
+<p align="right"><a href="#-choose-your-path-persona-based-guides">⬆️ Back to Personas</a> · <a href="#️-platform--infrastructure-team">⬅️ Platform</a> · <a href="#️-agency--consultancy">Next: Agency ➡️</a></p>
+
+---
+
+### 🏗️ Agency / Consultancy
+
+**Your Reality:** Building for clients, varied requirements, handoff considerations, repeatable processes.
+
+**Your Risk Profile:** Client's risk becomes your risk. Reputation is everything.
+
+#### Client Onboarding Checklist
+Before starting any AI project, clarify:
+
+| Question | Why It Matters |
+|----------|----------------|
+| Who owns the trained model? | IP and liability |
+| What data can we use for training? | Legal rights |
+| What are the regulatory requirements? | Compliance scope |
+| Who operates it post-handoff? | Documentation needs |
+| What's the budget for ongoing costs? | FinOps planning |
+
+#### Reusable Project Template
+
+##### Phase 1: Discovery & Planning (Week 1-2)
+- [ ] Requirements documentation
+- [ ] Risk assessment
+- [ ] Architecture design
+- [ ] Cost estimation
+- [ ] Timeline and milestones
+
+##### Phase 2: Development (Week 3-8)
+- [ ] Environment setup (reproducible)
+- [ ] Core functionality
+- [ ] Testing suite
+- [ ] Documentation (client-facing)
+- [ ] Security review
+
+##### Phase 3: Handoff & Training (Week 9-10)
+- [ ] Operations runbook
+- [ ] Monitoring dashboards
+- [ ] Training sessions
+- [ ] Support transition plan
+- [ ] Sign-off documentation
+
+#### Sections to Standardize
+1. [Architecture & Design](#-architecture--design) — Reusable patterns
+2. [Operations & Maintenance](#%EF%B8%8F-operations--maintenance) — Handoff docs
+3. [Team & Process](#-team--process) — Documentation standards
+4. [Cost Management & FinOps](#-cost-management--finops) — Client cost clarity
+
+#### Agency Best Practices
+- **Template everything:** Reusable monitoring, CI/CD, documentation
+- **Document decisions:** Client sign-off on architecture choices
+- **Clear handoff:** Runbooks, training, support transition
+- **Cost transparency:** Show clients ongoing operational costs
+
+<p align="right"><a href="#-choose-your-path-persona-based-guides">⬆️ Back to Personas</a> · <a href="#️-compliance--legal--risk">⬅️ Compliance</a> · <a href="#️-government--public-sector">Next: Government ➡️</a></p>
+
+---
+
+### 🏛️ Government / Public Sector
+
+**Your Reality:** Public accountability, transparency requirements, procurement rules, citizen impact.
+
+**Your Risk Profile:** Public trust is paramount. Failures make headlines.
+
+#### Public Sector Specific Requirements
+
+##### Transparency & Accountability
+- [ ] Algorithmic impact assessment published
+- [ ] Public documentation of AI use cases
+- [ ] Citizen appeal/challenge mechanism
+- [ ] Regular public reporting on AI performance
+- [ ] Freedom of Information considerations
+
+##### Procurement & Vendors
+- [ ] FedRAMP authorization (US federal)
+- [ ] StateRAMP (US state/local)
+- [ ] Vendor AI ethics assessment
+- [ ] Source code escrow
+- [ ] Data sovereignty requirements
+
+##### Equity & Access
+- [ ] Accessibility compliance (508/WCAG)
+- [ ] Language access (LEP populations)
+- [ ] Digital divide considerations
+- [ ] Disparate impact analysis
+- [ ] Community input process
+
+#### Sections to Prioritize
+1. [AI Governance](#-ai-governance) — Public sector accountability
+2. [Safety & Ethics](#%EF%B8%8F-safety--ethics) — Equity and fairness
+3. [Metric Alignment & Evaluation](#-metric-alignment--evaluation-integrity) — Avoid gaming
+4. [Security & Compliance](#-security--compliance) — FedRAMP, FISMA
+5. [Assured Intelligence](#-assured-intelligence--quantitative-safety) — Explainability
+
+#### Government-Specific Metrics
+| Metric | Requirement | Why |
+|--------|-------------|-----|
+| Explainability | **High** | Public accountability |
+| Bias audits | **Regular, public** | Equity requirements |
+| Uptime | **High** | Public service reliability |
+| Data retention | **Per records laws** | Legal requirements |
+
+<p align="right"><a href="#-choose-your-path-persona-based-guides">⬆️ Back to Personas</a> · <a href="#️-agency--consultancy">⬅️ Agency</a> · <a href="#️-decision-flowchart-where-do-i-start">Next: Flowchart ➡️</a></p>
+
+---
+
+## 🗺️ Decision Flowchart: Where Do I Start?
+
+```mermaid
+flowchart TD
+    subgraph Decision["🗺️ WHERE DO I START?"]
+        START["🚀 START HERE<br/>Do you have users?"]
+
+        START -->|NO| BUILDING["🔨 Still Building"]
+        START -->|YES| DEPLOYED["✅ Already Deployed"]
+
+        BUILDING --> SENSITIVE{"Handling sensitive data?<br/>(PII, health, financial)"}
+        DEPLOYED --> MONITORING{"Do you have<br/>monitoring & alerting?"}
+
+        SENSITIVE -->|YES| PATH_SECURE["🔐 START WITH:<br/>━━━━━━━━━━━━<br/>• Security<br/>• Privacy<br/>• Compliance<br/>• Then Essential 20"]
+        SENSITIVE -->|NO| PATH_ESSENTIAL["📋 START WITH:<br/>━━━━━━━━━━━━<br/>• Essential 20 items<br/>• Your persona path"]
+
+        MONITORING -->|NO| PATH_URGENT["🚨 STOP! ADD NOW:<br/>━━━━━━━━━━━━<br/>• Monitoring<br/>• Alerting<br/>• Logging<br/>• Rollback"]
+        MONITORING -->|YES| PATH_OPTIMIZE["📈 CHECK:<br/>━━━━━━━━━━━━<br/>• Cost management<br/>• Evaluation<br/>• Governance<br/>• Scale readiness"]
+    end
+
+    style START fill:#3b82f6,stroke:#1e40af,color:#ffffff,stroke-width:3px
+    style BUILDING fill:#f59e0b,stroke:#d97706,color:#ffffff
+    style DEPLOYED fill:#22c55e,stroke:#16a34a,color:#ffffff
+    style SENSITIVE fill:#fef3c7,stroke:#f59e0b,color:#78350f
+    style MONITORING fill:#fef3c7,stroke:#f59e0b,color:#78350f
+    style PATH_SECURE fill:#fecaca,stroke:#dc2626,color:#7f1d1d
+    style PATH_ESSENTIAL fill:#dbeafe,stroke:#3b82f6,color:#1e3a5f
+    style PATH_URGENT fill:#dc2626,stroke:#991b1b,color:#ffffff
+    style PATH_OPTIMIZE fill:#dcfce7,stroke:#22c55e,color:#14532d
+    style Decision fill:transparent,stroke:#64748b,stroke-width:2px
+```
+
+### Quick Decision Matrix
+
+| Your Situation | Start With | Then Add |
+|----------------|------------|----------|
+| Side project, no users yet | [Essential 20](#-tldr-the-essential-20) | Nothing until you have users |
+| Startup, pre-launch | [Essential 20](#-tldr-the-essential-20) → [Startup Path](#-startup-founder--early-stage) | Security, basic monitoring |
+| Startup, have users | [Startup Path](#-startup-founder--early-stage) | Evaluation, cost management |
+| Enterprise, new project | [Enterprise Path](#-enterprise-architect) | Full governance from start |
+| Healthcare/Medical | [Healthcare Path](#-healthcare--medical-ai) | **Everything in Healthcare section is mandatory** |
+| Financial services | [FinServ Path](#-financial-services) | Explainability, audit trails |
+| Production with issues | [Monitoring](#-monitoring--observability) | Whatever is causing the issues |
+| Scaling problems | [Performance & Scale](#%EF%B8%8F-performance--scale) | Cost management |
+| Compliance audit coming | [AI Governance](#-ai-governance) | Security, documentation |
+
+<p align="right"><a href="#-quick-start">⬆️ Back to Top</a> · <a href="#-choose-your-path-persona-based-guides">⬅️ Personas</a> · <a href="#-frequently-asked-questions">Next: FAQ ➡️</a></p>
+
+---
+
+## ❓ Frequently Asked Questions
+
+<details>
+<summary><b>Do I need to complete ALL 400+ items?</b></summary>
+
+**No.** The checklist is comprehensive by design—it covers everything from startups to enterprise healthcare AI.
+
+- **Minimum viable:** Complete the [Essential 20](#-tldr-the-essential-20) items
+- **Production ready:** Complete items relevant to your [persona path](#-choose-your-path-persona-based-guides)
+- **Enterprise grade:** Complete 80%+ of all applicable items
+
+Many items are marked "Configurable" meaning they depend on your context.
+</details>
+
+<details>
+<summary><b>What's the minimum for a POC/prototype?</b></summary>
+
+For a POC that only YOU will use:
+- API keys in environment variables (not code)
+- Basic error handling
+- Cost limits set on your LLM provider
+
+For a POC that OTHERS will see:
+- Add: Authentication, rate limiting, basic input validation
+- Add: Clear "this is a prototype" disclaimers
+
+For a POC with REAL DATA:
+- Add: Everything in the [Essential 20](#-tldr-the-essential-20)
+</details>
+
+<details>
+<summary><b>How long does it take to become production-ready?</b></summary>
+
+It depends on your starting point and target:
+
+| Starting Point | Target | Typical Effort |
+|---------------|--------|----------------|
+| Jupyter notebook | Internal tool | 2-4 weeks |
+| Working prototype | Startup MVP | 4-8 weeks |
+| MVP | Production | 2-3 months |
+| Production | Enterprise-grade | 3-6 months |
+
+Healthcare/Financial add 2-6 months for compliance.
+</details>
+
+<details>
+<summary><b>What if I'm a small team (1-3 people)?</b></summary>
+
+Focus on high-impact, low-effort items:
+
+1. **Automate security basics:** Auth, rate limiting, input validation
+2. **Use managed services:** Don't build monitoring from scratch
+3. **Start with Essential 20:** This covers 80% of critical risks
+4. **Skip scale sections:** Until you actually need to scale
+5. **Use templates:** Don't write runbooks from scratch
+
+See [Solo Developer Path](#-solo-developer--side-project) or [Startup Path](#-startup-founder--early-stage).
+</details>
+
+<details>
+<summary><b>What items cause the most production incidents?</b></summary>
+
+Based on industry data and case studies:
+
+1. **Missing rate limiting** → Cost explosions, abuse
+2. **No monitoring** → Hours/days to detect issues
+3. **No rollback procedure** → Extended outages
+4. **Prompt injection vulnerability** → Data leakage, jailbreaks
+5. **Training-serving skew** → Silent model degradation
+6. **Missing cost limits** → $10K+ surprise bills
+7. **No golden test set** → Regressions reach users
+8. **Hallucination without detection** → User trust erosion
+</details>
+
+<details>
+<summary><b>Which items can I defer until later?</b></summary>
+
+Safe to defer (until you need them):
+
+| Item | When to Add |
+|------|-------------|
+| Multi-region failover | When you have users in multiple regions |
+| Model parallelism | When single-GPU isn't enough |
+| A/B testing framework | When you're optimizing, not building |
+| Advanced FinOps | When costs exceed $10K/month |
+| Formal verification | When in safety-critical domains |
+| Full governance framework | When preparing for enterprise or compliance |
+
+**Never defer:** Security, basic monitoring, cost limits, rollback capability
+</details>
+
+<details>
+<summary><b>What's different about LLM/GenAI vs traditional ML?</b></summary>
+
+Key differences this checklist addresses:
+
+| Traditional ML | LLM/GenAI | Checklist Section |
+|---------------|-----------|-------------------|
+| Feature engineering | Prompt engineering | [Prompt Engineering](#-prompt-engineering) |
+| Model accuracy | Hallucination rate | [LLM Evaluation](#-llm-evaluation--testing) |
+| Batch inference | Real-time, streaming | [Performance](#%EF%B8%8F-performance--scale) |
+| Model drift | Prompt injection | [Red Teaming](#-red-teaming--llm-security) |
+| Fixed costs | Token-based costs | [Cost Management](#-cost-management--finops) |
+| Input validation | Output safety | [Safety & Ethics](#%EF%B8%8F-safety--ethics) |
+</details>
+
+<details>
+<summary><b>How do I convince my manager/team to use this checklist?</b></summary>
+
+Show them the cost of NOT using it:
+
+| Company | What Went Wrong | Cost |
+|---------|-----------------|------|
+| Zillow | Model overconfidence, no uncertainty quantification | $500M+ loss, 25% layoffs |
+| IBM Watson | No clinical validation, unsafe recommendations | Killed the healthcare division |
+| Character.AI | No crisis detection, inadequate safety | Teen suicide, lawsuits |
+| Babylon Health | Overpromised, underdelivered on safety | $4.2B → $0 |
+
+Then show them the [Essential 20](#-tldr-the-essential-20) takes ~2 weeks and prevents most disasters.
+</details>
+
+<details>
+<summary><b>How often should I review the checklist?</b></summary>
+
+- **Before major releases:** Full relevant sections
+- **Monthly:** Monitoring and alerting effectiveness
+- **Quarterly:** Security and compliance sections
+- **Annually:** Full checklist review
+- **After incidents:** Relevant sections that could have prevented it
+- **When regulations change:** Governance sections
+</details>
+
+<details>
+<summary><b>Is this checklist specific to any cloud provider or framework?</b></summary>
+
+**No.** The checklist is cloud-agnostic and framework-agnostic. It works with:
+
+- **Cloud:** AWS, Azure, GCP, or on-premise
+- **LLM Providers:** OpenAI, Anthropic, Google, open-source models
+- **Frameworks:** LangChain, LlamaIndex, custom implementations
+- **MLOps:** MLflow, Weights & Biases, Kubeflow, custom solutions
+
+The companion [Technology Selection Guide](docs/TECHNOLOGY-SELECTION-GUIDE.md) provides specific tool recommendations.
+</details>
+
+<p align="right"><a href="#-quick-start">⬆️ Back to Top</a> · <a href="#️-decision-flowchart-where-do-i-start">⬅️ Flowchart</a> · <a href="#-ai-production-lifecycle-stages">Next: Lifecycle Stages ➡️</a></p>
 
 ---
 
@@ -488,6 +1621,8 @@ When building Healthcare AI, enable this overlay to add FDA-specific requirement
   | Federated Learning | Distributed data sources | Privacy vs. communication costs |
   </details>
 
+<p align="right"><a href="#-quick-navigation">⬆️ Navigation</a> · <a href="#-ai-production-lifecycle-stages">⬅️ Lifecycle</a> · <a href="#-data-quality--statistical-validity">Next: Data Quality ➡️</a></p>
+
 ---
 
 ## 🔬 Data Quality & Statistical Validity
@@ -557,6 +1692,8 @@ A pneumonia prediction model learned `took_antibiotic=True` predicts pneumonia p
 - [ ] **Temporal Holdout**: Validated on data from a future time period (not random split)
 - [ ] **Site-Specific Calibration Plan**: Strategy for adapting model to local deployment conditions
 - [ ] **Model Card with External Results**: External validation results documented in public model card
+
+<p align="right"><a href="#-quick-navigation">⬆️ Navigation</a> · <a href="#-architecture--design">⬅️ Architecture</a> · <a href="#-agentic-ai--multi-agent-systems">Next: Agentic AI ➡️</a></p>
 
 ---
 
@@ -656,6 +1793,8 @@ A pneumonia prediction model learned `took_antibiotic=True` predicts pneumonia p
   - [ ] LangChain: Comprehensive orchestration
   - [ ] CrewAI: Task-oriented multi-agent coordination
 
+<p align="right"><a href="#-quick-navigation">⬆️ Navigation</a> · <a href="#-data-quality--statistical-validity">⬅️ Data Quality</a> · <a href="#-security--compliance">Next: Security ➡️</a></p>
+
 ---
 
 ## 🔐 Security & Compliance
@@ -693,6 +1832,8 @@ A pneumonia prediction model learned `took_antibiotic=True` predicts pneumonia p
   - [ ] SOC 2 Type II
   - [ ] ISO 27001
   - [ ] FedRAMP (government)
+
+<p align="right"><a href="#-quick-navigation">⬆️ Navigation</a> · <a href="#-agentic-ai--multi-agent-systems">⬅️ Agentic AI</a> · <a href="#️-red-teaming--llm-security">Next: Red Teaming ➡️</a></p>
 
 ---
 
@@ -760,6 +1901,8 @@ A pneumonia prediction model learned `took_antibiotic=True` predicts pneumonia p
   - **Mindgard DAST-AI**: Dynamic application security testing for AI
   - **Adversa**: Continuous red teaming for LLMs
   </details>
+
+<p align="right"><a href="#-quick-navigation">⬆️ Navigation</a> · <a href="#-security--compliance">⬅️ Security</a> · <a href="#-performance--scale">Next: Performance ➡️</a></p>
 
 ---
 
@@ -833,6 +1976,8 @@ A pneumonia prediction model learned `took_antibiotic=True` predicts pneumonia p
   - **llm-d**: Kubernetes-native distributed inference
   </details>
 
+<p align="right"><a href="#-quick-navigation">⬆️ Navigation</a> · <a href="#️-red-teaming--llm-security">⬅️ Red Teaming</a> · <a href="#-cost-management--finops">Next: Cost ➡️</a></p>
+
 ---
 
 ## 💰 Cost Management & FinOps
@@ -892,6 +2037,10 @@ A pneumonia prediction model learned `took_antibiotic=True` predicts pneumonia p
   - [ ] Smart LLM routing (route to appropriate model)
   - [ ] Build shared infrastructure (centralized vector stores)
 
+<p align="right"><a href="#-quick-navigation">⬆️ Navigation</a> · <a href="#-performance--scale">⬅️ Performance</a> · <a href="#️-safety--ethics">Next: Safety ➡️</a></p>
+
+---
+
 ## 🛡️ Safety & Ethics
 
 > [!IMPORTANT]
@@ -919,6 +2068,10 @@ A pneumonia prediction model learned `took_antibiotic=True` predicts pneumonia p
   - [ ] Transparency documentation
   - [ ] Human-in-the-loop options
   - [ ] Opt-out mechanisms
+
+<p align="right"><a href="#-quick-navigation">⬆️ Navigation</a> · <a href="#-cost-management--finops">⬅️ Cost</a> · <a href="#-monitoring--observability">Next: Monitoring ➡️</a></p>
+
+---
 
 ## 📊 Monitoring & Observability
 
@@ -957,6 +2110,8 @@ A pneumonia prediction model learned `took_antibiotic=True` predicts pneumonia p
   - [ ] On-call rotation
   - [ ] Incident response runbooks
 
+<p align="right"><a href="#-quick-navigation">⬆️ Navigation</a> · <a href="#️-safety--ethics">⬅️ Safety</a> · <a href="#-operations--maintenance">Next: Operations ➡️</a></p>
+
 ---
 
 ## 🔄 Operations & Maintenance
@@ -987,6 +2142,8 @@ A pneumonia prediction model learned `took_antibiotic=True` predicts pneumonia p
   - [ ] Recovery point objective (RPO)
   - [ ] Failover procedures
   - [ ] Regular DR drills
+
+<p align="right"><a href="#-quick-navigation">⬆️ Navigation</a> · <a href="#-monitoring--observability">⬅️ Monitoring</a> · <a href="#-technical-debt--system-integrity">Next: Tech Debt ➡️</a></p>
 
 ---
 
@@ -1036,6 +2193,8 @@ A pneumonia prediction model learned `took_antibiotic=True` predicts pneumonia p
 - [ ] **Contract Testing**: Downstream systems tested when model interface changes
 - [ ] **Threshold Documentation**: Any hard-coded thresholds on model outputs documented with owners
 - [ ] **Breaking Change Protocol**: Process for coordinating breaking changes across consumers
+
+<p align="right"><a href="#-quick-navigation">⬆️ Navigation</a> · <a href="#-operations--maintenance">⬅️ Operations</a> · <a href="#-ai-governance">Next: Governance ➡️</a></p>
 
 ---
 
@@ -1109,6 +2268,8 @@ A pneumonia prediction model learned `took_antibiotic=True` predicts pneumonia p
   | Strategic | AI priorities defined & communicated | 28% |
   | Embedded | Integrated into core operations | 33% |
   </details>
+
+<p align="right"><a href="#-quick-navigation">⬆️ Navigation</a> · <a href="#-technical-debt--system-integrity">⬅️ Tech Debt</a> · <a href="#-llm-evaluation--testing">Next: Evaluation ➡️</a></p>
 
 ---
 
@@ -1226,6 +2387,8 @@ A pneumonia prediction model learned `took_antibiotic=True` predicts pneumonia p
   ```
   </details>
 
+<p align="right"><a href="#-quick-navigation">⬆️ Navigation</a> · <a href="#-ai-governance">⬅️ Governance</a> · <a href="#-metric-alignment--evaluation-integrity">Next: Metrics ➡️</a></p>
+
 ---
 
 ## 📐 Metric Alignment & Evaluation Integrity
@@ -1290,6 +2453,8 @@ Model predicts crime in Area A → Police deployed → Crime observed → Model 
 - [ ] **Guardrail Metrics**: Safety/quality metrics that automatically halt experiments if breached
 - [ ] **Statistical Rigor**: Sample size calculations and significance thresholds documented before experiments
 - [ ] **Experiment Velocity**: Can run multiple concurrent experiments with proper isolation
+
+<p align="right"><a href="#-quick-navigation">⬆️ Navigation</a> · <a href="#-llm-evaluation--testing">⬅️ Evaluation</a> · <a href="#-assured-intelligence--quantitative-safety">Next: Assured Intelligence ➡️</a></p>
 
 ---
 
@@ -1452,6 +2617,8 @@ Key: A negative output requires ALL layers to agree.
 
 > 📖 **Deep Dive:** See [docs/ASSURED-INTELLIGENCE.md](docs/ASSURED-INTELLIGENCE.md) for comprehensive implementation guide with code patterns.
 
+<p align="right"><a href="#-quick-navigation">⬆️ Navigation</a> · <a href="#-metric-alignment--evaluation-integrity">⬅️ Metrics</a> · <a href="#️-prompt-engineering">Next: Prompts ➡️</a></p>
+
 ---
 
 ## ✍️ Prompt Engineering
@@ -1490,6 +2657,8 @@ Key: A negative output requires ALL layers to agree.
 
   **Tools**: Latitude, LangChain, PromptLayer, Lilypad
   </details>
+
+<p align="right"><a href="#-quick-navigation">⬆️ Navigation</a> · <a href="#-assured-intelligence--quantitative-safety">⬅️ Assured Intelligence</a> · <a href="#-ai-strategy--transformation">Next: Strategy ➡️</a></p>
 
 ---
 
@@ -1570,6 +2739,8 @@ Key: A negative output requires ALL layers to agree.
   - [ ] Lack of ongoing monitoring and optimization
   - [ ] Attempting too many simultaneous initiatives
 
+<p align="right"><a href="#-quick-navigation">⬆️ Navigation</a> · <a href="#️-prompt-engineering">⬅️ Prompts</a> · <a href="#-team--process">Next: Team ➡️</a></p>
+
 ---
 
 ## 👥 Team & Process
@@ -1615,6 +2786,8 @@ Key: A negative output requires ALL layers to agree.
   - [ ] Security review process
   - [ ] Compliance audits scheduled
   - [ ] Stakeholder sign-offs
+
+<p align="right"><a href="#-quick-navigation">⬆️ Navigation</a> · <a href="#-ai-strategy--transformation">⬅️ Strategy</a> · <a href="#-healthcare--mental-health-ai-safety">Next: Healthcare ➡️</a></p>
 
 ---
 
@@ -1802,6 +2975,8 @@ SAFETY_INVARIANTS = {
 | Google Verily | Lab accuracy failed in real clinics | 2020 | Undisclosed | [ ] Real-world environment testing |
 | Olive AI | Healthcare ops unicorn collapse | 2024 | ~$4B | [ ] Economic model validation |
 
+<p align="right"><a href="#-quick-navigation">⬆️ Navigation</a> · <a href="#-team--process">⬅️ Team</a> · <a href="#️-anti-patterns-lessons-from-catastrophic-failures">Next: Anti-Patterns ➡️</a></p>
+
 ---
 
 ## ⚠️ Anti-Patterns: Lessons from Catastrophic Failures
@@ -1871,6 +3046,8 @@ SAFETY_INVARIANTS = {
 | Point estimates without uncertainty | ✓ | | | [ ] |
 | No local/site calibration | | | ✓ | [ ] |
 
+<p align="right"><a href="#-quick-navigation">⬆️ Navigation</a> · <a href="#-healthcare--mental-health-ai-safety">⬅️ Healthcare</a> · <a href="#-scoring-your-readiness">Next: Scoring ➡️</a></p>
+
 ---
 
 ## 📊 Scoring Your Readiness
@@ -1885,6 +3062,10 @@ Count your checked items:
 | 61-80% | 🟢 **Production Ready** | Ready for general availability |
 | 81-100% | 🏆 **Enterprise Grade** | Ready for mission-critical deployment |
 
+<p align="right"><a href="#-quick-navigation">⬆️ Navigation</a> · <a href="#️-anti-patterns-lessons-from-catastrophic-failures">⬅️ Anti-Patterns</a> · <a href="#-quick-wins">Next: Quick Wins ➡️</a></p>
+
+---
+
 ## 🎯 Quick Wins
 
 If you're overwhelmed, start with these high-impact items:
@@ -1894,6 +3075,10 @@ If you're overwhelmed, start with these high-impact items:
 3. **Error Handling**: Graceful failures save users
 4. **Monitoring**: You can't fix what you can't see
 5. **Backup Strategy**: Because data loss is unforgivable
+
+<p align="right"><a href="#-quick-navigation">⬆️ Navigation</a> · <a href="#-scoring-your-readiness">⬅️ Scoring</a> · <a href="#-downloadable-tools">Next: Downloads ➡️</a></p>
+
+---
 
 ## 📥 Downloadable Tools
 
@@ -1968,6 +3153,8 @@ If you're overwhelmed, start with these high-impact items:
 ```
 
 </details>
+
+<p align="right"><a href="#-quick-navigation">⬆️ Navigation</a> · <a href="#-quick-wins">⬅️ Quick Wins</a> · <a href="#️-technology-selection-guides">Next: Tech Guides ➡️</a></p>
 
 ---
 
@@ -2091,6 +3278,8 @@ If you're overwhelmed, start with these high-impact items:
 
 > 📖 **Deep Dive:** See [docs/TECHNOLOGY-SELECTION-GUIDE.md](docs/TECHNOLOGY-SELECTION-GUIDE.md) for detailed decision trees and case studies.
 
+<p align="right"><a href="#-quick-navigation">⬆️ Navigation</a> · <a href="#-downloadable-tools">⬅️ Downloads</a> · <a href="#-resources">Next: Resources ➡️</a></p>
+
 ---
 
 ## 📚 Resources
@@ -2147,6 +3336,10 @@ For deeper dives into specific topics, see our detailed reference guides:
 - [EU AI Act](https://artificialintelligenceact.eu/)
 - [OWASP LLM Top 10](https://owasp.org/www-project-top-10-for-large-language-model-applications/)
 
+<p align="right"><a href="#-quick-navigation">⬆️ Navigation</a> · <a href="#️-technology-selection-guides">⬅️ Tech Guides</a> · <a href="#-contributing">Next: Contributing ➡️</a></p>
+
+---
+
 ## 🤝 Contributing
 
 This checklist is a living document. Please contribute your hard-won lessons:
@@ -2155,6 +3348,10 @@ This checklist is a living document. Please contribute your hard-won lessons:
 2. Add your items with practical examples
 3. Submit a pull request
 4. Share your production horror stories in discussions
+
+<p align="right"><a href="#-quick-navigation">⬆️ Navigation</a> · <a href="#-resources">⬅️ Resources</a> · <a href="#-please-credit">Next: Credit ➡️</a></p>
+
+---
 
 ## 💫 Please Credit
 
@@ -2168,6 +3365,10 @@ If you find this checklist helpful, please consider:
 
 Your attribution helps support the continued development of open-source AI resources!
 
+<p align="right"><a href="#-quick-navigation">⬆️ Navigation</a> · <a href="#-contributing">⬅️ Contributing</a> · <a href="#-license">Next: License ➡️</a></p>
+
+---
+
 ## 📄 License
 
 This project uses **dual licensing** to maximize both adoption and attribution:
@@ -2179,6 +3380,10 @@ This project uses **dual licensing** to maximize both adoption and attribution:
 
 **Attribution for documentation:**
 > AI Production Readiness Checklist by [Pragmatic Logic AI](https://pragmaticlogic.ai)
+
+<p align="right"><a href="#-quick-navigation">⬆️ Navigation</a> · <a href="#-please-credit">⬅️ Please Credit</a> · <a href="#-credits">Next: Credits ➡️</a></p>
+
+---
 
 ## 🙏 Credits
 
@@ -2193,7 +3398,21 @@ Created by [Aejaz Sheriff](https://github.com/asq-sheriff) at [Pragmatic Logic A
 <details>
 <summary>🏷️ <b>Keywords & Topics</b></summary>
 
-`AI Production` `LLM Deployment` `MLOps` `AI Governance` `Enterprise AI` `Generative AI` `AI Strategy` `AI Architecture` `Multi-Agent Systems` `RAG` `Agentic RAG` `ReAct Pattern` `Reason Act Pattern` `MCP` `Model Context Protocol` `Prompt Caching` `LLM Latency Optimization` `External Reflection` `Agent Reflection` `Prompt Engineering` `AI Security` `LLM Evaluation` `Holistic Agent Evaluation` `WAI-AI` `Working Alliance Inventory` `LLM-as-Judge` `Persona Consistency` `AI FinOps` `Red Teaming` `OWASP LLM` `AI Compliance` `EU AI Act` `IEC 61508` `ISO 13485` `IEC 62304` `FDA De Novo` `FDA SaMD` `Responsible AI` `Healthcare AI` `Mental Health AI Safety` `Clinical AI Validation` `Therapeutic AI` `AI Ethics` `Safety-Critical AI` `Formal Verification` `Safety Invariants` `Training-Serving Skew` `Data Leakage Detection` `Model Drift` `AI Technical Debt` `Feature Store` `AI Crisis Detection` `Crisis Detection Recall` `Edge AI` `Edge Cloud Split` `Conformal Prediction` `Causal AI` `Uncertainty Quantification` `Probability Calibration` `Zero-False-Negative` `Selective Prediction` `OOD Detection` `DoWhy` `CausalML` `Model Calibration ECE`
+**Leadership & Strategy:** `CTO AI Strategy` `VP of AI` `Head of ML` `AI Team Leadership` `AI Executive Guide` `AI Board Reporting` `AI Risk Management` `Build vs Buy AI` `AI Vendor Selection` `AI Steering Committee` `AI Portfolio Management` `AI ROI Metrics`
+
+**Personas & Roles:** `Startup AI Checklist` `Enterprise AI Architecture` `Solo Developer AI` `Healthcare AI Compliance` `Financial Services AI` `Data Scientist to ML Engineer` `Platform Team MLOps` `AI Compliance Officer` `Agency AI Development` `Government AI` `Public Sector AI`
+
+**Production & Operations:** `AI Production` `LLM Deployment` `MLOps` `AI Governance` `Enterprise AI` `Generative AI` `AI Strategy` `AI Architecture` `Multi-Agent Systems` `RAG` `Agentic RAG` `ReAct Pattern` `Reason Act Pattern` `MCP` `Model Context Protocol` `Prompt Caching` `LLM Latency Optimization` `External Reflection` `Agent Reflection` `Prompt Engineering` `AI Security`
+
+**Evaluation & Quality:** `LLM Evaluation` `Holistic Agent Evaluation` `WAI-AI` `Working Alliance Inventory` `LLM-as-Judge` `Persona Consistency` `AI FinOps` `Red Teaming` `OWASP LLM` `Golden Dataset Testing` `Hallucination Detection` `Bias Testing`
+
+**Compliance & Regulation:** `AI Compliance` `EU AI Act` `IEC 61508` `ISO 13485` `IEC 62304` `FDA De Novo` `FDA SaMD` `HIPAA AI` `SOC 2 AI` `FedRAMP AI` `Model Risk Management SR 11-7` `Fair Lending AI`
+
+**Healthcare & Safety:** `Responsible AI` `Healthcare AI` `Mental Health AI Safety` `Clinical AI Validation` `Therapeutic AI` `AI Ethics` `Safety-Critical AI` `Formal Verification` `Safety Invariants` `AI Crisis Detection` `Crisis Detection Recall`
+
+**Data & ML Engineering:** `Training-Serving Skew` `Data Leakage Detection` `Model Drift` `AI Technical Debt` `Feature Store` `Edge AI` `Edge Cloud Split` `Model Registry` `A/B Testing ML` `Canary Deployment AI`
+
+**Assured Intelligence:** `Conformal Prediction` `Causal AI` `Uncertainty Quantification` `Probability Calibration` `Zero-False-Negative` `Selective Prediction` `OOD Detection` `DoWhy` `CausalML` `Model Calibration ECE`
 
 </details>
 
