@@ -2,11 +2,11 @@
 
 # 🚀 AI Production Readiness Checklist
 
-### MLOps • LLMOps • GenAI • AI Governance • Enterprise AI Safety
+### MLOps • LLMOps • GenAI • Agentic RAG • AI Governance • Enterprise AI Safety
 
 **The Complete Guide to Production AI: From 87% Failure Rate to Deployment Success**
 
-`MLOps` `LLMOps` `RAG` `AI Agents` `Multi-Agent Systems` `AI Governance` `AI Safety` `Healthcare AI` `EU AI Act` `OWASP LLM`
+`MLOps` `LLMOps` `RAG` `Agentic RAG` `AI Agents` `ReAct Pattern` `Multi-Agent Systems` `MCP` `AI Governance` `AI Safety` `Healthcare AI` `EU AI Act` `OWASP LLM`
 
 [![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](CONTRIBUTING.md)
 [![License: MIT](https://img.shields.io/badge/Code-MIT-yellow.svg)](LICENSE-MIT)
@@ -571,6 +571,8 @@ A pneumonia prediction model learned `took_antibiotic=True` predicts pneumonia p
   - [ ] Performance monitoring active
   - [ ] Drift detection implemented
   - [ ] Continuous learning from interactions
+  - [ ] External reflection preferred over self-critique (code execution, tool validation)
+  - [ ] Environment feedback used to verify reasoning
 
 - [ ] **RAG Agents**
   - [ ] Knowledge retrieval connected to reasoning
@@ -582,6 +584,12 @@ A pneumonia prediction model learned `took_antibiotic=True` predicts pneumonia p
   - [ ] Task distribution across specialized agents
   - [ ] Failure handling with rerouting/fallback strategies
   - [ ] Loose coupling and separation of concerns
+
+- [ ] **ReAct Pattern (Reason + Act)**
+  - [ ] Thought → Action → Observation loop implemented
+  - [ ] Tool failures handled in observation step with retry/fallback logic
+  - [ ] Reasoning traces logged for debugging and audit
+  - [ ] Dynamic re-planning when observations invalidate current plan
 
   <details>
   <summary>💡 Academic vs Enterprise Patterns</summary>
@@ -755,8 +763,11 @@ A pneumonia prediction model learned `took_antibiotic=True` predicts pneumonia p
   - [ ] P50 latency < 200ms
   - [ ] P99 latency < 1s
   - [ ] Implemented caching strategy
+  - [ ] Prompt/context caching enabled (reduces TTFT up to 70%)
   - [ ] Optimized model serving
   - [ ] Set up CDN for static assets
+  - [ ] Intermediate status shown to users ("Searching...", "Analyzing...")
+  - [ ] Non-LLM operations identified (use code instead of LLM calls where possible)
 
 ### Scalability
 - [ ] **Load Handling**
@@ -2055,7 +2066,7 @@ Created by [Aejaz Sheriff](https://github.com/asq-sheriff) at [Pragmatic Logic A
 <details>
 <summary>🏷️ <b>Keywords & Topics</b></summary>
 
-`AI Production` `LLM Deployment` `MLOps` `AI Governance` `Enterprise AI` `Generative AI` `AI Strategy` `AI Architecture` `Multi-Agent Systems` `RAG` `Prompt Engineering` `AI Security` `LLM Evaluation` `AI FinOps` `Red Teaming` `OWASP LLM` `AI Compliance` `EU AI Act` `Responsible AI` `Healthcare AI` `Mental Health AI Safety` `Clinical AI Validation` `Therapeutic AI` `AI Ethics` `Training-Serving Skew` `Data Leakage Detection` `Model Drift` `AI Technical Debt` `Feature Store` `AI Crisis Detection` `Conformal Prediction` `Causal AI` `Uncertainty Quantification` `Probability Calibration` `Zero-False-Negative` `Selective Prediction` `OOD Detection` `DoWhy` `CausalML` `Model Calibration ECE`
+`AI Production` `LLM Deployment` `MLOps` `AI Governance` `Enterprise AI` `Generative AI` `AI Strategy` `AI Architecture` `Multi-Agent Systems` `RAG` `Agentic RAG` `ReAct Pattern` `Reason Act Pattern` `MCP` `Model Context Protocol` `Prompt Caching` `LLM Latency Optimization` `External Reflection` `Agent Reflection` `Prompt Engineering` `AI Security` `LLM Evaluation` `AI FinOps` `Red Teaming` `OWASP LLM` `AI Compliance` `EU AI Act` `Responsible AI` `Healthcare AI` `Mental Health AI Safety` `Clinical AI Validation` `Therapeutic AI` `AI Ethics` `Training-Serving Skew` `Data Leakage Detection` `Model Drift` `AI Technical Debt` `Feature Store` `AI Crisis Detection` `Conformal Prediction` `Causal AI` `Uncertainty Quantification` `Probability Calibration` `Zero-False-Negative` `Selective Prediction` `OOD Detection` `DoWhy` `CausalML` `Model Calibration ECE`
 
 </details>
 

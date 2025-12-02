@@ -1555,6 +1555,18 @@
                         { text: "Specialized tools configured", stage: "mvp", gate: "advisory" },
                         { text: "Memory systems for context retention", stage: "pilot", gate: "advisory" },
                         { text: "Comprehensive monitoring framework", stage: "production", gate: "mandatory" }
+                    ],
+                    "Self-Improving Agents": [
+                        { text: "Feedback loops configured", stage: "pilot", gate: "advisory" },
+                        { text: "Drift detection implemented", stage: "production", gate: "mandatory" },
+                        { text: "External reflection preferred over self-critique", stage: "pilot", gate: "advisory" },
+                        { text: "Environment feedback used to verify reasoning", stage: "pilot", gate: "advisory" }
+                    ],
+                    "ReAct Pattern": [
+                        { text: "Thought → Action → Observation loop implemented", stage: "mvp", gate: "advisory" },
+                        { text: "Tool failures handled with retry/fallback logic", stage: "pilot", gate: "mandatory" },
+                        { text: "Reasoning traces logged for debugging", stage: "pilot", gate: "advisory" },
+                        { text: "Dynamic re-planning when observations invalidate plan", stage: "production", gate: "advisory" }
                     ]
                 }
             },
@@ -1634,7 +1646,10 @@
                         { text: "Time to Incremental Token (TTIT) < 25ms", stage: "mvp", gate: "advisory" },
                         { text: "P50 latency < 200ms", stage: "pilot", gate: "mandatory" },
                         { text: "P99 latency < 1s", stage: "pilot", gate: "mandatory" },
-                        { text: "Caching strategy implemented", stage: "pilot", gate: "mandatory" }
+                        { text: "Caching strategy implemented", stage: "pilot", gate: "mandatory" },
+                        { text: "Prompt/context caching enabled (reduces TTFT up to 70%)", stage: "pilot", gate: "advisory" },
+                        { text: "Intermediate status shown to users", stage: "mvp", gate: "advisory" },
+                        { text: "Non-LLM operations identified (use code where possible)", stage: "mvp", gate: "advisory" }
                     ],
                     "Scalability": [
                         { text: "Tested with expected peak load", stage: "pilot", gate: "mandatory" },
