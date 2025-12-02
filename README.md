@@ -21,7 +21,7 @@ AI Observability, Vector Database, Embedding Models, AI Cost Optimization, GPU O
 [![License: CC BY 4.0](https://img.shields.io/badge/Docs-CC%20BY%204.0-lightgrey.svg)](LICENSE-CC-BY-4.0)
 [![GitHub Stars](https://img.shields.io/github/stars/asq-sheriff/AI-Production-Checklist?style=social)](https://github.com/asq-sheriff/AI-Production-Checklist/stargazers)
 
-**400+ Production Checklist Items** • **20 Domains** • **CRISP-DM Based** • **Enterprise Ready**
+**480+ Production Checklist Items** • **20 Domains** • **CRISP-DM Based** • **Enterprise Ready**
 
 [📥 **Download Interactive Checklist**](ai-production-checklist.html) • [📊 **Download CSV Template**](AI-Production-Checklist-Template.csv) • [🏗️ **View Architecture**](#-ai-production-architecture)
 
